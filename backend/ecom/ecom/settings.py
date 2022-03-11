@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'api',
     'api.category',
-    'api.product'
+    'api.product',
+    'api.user',
 ]
 
 MIDDLEWARE = [
@@ -128,6 +129,8 @@ STATIC_URL = 'static/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+AUTH_USER_MODEL = 'user.CustomUser'  # Understand Further
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
