@@ -119,7 +119,7 @@ function App() {
               alt="imgspeakerzx7"
             />
           </div>
-          <div className="flex flex-col md:flex-row gap-7 lg:gap-9 md:gap-3">
+          <div className="flex flex-col md:flex-row gap-7 lg:flex-row lg:gap-9 md:gap-3">
             <div>
               <img
                 className="rounded-md md:hidden lg:hidden"

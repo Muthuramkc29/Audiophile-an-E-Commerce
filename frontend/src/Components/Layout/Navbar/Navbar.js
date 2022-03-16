@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../../Images/logo.svg";
 import cartIcon from "../../../Images/icon-cart.svg";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
@@ -14,21 +15,31 @@ function Navbar() {
             ></i>
           </div>
           <div>
-            <img src={logo} alt="logo" />
+            <Link to="/">
+              <img src={logo} alt="logo" />
+            </Link>
           </div>
           <div className="text-xs hidden lg:block">
-            <a className="p-2" href="/">
-              HOME
-            </a>
-            <a className="p-2" href="/">
-              HEADPHONES
-            </a>
-            <a className="p-2" href="/">
-              SPEAKERS
-            </a>
-            <a className="p-2" href="/">
-              EARPHONES
-            </a>
+            <Link to="/">
+              <a className="p-2" href="/">
+                HOME
+              </a>
+            </Link>
+            <Link to="/headphones">
+              <a className="p-2" href="/">
+                HEADPHONES
+              </a>
+            </Link>
+            <Link to="/speakers">
+              <a className="p-2" href="/">
+                SPEAKERS
+              </a>
+            </Link>
+            <Link to="/earphones">
+              <a className="p-2" href="/">
+                EARPHONES
+              </a>
+            </Link>
           </div>
           <div>
             <img src={cartIcon} alt="cart-icon" />

@@ -3,6 +3,7 @@ import logo from "../../../Images/logo.svg";
 import fb from "../../../Images/icon-facebook.svg";
 import insta from "../../../Images/icon-instagram.svg";
 import twitter from "../../../Images/icon-twitter.svg";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -14,18 +15,26 @@ function Footer() {
               <img src={logo} alt="logo" />
             </div>
             <div className="flex flex-col items-center gap-5 md:flex-row">
-              <a style={{ fontSize: "13px" }} href="/">
-                HOME
-              </a>
-              <a style={{ fontSize: "13px" }} href="/">
-                HEADPHONES
-              </a>
-              <a style={{ fontSize: "13px" }} href="/">
-                SPEAKERS
-              </a>
-              <a style={{ fontSize: "13px" }} href="/">
-                EARPHONES
-              </a>
+              <Link to="/">
+                <a style={{ fontSize: "13px" }} href="/">
+                  HOME
+                </a>
+              </Link>
+              <Link to="/headphones">
+                <a style={{ fontSize: "13px" }} href="/">
+                  HEADPHONES
+                </a>
+              </Link>
+              <Link to="/speakers">
+                <a style={{ fontSize: "13px" }} href="/">
+                  SPEAKERS
+                </a>
+              </Link>
+              <Link to="/earphones">
+                <a style={{ fontSize: "13px" }} href="/">
+                  EARPHONES
+                </a>
+              </Link>
             </div>
           </div>
           <div className="text-center md:text-left">

@@ -4,28 +4,35 @@ import headphoneProd from "../../../Images/image-product.jpg";
 import headphoneProdTablet from "../../../Images/image-product-tablet.jpg";
 import headphoneProdDesktop from "../../../Images/image-product-desktop.jpg";
 
-function CategoryFlex({ position }) {
+function CategoryFlex({
+  position,
+  imgMob,
+  imgTab,
+  imgDesktop,
+  prodName,
+  newProd,
+}) {
   return (
     <div>
       {position === "left" ? (
         <div>
-          <div className="my-16 px-6 md:px-12 xl:px-40">
-            <div className="flex flex-col gap-7 lg:flex-row lg:justify-between lg:items-center">
+          <div className="my-24 px-6 md:px-12 xl:px-40">
+            <div className="flex flex-col items-center justify-center gap-7 lg:flex-row lg:justify-between lg:items-center">
               <div>
                 <img
                   className="rounded-md md:hidden lg:hidden"
-                  src={headphoneProd}
+                  src={imgMob}
                   alt="headphoneProd"
                 />
                 <img
                   className="rounded-md hidden md:block lg:hidden"
-                  src={headphoneProdTablet}
+                  src={imgTab}
                   alt="headphoneProd"
                 />
                 <img
                   className="rounded-md hidden md:hidden lg:block"
                   style={{ width: "540px", height: "562px" }}
-                  src={headphoneProdDesktop}
+                  src={imgDesktop}
                   alt="headphoneProd"
                 />
               </div>
@@ -37,13 +44,13 @@ function CategoryFlex({ position }) {
                   className="uppercase text-[#D87D4A] text-sm"
                   style={{ letterSpacing: "10px" }}
                 >
-                  New Product
+                  {newProd === "true" ? "New Product" : ""}
                 </p>
                 <h1
                   className="uppercase font-bold"
                   style={{ letterSpacing: "1px", fontSize: "28px" }}
                 >
-                  XX99 Mark II Headphones
+                  {prodName}
                 </h1>
                 <p
                   className=" opacity-50"
@@ -63,7 +70,7 @@ function CategoryFlex({ position }) {
         <div>
           <div>
             <div className="my-16 px-6 md:px-12 xl:px-40">
-              <div className="flex flex-col gap-7 lg:flex-row lg:justify-between lg:items-center">
+              <div className="flex flex-col-reverse items-center justify-center gap-7 lg:flex-row lg:justify-between lg:items-center">
                 <div
                   className="text-center lg:text-left flex flex-col gap-7"
                   style={{ maxWidth: "445px" }}
@@ -72,13 +79,13 @@ function CategoryFlex({ position }) {
                     className="uppercase text-[#D87D4A] text-sm"
                     style={{ letterSpacing: "10px" }}
                   >
-                    New Product
+                    {newProd === "true" ? "New Product" : ""}
                   </p>
                   <h1
                     className="uppercase font-bold"
                     style={{ letterSpacing: "1px", fontSize: "28px" }}
                   >
-                    XX99 Mark II Headphones
+                    {prodName}
                   </h1>
                   <p
                     className=" opacity-50"
@@ -94,18 +101,18 @@ function CategoryFlex({ position }) {
                 <div>
                   <img
                     className="rounded-md md:hidden lg:hidden"
-                    src={headphoneProd}
+                    src={imgMob}
                     alt="headphoneProd"
                   />
                   <img
                     className="rounded-md hidden md:block lg:hidden"
-                    src={headphoneProdTablet}
+                    src={imgTab}
                     alt="headphoneProd"
                   />
                   <img
                     className="rounded-md hidden md:hidden lg:block"
                     style={{ width: "540px", height: "562px" }}
-                    src={headphoneProdDesktop}
+                    src={imgDesktop}
                     alt="headphoneProd"
                   />
                 </div>
