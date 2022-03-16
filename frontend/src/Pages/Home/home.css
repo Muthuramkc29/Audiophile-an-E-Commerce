@@ -1,0 +1,28 @@
+/* To work for bg corner cases design */
+
+.header--mod {
+  height: 515px;
+  background-image: url(../../Images/image-header.jpg);
+  background-size: cover;
+  background-position: bottom;
+}
+
+@media (min-width: 765px) {
+  .header--mod {
+    background-image: url(../../Images/image-header-tablet.jpg);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 642px;
+  }
+}
+
+@media (min-width: 1023px) {
+  .header--mod {
+    background-image: url(../../Images/image-hero.jpg);
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    height: 640px;
+  }
+}
