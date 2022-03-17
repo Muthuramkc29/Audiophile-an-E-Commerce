@@ -30,6 +30,7 @@ function CategorySpeakers() {
         imgTab={speakerProdTablet}
         imgDesktop={speakerProdDesktop}
         newProd="true"
+        description="Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups."
       />
       <CategoryFlex
         position="right"
@@ -37,6 +38,7 @@ function CategorySpeakers() {
         imgMob={speakerzx7Prod}
         imgTab={speakerzx7ProdTablet}
         imgDesktop={speakerzx7ProdDesktop}
+        description="Stream high quality sound wirelessly with minimal loss. The ZX7 bookshelf speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use."
       />
 
       {/* Category Card Home */}

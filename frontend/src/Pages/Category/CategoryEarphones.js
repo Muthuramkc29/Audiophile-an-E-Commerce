@@ -26,6 +26,7 @@ function CategoryEarphones() {
         imgTab={earphoneProdTablet}
         imgDesktop={earphoneProdDesktop}
         newProd="true"
+        description="Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature."
       />
 
       {/* Category Card Home */}
