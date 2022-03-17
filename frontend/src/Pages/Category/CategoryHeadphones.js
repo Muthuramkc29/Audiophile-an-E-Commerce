@@ -31,6 +31,7 @@ function Category() {
         imgTab={headphoneProdTablet}
         imgDesktop={headphoneProdDesktop}
         newProd="true"
+        description="The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound."
       />
       <CategoryFlex
         position="right"
@@ -38,6 +39,7 @@ function Category() {
         imgMob={headphonexx991Prod}
         imgTab={headphonexx991ProdTablet}
         imgDesktop={headphonexx991ProdDesktop}
+        description="As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go."
       />
       <CategoryFlex
         position="left"
@@ -45,13 +47,14 @@ function Category() {
         imgMob={headphonexx59Prod}
         imgTab={headphonexx59ProdTablet}
         imgDesktop={headphonexx59ProdDesktop}
+        description="Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move."
       />
 
       {/* Category Card Home */}
 
       <div className="px-6 md:px-12 xl:px-40 md:flex gap-3 justify-evenly">
         <CategoryCard img={headphone} name="headphones" />
-        <CategoryCard img={speaker} name="speaker" />
+        <CategoryCard img={speaker} name="speakers" />
         <CategoryCard img={earphoneCategory} name="earphones" />
       </div>
 

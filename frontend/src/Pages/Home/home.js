@@ -56,7 +56,7 @@ function App() {
 
       <div className="px-6 md:px-12 xl:px-40 md:flex gap-3 justify-evenly">
         <CategoryCard img={headphone} name="headphones" to="/headphones" />
-        <CategoryCard img={speaker} name="speaker" to="/speakers" />
+        <CategoryCard img={speaker} name="speakers" to="/speakers" />
         <CategoryCard img={earphoneCategory} name="earphones" to="/earphones" />
       </div>
 

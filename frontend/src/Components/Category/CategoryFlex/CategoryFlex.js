@@ -1,8 +1,8 @@
 import React from "react";
 import Button from "../../Button/Button";
-import headphoneProd from "../../../Images/image-product.jpg";
-import headphoneProdTablet from "../../../Images/image-product-tablet.jpg";
-import headphoneProdDesktop from "../../../Images/image-product-desktop.jpg";
+// import headphoneProd from "../../../Images/image-product.jpg";
+// import headphoneProdTablet from "../../../Images/image-product-tablet.jpg";
+// import headphoneProdDesktop from "../../../Images/image-product-desktop.jpg";
 
 function CategoryFlex({
   position,
@@ -11,6 +11,7 @@ function CategoryFlex({
   imgDesktop,
   prodName,
   newProd,
+  description,
 }) {
   return (
     <div>
@@ -56,10 +57,7 @@ function CategoryFlex({
                   className=" opacity-50"
                   style={{ fontSize: "15px", color: "black" }}
                 >
-                  The new XX99 Mark II headphones is the pinnacle of pristine
-                  audio. It redefines your premium headphone experience by
-                  reproducing the balanced depth and precision of studio-quality
-                  sound.
+                  {description}
                 </p>
                 <Button bgcolor="#D87D4A" color="white" />
               </div>
@@ -91,10 +89,7 @@ function CategoryFlex({
                     className=" opacity-50"
                     style={{ fontSize: "15px", color: "black" }}
                   >
-                    The new XX99 Mark II headphones is the pinnacle of pristine
-                    audio. It redefines your premium headphone experience by
-                    reproducing the balanced depth and precision of
-                    studio-quality sound.
+                    {description}
                   </p>
                   <Button bgcolor="#D87D4A" color="white" />
                 </div>

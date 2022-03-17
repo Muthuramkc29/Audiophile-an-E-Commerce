@@ -6,6 +6,7 @@ import CategoryEarphones from "./Pages/Category/CategoryEarphones";
 import CategoryHeadphones from "./Pages/Category/CategoryHeadphones";
 import CategorySpeakers from "./Pages/Category/CategorySpeakers";
 import Home from "./Pages/Home/home";
+import ProductDetail from "./Pages/Product/ProductDetail";
 
 function Router() {
   return (
@@ -27,6 +28,7 @@ function Router() {
           <Route path="/headphones" element={<CategoryHeadphones />} />
           <Route path="/speakers" element={<CategorySpeakers />} />
           <Route path="/earphones" element={<CategoryEarphones />} />
+          <Route path="/productdetail" element={<ProductDetail />} />
         </Routes>
         <Footer />
       </BrowserRouter>

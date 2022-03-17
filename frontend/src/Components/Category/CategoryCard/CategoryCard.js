@@ -12,10 +12,10 @@ function CategoryCard({ img, name, to }) {
         <div className="flex flex-col justify-center items-center">
           <div>
             <img
-              className=""
+              className="w-32 h-28"
               src={img}
               alt="headphone"
-              style={{ width: "130px", height: "113px" }}
+              // style={{ width: "130px", height: "113px" }}
             />
           </div>
           <div className="text-center">
