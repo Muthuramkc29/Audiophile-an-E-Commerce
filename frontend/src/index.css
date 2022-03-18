@@ -6,6 +6,7 @@
 
 body {
   margin: 0;
+  /* overflow: hidden; */
   font-family: "Manrope", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -19,4 +20,18 @@ code {
 .container--mod {
   width: 90%;
   max-width: 1110px;
+}
+
+.modal-open {
+  overflow: hidden;
+}
+
+.menu {
+  height: 500px;
+}
+
+@media (min-width: 768px) {
+  .menu {
+    height: auto;
+  }
 }

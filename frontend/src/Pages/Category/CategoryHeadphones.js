@@ -14,11 +14,11 @@ import headphonexx991ProdDesktop from "../../Images/image-product-xx991-desktop.
 import headphonexx59Prod from "../../Images/image-product-xx59.jpg";
 import headphonexx59ProdTablet from "../../Images/image-product-xx59-tablet.jpg";
 import headphonexx59ProdDesktop from "../../Images/image-product-xx59-desktop.jpg";
-import CategoryCard from "../../Components/Category/CategoryCard/CategoryCard";
+// import CategoryCard from "../../Components/Category/CategoryCard/CategoryCard";
 
-import headphone from "../../Images/image-category-thumbnail-headphones.png";
-import speaker from "../../Images/image-category-thumbnail-speakers.png";
-import earphoneCategory from "../../Images/image-category-thumbnail-earphones.png";
+// import headphone from "../../Images/image-category-thumbnail-headphones.png";
+// import speaker from "../../Images/image-category-thumbnail-speakers.png";
+// import earphoneCategory from "../../Images/image-category-thumbnail-earphones.png";
 
 function Category() {
   return (
@@ -52,11 +52,11 @@ function Category() {
 
       {/* Category Card Home */}
 
-      <div className="px-6 md:px-12 xl:px-40 md:flex gap-3 justify-evenly">
+      {/* <div className="px-6 md:px-12 xl:px-40 md:flex gap-3 justify-evenly">
         <CategoryCard img={headphone} name="headphones" />
         <CategoryCard img={speaker} name="speakers" />
         <CategoryCard img={earphoneCategory} name="earphones" />
-      </div>
+      </div> */}
 
       <AboveFooterFlex />
     </div>

@@ -10,12 +10,18 @@ import earphone from "../../Images/image-earphones-yx1.jpg";
 import earphonetablet from "../../Images/image-earphones-yx1-tablet.jpg";
 import earphonedesktop from "../../Images/image-earphones-yx1-desktop.jpg";
 import CategoryCard from "../../Components/Category/CategoryCard/CategoryCard";
+
+// For Category Card
 import headphone from "../../Images/image-category-thumbnail-headphones.png";
 import speaker from "../../Images/image-category-thumbnail-speakers.png";
 import earphoneCategory from "../../Images/image-category-thumbnail-earphones.png";
+// import NavMenu from "../../Components/Layout/Navbar/NavMenu";
+// import { useSelector } from "react-redux";
 // import bgimg from "../../Images/image-header.jpg";
 
 function App() {
+  // const navMenu = useSelector((state) => state.user.navMenu);
+
   return (
     <div>
       <header
@@ -51,6 +57,20 @@ function App() {
           <Button bgcolor="#D87D4A" color="white" />
         </div>
       </header>
+
+      {/* Navbar Menu Home */}
+
+      {/* {navMenu ? (
+        <div className="fixed bg-white top-0 left-0 w-full mt-20">
+          <div className="px-6 md:px-12 xl:px-40 md:flex gap-3 justify-evenly">
+            <NavMenu img={headphone} name="headphones" to="/headphones" />
+            <NavMenu img={speaker} name="speakers" to="/speakers" />
+            <NavMenu img={earphoneCategory} name="earphones" to="/earphones" />
+          </div>
+        </div>
+      ) : (
+        <div></div>
+      )} */}
 
       {/* Category Card Home */}
 

@@ -2,8 +2,13 @@ import React from "react";
 import logo from "../../../Images/logo.svg";
 import cartIcon from "../../../Images/icon-cart.svg";
 import { Link } from "react-router-dom";
+import { setNavMenu, setCartMenu } from "../../../redux/reducers/userReducers";
+import { useDispatch } from "react-redux";
 
 function Navbar() {
+  // const navMenu = useSelector((state) => state.user.navMenu);
+  const dispatch = useDispatch();
+
   return (
     <div>
       <div className="bg-[#000000] text-[#FFFFFF] px-6 md:px-12 xl:px-40 p-7">
@@ -12,6 +17,9 @@ function Navbar() {
             <i
               className="fa fa-bars"
               style={{ color: "white", fontSize: "28px" }}
+              onClick={() => {
+                dispatch(setNavMenu());
+              }}
             ></i>
           </div>
           <div>
@@ -42,7 +50,13 @@ function Navbar() {
             </Link>
           </div>
           <div>
-            <img src={cartIcon} alt="cart-icon" />
+            <img
+              onClick={() => {
+                dispatch(setCartMenu());
+              }}
+              src={cartIcon}
+              alt="cart-icon"
+            />
           </div>
         </div>
       </div>
