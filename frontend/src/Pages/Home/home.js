@@ -54,7 +54,7 @@ function App() {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <Button bgcolor="#D87D4A" color="white" />
+          <Button bgcolor="#D87D4A" color="white" name="See Product" />
         </div>
       </header>
 
@@ -117,7 +117,7 @@ function App() {
                   Upgrade to premium speakers that are phenomenally built to
                   deliver truly remarkable sound.
                 </p>
-                <Button bgcolor="#000000" color="white" />
+                <Button bgcolor="#000000" color="white" name="See Product" />
               </div>
             </div>
           </div>
@@ -167,7 +167,7 @@ function App() {
                 <h1 className="mb-3" style={{ fontSize: "28px" }}>
                   YX1 EARPHONES
                 </h1>
-                <Button bgcolor="#F1F1F1" color="black" />
+                <Button bgcolor="#F1F1F1" color="black" name="See Product" />
               </div>
             </div>
             <div
@@ -178,7 +178,7 @@ function App() {
                 <h1 className="mb-3" style={{ fontSize: "28px" }}>
                   YX1 EARPHONES
                 </h1>
-                <Button bgcolor="#F1F1F1" color="black" />
+                <Button bgcolor="#F1F1F1" color="black" name="See Product" />
               </div>
             </div>
           </div>

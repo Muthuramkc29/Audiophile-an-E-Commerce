@@ -8,10 +8,10 @@ const userSlice = createSlice({
   },
   reducers: {
     setNavMenu: (state, action) => {
-      state.navMenu = !state.navMenu;
+      state.navMenu = action.payload;
     },
     setCartMenu: (state, action) => {
-      state.cartMenu = !state.cartMenu;
+      state.cartMenu = action.payload;
     },
   },
 });

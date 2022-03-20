@@ -16,13 +16,12 @@ import earphoneCategory from "./Images/image-category-thumbnail-earphones.png";
 
 // import { setCartMenu } from "./redux/reducers/userReducers";
 
-// import { Dialog } from "primereact/dialog";
-
 import "./index.css";
+import CartMenu from "./Components/Cart/CartMenu";
 
 function Router() {
   const navMenu = useSelector((state) => state.user.navMenu);
-  // const cartMenu = useSelector((state) => state.user.cartMenu);
+  const cartMenu = useSelector((state) => state.user.cartMenu);
   // const dispatch = useDispatch();
 
   const openModal = (event) => {
@@ -34,7 +33,7 @@ function Router() {
     // this.setState({ showModal: false });
   };
 
-  if (navMenu) {
+  if (navMenu || cartMenu) {
     openModal();
   } else {
     hideModal();
@@ -50,7 +49,7 @@ function Router() {
             style={{ zIndex: 1 }}
           >
             <div className="px-6 md:px-12 xl:px-40 md:flex md:flex-row gap-3 justify-evenly w-full h-full">
-              <div className="h-full overflow-auto md:flex md:flex-row md:gap-3">
+              <div className="h-full overflow-y-auto md:flex md:flex-row md:gap-3">
                 <NavMenu img={headphone} name="headphones" to="/headphones" />
                 <NavMenu img={speaker} name="speakers" to="/speakers" />
                 <NavMenu
@@ -60,6 +59,17 @@ function Router() {
                 />
               </div>
             </div>
+          </div>
+        ) : (
+          <div></div>
+        )}
+
+        {cartMenu ? (
+          <div
+            className="fixed bg-white top-0 right-0 h-fit mx-6 w-10/12 md:w-3/6 lg:w-2/6 mt-28 xl:mr-40 rounded-md"
+            style={{ zIndex: 1 }}
+          >
+            <CartMenu />
           </div>
         ) : (
           <div></div>
@@ -89,27 +99,3 @@ function Router() {
 }
 
 export default Router;
-
-// Cart Modal
-
-/* {cartMenu ? (
-          <Dialog
-            header="Header"
-            visible={cartMenu}
-            style={{ width: "50vw" }}
-            // footer={renderFooter("displayBasic")}
-            onHide={() => dispatch(setCartMenu())}
-          >
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
-          </Dialog>
-        ) : (
-          <div></div>
-        )} */

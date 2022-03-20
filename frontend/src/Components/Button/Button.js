@@ -1,13 +1,13 @@
 import React from "react";
 
-function Button({ bgcolor, color, border }) {
+function Button({ bgcolor, color, border, name }) {
   return (
     <div>
       <button
         className={`bg-[${bgcolor}] text-${color} border border-black`}
         style={{ width: "160px", height: "48px" }}
       >
-        See Product
+        {name}
       </button>
     </div>
   );
