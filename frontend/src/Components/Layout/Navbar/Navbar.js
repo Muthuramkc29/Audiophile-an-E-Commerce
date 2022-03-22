@@ -56,6 +56,7 @@ function Navbar() {
           </div>
           <div>
             <img
+              className="cursor-pointer"
               onClick={() => {
                 cartMenu
                   ? dispatch(setCartMenu(false))

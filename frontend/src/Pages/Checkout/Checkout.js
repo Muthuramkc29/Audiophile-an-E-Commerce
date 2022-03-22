@@ -2,13 +2,26 @@ import React from "react";
 import Button from "../../Components/Button/Button";
 import Input from "../../Components/Input/Input";
 import SummaryItem from "../../Components/SummaryItem/SummaryItem";
+import summaryItemImg from "../../Images/image-product.jpg";
+import summaryItemImg1 from "../../Images/image-product-xx59.jpg";
+import summaryItemImg2 from "../../Images/image-product-earphone.jpg";
+
+import { useDispatch } from "react-redux";
+import { setPaymentModal } from "../../redux/reducers/userReducers";
 
 function Checkout() {
+  const dispatch = useDispatch();
+
   return (
     <div className="bg-[#F2F2F2] px-6 md:px-12 xl:px-40">
-      <p className="pt-5 pb-5 text-black opacity-50">Go Back</p>
-      <div className="pt-3 pb-12 xl:flex xl:gap-4">
-        <div className="bg-white px-5 py-4 rounded-md xl:w-8/12">
+      <p
+        className="pt-6 pb-5 text-black opacity-50"
+        style={{ fontSize: "15px" }}
+      >
+        Go Back
+      </p>
+      <div className="pt-3 pb-12 lg:flex lg:gap-3 xl:gap-3 xl:flex xl:gap-4">
+        <div className="bg-white px-5 py-4 rounded-md lg:w-4/6 xl:w-8/12">
           <h1 className="uppercase font-bold text-2xl ">Checkout</h1>
           <div className="pt-4">
             <p
@@ -17,17 +30,19 @@ function Checkout() {
             >
               Billing Details
             </p>
-            <Input name="Name" placeholder="Alexei Ward" type="text" />
-            <Input
-              name="Email Address"
-              placeholder="alexei@mail.com"
-              type="email"
-            />
-            <Input
-              name="Phone Number"
-              placeholder="+1 202-555-0136"
-              type="number"
-            />
+            <div className="lg:flex lg:flex-wrap lg:gap-3 xl:flex xl:gap-4 xl:flex-wrap my-4">
+              <Input name="Name" placeholder="Alexei Ward" type="text" />
+              <Input
+                name="Email Address"
+                placeholder="alexei@mail.com"
+                type="email"
+              />
+              <Input
+                name="Phone Number"
+                placeholder="+1 202-555-0136"
+                type="number"
+              />
+            </div>
           </div>
           <div className="pt-4">
             <p
@@ -36,14 +51,16 @@ function Checkout() {
             >
               Shipping info
             </p>
-            <Input
-              name="Your Address"
-              placeholder="1137 Williams Avenue"
-              type="text"
-            />
-            <Input name="ZIP Code" placeholder="10001" type="number" />
-            <Input name="City" placeholder="New York" type="text" />
-            <Input name="Country" placeholder="United States" type="text" />
+            <div className="lg:flex lg:flex-wrap lg:gap-3 xl:flex xl:gap-4 xl:flex-wrap my-4">
+              <Input
+                name="Your Address"
+                placeholder="1137 Williams Avenue"
+                type="text"
+              />
+              <Input name="ZIP Code" placeholder="10001" type="number" />
+              <Input name="City" placeholder="New York" type="text" />
+              <Input name="Country" placeholder="United States" type="text" />
+            </div>
           </div>
           <div>
             <p
@@ -58,19 +75,38 @@ function Checkout() {
             >
               Payment Method
             </p>
-            <Input
-              name="e-Money Number"
-              placeholder="238521993"
-              type="number"
-            />
-            <Input name="e-Money PIN" placeholder="6891" type="number" />
+            <div className="lg:flex lg:flex-wrap lg:gap-3 xl:flex xl:gap-4 xl:flex-wrap my-4">
+              <Input
+                name="e-Money Number"
+                placeholder="238521993"
+                type="number"
+              />
+              <Input name="e-Money PIN" placeholder="6891" type="number" />
+            </div>
           </div>
         </div>
-        <div className="py-6 pb-8 xl:w-4/12 xl:py-0">
+        <div className="py-6 pb-8 xl:w-4/12 lg:w-2/6 lg:py-0 xl:py-0">
           <div className="bg-white px-5 py-4 rounded-md">
             <h1 className="uppercase font-bold text-2xl ">Summary</h1>
             <div className="py-4">
-              <SummaryItem />
+              <SummaryItem
+                img={summaryItemImg}
+                prodName="XX99 MK II"
+                price="$ 2,999"
+                count="x1"
+              />
+              <SummaryItem
+                img={summaryItemImg1}
+                prodName="XX59"
+                price="$ 899"
+                count="x2"
+              />
+              <SummaryItem
+                img={summaryItemImg2}
+                prodName="YX1"
+                price="$ 599"
+                count="x1"
+              />
             </div>
             <div className="flex justify-between items-center py-2">
               <p
@@ -119,7 +155,12 @@ function Checkout() {
                 $ 5,446
               </p>
             </div>
-            <div className="flex justify-center items-center py-5">
+            <div
+              className="flex justify-center items-center py-5"
+              onClick={() => {
+                dispatch(setPaymentModal(true));
+              }}
+            >
               <Button
                 bgcolor="#D87D4A"
                 color="white"

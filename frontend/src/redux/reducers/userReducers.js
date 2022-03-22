@@ -5,6 +5,7 @@ const userSlice = createSlice({
   initialState: {
     navMenu: false,
     cartMenu: false,
+    paymentModal: false,
   },
   reducers: {
     setNavMenu: (state, action) => {
@@ -13,9 +14,12 @@ const userSlice = createSlice({
     setCartMenu: (state, action) => {
       state.cartMenu = action.payload;
     },
+    setPaymentModal: (state, action) => {
+      state.paymentModal = action.payload;
+    },
   },
 });
 
-export const { setNavMenu, setCartMenu } = userSlice.actions;
+export const { setNavMenu, setCartMenu, setPaymentModal } = userSlice.actions;
 
 export default userSlice.reducer;
