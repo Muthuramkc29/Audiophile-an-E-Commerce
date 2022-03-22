@@ -42,7 +42,7 @@ function App() {
             New Product
           </p>
           <h1
-            className="uppercase font-bold text-4xl"
+            className="uppercase font-bold text-4xl lg:text-6xl"
             style={{ letterSpacing: "1.28571px" }}
           >
             XX99 Mark II HeadphoneS

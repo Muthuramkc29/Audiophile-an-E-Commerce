@@ -4,8 +4,8 @@ function Button({ bgcolor, color, border, name }) {
   return (
     <div>
       <button
-        className={`bg-[${bgcolor}] text-${color} border border-black`}
-        style={{ width: "160px", height: "48px" }}
+        className={`bg-[${bgcolor}] text-${color} border border-black py-3`}
+        style={{ width: "160px" }}
       >
         {name}
       </button>

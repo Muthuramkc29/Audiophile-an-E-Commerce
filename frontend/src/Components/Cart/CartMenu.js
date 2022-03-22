@@ -44,7 +44,9 @@ function CartMenu() {
           <p>$0</p>
         </div>
         <div className="flex justify-center w-full">
-          <Button bgcolor="#D87D4A" color="white" name="Checkout" />
+          <a href="/checkout">
+            <Button bgcolor="#D87D4A" color="white" name="Checkout" />
+          </a>
         </div>
       </div>
     </div>

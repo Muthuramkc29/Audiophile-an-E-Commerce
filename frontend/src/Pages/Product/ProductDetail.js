@@ -14,11 +14,21 @@ import headphoneCat from "../../Images/image-category-thumbnail-headphones.png";
 import earphoneCategory from "../../Images/image-category-thumbnail-earphones.png";
 import CategoryCard from "../../Components/Category/CategoryCard/CategoryCard";
 import SuggestionCard from "../../Components/Product/SuggestionCard/SuggestionCard";
+import ProductImageGrid from "../../Components/Product/ProductImageGrid/ProductImageGrid";
+import ProductDetailsFlex from "../../Components/Product/ProductDetailsFlex/ProductDetailsFlex";
 
 function ProductDetail() {
   return (
     <div>
       <div className="px-6 md:px-12 xl:px-40">
+        <div className="my-8">
+          <p className="text-black opacity-50">Go Back</p>
+        </div>
+
+        <ProductDetailsFlex />
+
+        <ProductImageGrid />
+
         <h1
           className="uppercase mt-16 mb-7 text-center font-bold text-2xl"
           style={{ letterSpacing: "0.857143px" }}

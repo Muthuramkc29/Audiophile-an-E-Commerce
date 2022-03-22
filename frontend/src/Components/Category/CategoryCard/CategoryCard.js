@@ -1,6 +1,6 @@
 import React from "react";
 import arrow from "../../../Images/icon-arrow-right.svg";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function CategoryCard({ img, name, to }) {
   return (
@@ -25,17 +25,22 @@ function CategoryCard({ img, name, to }) {
             >
               {name}
             </p>
-            <Link to={`${to}`}>
-              <div className="flex justify-center gap-3">
+            <a href={`${name}`}>
+              <div className="flex justify-center items-center gap-3">
                 <p
                   className="uppercase"
                   style={{ fontSize: "13px", letterSpacing: "1px" }}
                 >
                   Shop
                 </p>
-                <img className="img-fluid" src={arrow} alt="arrow" />
+                <img
+                  className=""
+                  style={{ width: "6px", height: "10px" }}
+                  src={arrow}
+                  alt="arrow"
+                />
               </div>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

@@ -59,7 +59,9 @@ function CategoryFlex({
                 >
                   {description}
                 </p>
-                <Button bgcolor="#D87D4A" color="white" />
+                <a href="/productdetail">
+                  <Button bgcolor="#D87D4A" color="white" name="See Product" />
+                </a>
               </div>
             </div>
           </div>
@@ -91,7 +93,13 @@ function CategoryFlex({
                   >
                     {description}
                   </p>
-                  <Button bgcolor="#D87D4A" color="white" />
+                  <a href="/productdetail">
+                    <Button
+                      bgcolor="#D87D4A"
+                      color="white"
+                      name="See Product"
+                    />
+                  </a>
                 </div>
                 <div>
                   <img

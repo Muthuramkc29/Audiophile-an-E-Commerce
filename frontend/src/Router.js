@@ -9,6 +9,7 @@ import CategoryHeadphones from "./Pages/Category/CategoryHeadphones";
 import CategorySpeakers from "./Pages/Category/CategorySpeakers";
 import Home from "./Pages/Home/home";
 import ProductDetail from "./Pages/Product/ProductDetail";
+import Checkout from "./Pages/Checkout/Checkout";
 
 import headphone from "./Images/image-category-thumbnail-headphones.png";
 import speaker from "./Images/image-category-thumbnail-speakers.png";
@@ -91,6 +92,7 @@ function Router() {
           <Route path="/speakers" element={<CategorySpeakers />} />
           <Route path="/earphones" element={<CategoryEarphones />} />
           <Route path="/productdetail" element={<ProductDetail />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
         <Footer />
       </BrowserRouter>
