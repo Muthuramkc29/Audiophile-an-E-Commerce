@@ -17,59 +17,65 @@ import imgdesk3 from "../../../Images/image-gallery-3-mark1-desktop (3).jpg";
 
 function ProductImageGrid() {
   return (
-    <div className="md:flex justify-center items-center md:gap-3 my-9">
-      <div>
+    <div className="md:flex md:justify-between md:items-center md:gap-3 mb-24">
+      <div className="lg:w-2/4 h-full">
         <div>
           <img
-            className="rounded-md sm:my-4 md:hidden lg:hidden"
+            className="rounded-md w-full sm:my-4 md:hidden lg:hidden"
             src={img1}
             alt="prod-grid1"
           />
           <img
-            className="rounded-md sm:my-4 hidden md:block lg:hidden"
+            className="rounded-md w-full hidden md:block lg:hidden"
             src={imgtab1}
             alt="prod-grid1"
           />
           <img
-            className="rounded-md sm:my-4 hidden md:hidden lg:block"
+            className="rounded-md w-full hidden md:hidden lg:block"
             src={imgdesk1}
             alt="prod-grid1"
           />
         </div>
         <div className="mt-4 xl:mt-6">
           <img
-            className="rounded-md sm:my-4 md:hidden lg:hidden"
+            className="rounded-md w-full sm:my-4 md:hidden lg:hidden"
             src={img2}
             alt="prod-grid3"
           />
           <img
-            className="rounded-md sm:my-4 hidden md:block lg:hidden"
+            className="rounded-md hidden md:block lg:hidden"
             src={imgtab2}
             alt="prod-grid3"
           />
           <img
-            className="rounded-md sm:my-4 hidden md:hidden lg:block"
+            className="rounded-md w-full hidden md:hidden lg:block"
             src={imgdesk2}
             alt="prod-grid3"
           />
         </div>
       </div>
-      <div>
-        <img
-          className="rounded-md my-4 md:hidden lg:hidden"
-          src={img3}
-          alt="prod-grid3"
-        />
-        <img
-          className="rounded-md my-4 hidden md:block lg:hidden"
-          src={imgtab3}
-          alt="prod-grid3"
-        />
-        <img
-          className="rounded-md my-4 hidden md:hidden lg:block"
-          src={imgdesk3}
-          alt="prod-grid3"
-        />
+      <div className="lg:w-4/6 h-full">
+        <div>
+          <img
+            className="rounded-md w-full my-4 lg:my-0 md:hidden lg:hidden"
+            src={img3}
+            alt="prod-grid3"
+          />
+        </div>
+        <div className="w-full h-full">
+          <img
+            className="rounded-md w-full lg:my-0 hidden md:block lg:hidden"
+            src={imgtab3}
+            alt="prod-grid3"
+          />
+        </div>
+        <div className="w-full h-full">
+          <img
+            className="rounded-md w-full lg:my-0 h-full hidden md:hidden lg:block"
+            src={imgdesk3}
+            alt="prod-grid3"
+          />
+        </div>
       </div>
     </div>
   );

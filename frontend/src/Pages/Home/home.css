@@ -7,6 +7,13 @@
   background-position: bottom;
 }
 
+.zx9--mod {
+  background-image: url(../../Images/pattern-circles.svg);
+  background-repeat: no-repeat;
+  background-size: 160%;
+  background-position: 50% 130%;
+}
+
 @media (min-width: 765px) {
   .header--mod {
     background-image: url(../../Images/image-header-tablet.jpg);
@@ -15,13 +22,37 @@
     background-repeat: no-repeat;
     height: 642px;
   }
+
+  .zx9--mod {
+    background-image: url(../../Images/pattern-circles.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 50% 130%;
+  }
 }
 
 @media (min-width: 1023px) {
   .header--mod {
-    background-image: url(../../Images/image-hero.jpg);
+    background-image: url(../../Images/img-hero-figma.png);
+    background-size: contain;
+    background-position: 100% 35%;
+    background-repeat: no-repeat;
+    height: 640px;
+  }
+
+  .zx9--mod {
+    background-image: none;
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: bottom;
+    background-position: top;
+  }
+}
+
+@media (min-width: 1279px) {
+  .header--mod {
+    background-image: url(../../Images/img-hero-figma.png);
+    background-size: contain;
+    background-position: 90% 35%;
     background-repeat: no-repeat;
     height: 640px;
   }

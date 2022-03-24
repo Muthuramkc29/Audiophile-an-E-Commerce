@@ -31,10 +31,20 @@ function CategoryEarphones() {
 
       {/* Category Card Home */}
 
-      <div className="px-6 md:px-12 xl:px-40 md:flex gap-3 justify-evenly">
-        <CategoryCard img={headphone} name="headphones" />
-        <CategoryCard img={speaker} name="speakers" />
-        <CategoryCard img={earphoneCategory} name="earphones" />
+      <div className="px-6 md:px-12 xl:px-40 md:flex gap-5 justify-between">
+        <div className="md:w-4/12">
+          <CategoryCard img={headphone} name="headphones" to="/headphones" />
+        </div>
+        <div className="md:w-4/12">
+          <CategoryCard img={speaker} name="speakers" to="/speakers" />
+        </div>
+        <div className="md:w-4/12">
+          <CategoryCard
+            img={earphoneCategory}
+            name="earphones"
+            to="/earphones"
+          />
+        </div>
       </div>
 
       <AboveFooterFlex />

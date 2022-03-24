@@ -25,7 +25,7 @@ function NavMenu({ img, name, to }) {
             >
               {name}
             </p>
-            <Link to={`${to}`}>
+            <a href={`${to}`}>
               <div className="flex justify-center gap-3">
                 <p
                   className="uppercase"
@@ -35,7 +35,7 @@ function NavMenu({ img, name, to }) {
                 </p>
                 <img className="img-fluid" src={arrow} alt="arrow" />
               </div>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

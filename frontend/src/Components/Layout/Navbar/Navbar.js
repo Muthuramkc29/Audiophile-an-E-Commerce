@@ -32,27 +32,43 @@ function Navbar() {
               <img src={logo} alt="logo" />
             </Link>
           </div>
-          <div className="text-xs hidden lg:block lg:mr-3">
-            <Link to="/">
-              <a className="p-2 mr-2" href="/">
-                HOME
-              </a>
-            </Link>
-            <Link to="/headphones">
-              <a className="p-2 mr-2" href="/">
-                HEADPHONES
-              </a>
-            </Link>
-            <Link to="/speakers">
-              <a className="p-2 mr-2" href="/">
-                SPEAKERS
-              </a>
-            </Link>
-            <Link to="/earphones">
-              <a className="p-2 mr-3" href="/">
-                EARPHONES
-              </a>
-            </Link>
+          <div className="hidden lg:block lg:mr-3">
+            {/* <Link to="/"> */}
+            <a
+              className="font-normal p-2 mr-2"
+              style={{ fontSize: "11px", letterSpacing: "2px" }}
+              href="/"
+            >
+              HOME
+            </a>
+            {/* </Link> */}
+            {/* <Link to="/headphones"> */}
+            <a
+              className="p-2 mr-2"
+              href="/headphones"
+              style={{ fontSize: "11px", letterSpacing: "2px" }}
+            >
+              HEADPHONES
+            </a>
+            {/* </Link> */}
+            {/* <Link to="/speakers"> */}
+            <a
+              className="p-2 mr-2"
+              href="/speakers"
+              style={{ fontSize: "11px", letterSpacing: "2px" }}
+            >
+              SPEAKERS
+            </a>
+            {/* </Link> */}
+            {/* <Link to="/earphones"> */}
+            <a
+              className="p-2 mr-3"
+              href="/earphones"
+              style={{ fontSize: "11px", letterSpacing: "2px" }}
+            >
+              EARPHONES
+            </a>
+            {/* </Link> */}
           </div>
           <div>
             <img

@@ -54,7 +54,9 @@ function App() {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <Button bgcolor="#D87D4A" color="white" name="See Product" />
+          <a href="/productdetail">
+            <Button bgcolor="#D87D4A" color="white" name="See Product" />
+          </a>
         </div>
       </header>
 
@@ -74,21 +76,31 @@ function App() {
 
       {/* Category Card Home */}
 
-      <div className="px-6 md:px-12 xl:px-40 md:flex gap-3 justify-evenly">
-        <CategoryCard img={headphone} name="headphones" to="/headphones" />
-        <CategoryCard img={speaker} name="speakers" to="/speakers" />
-        <CategoryCard img={earphoneCategory} name="earphones" to="/earphones" />
+      <div className="px-6 md:px-12 xl:px-40 md:flex gap-5 justify-between">
+        <div className="md:w-4/12">
+          <CategoryCard img={headphone} name="headphones" to="/headphones" />
+        </div>
+        <div className="md:w-4/12">
+          <CategoryCard img={speaker} name="speakers" to="/speakers" />
+        </div>
+        <div className="md:w-4/12">
+          <CategoryCard
+            img={earphoneCategory}
+            name="earphones"
+            to="/earphones"
+          />
+        </div>
       </div>
 
       {/* Products Section Home */}
 
-      <section className="px-6 md:px-12 xl:px-40 mt-28 md:mt-24 lg:mt-12">
-        <div className="flex flex-col justify-center items-center gap-7 ">
+      <section className="px-6 md:px-12 xl:px-40">
+        <div className="flex flex-col justify-center items-center lg:items-between gap-7 ">
           <div
             className="rounded-md w-full bg-[#D87D4A] pt-16 pb-2"
-            style={{ height: "650px" }}
+            style={{ height: "647px" }}
           >
-            <div className="flex flex-col lg:flex-row justify-center items-center gap-7 lg:gap-16">
+            <div className="flex flex-col lg:flex-row justify-center items-center gap-7 lg:gap-16 zx9--mod">
               <div>
                 <img
                   className="block lg:hidden"
@@ -97,10 +109,10 @@ function App() {
                   style={{ width: "159px", height: "175px" }}
                 />
                 <img
-                  className="hidden lg:block"
+                  className="hidden lg:block lg:relative lg:top-36"
                   src={imgspeakerdesktop}
                   alt="imgspeaker"
-                  style={{ width: "374px", height: "446px" }}
+                  style={{ width: "374px", height: "440px" }}
                 />
               </div>
               <div className="flex flex-col justify-center items-center text-center lg:text-left lg:items-start lg:ml-16">
@@ -121,47 +133,47 @@ function App() {
               </div>
             </div>
           </div>
-          <div>
+          <div className="w-full">
             <img
-              className="rounded-md md:hidden lg:hidden"
+              className="rounded-md w-full md:hidden lg:hidden"
               src={imgspeakerzx7}
               alt="imgspeakerzx7"
             />
             <img
-              className="rounded-md hidden md:block lg:hidden"
+              className="rounded-md hidden w-full md:block lg:hidden"
               src={imgspeakerzx7tablet}
               alt="imgspeakerzx7"
             />
             <img
-              className="rounded-md hidden lg:block"
-              style={{ width: "1240px" }}
+              className="rounded-md hidden w-full lg:block"
+              // style={{ width: "1240px" }}
               src={imgspeakerzx7desktop}
               alt="imgspeakerzx7"
             />
           </div>
-          <div className="flex flex-col md:flex-row gap-7 lg:flex-row lg:gap-9 md:gap-3">
-            <div>
+          <div className="flex flex-col w-full md:flex-row md:justify-between gap-7 lg:flex-row lg:justify-between lg:gap-5 md:gap-3 lg:w-full">
+            <div className="md:w-2/4">
               <img
-                className="rounded-md md:hidden lg:hidden"
+                className="rounded-md w-full md:hidden lg:hidden"
                 src={earphone}
                 alt="earphones"
               />
               <img
-                className="rounded-md hidden md:block lg:hidden h-52 md:h-80"
-                style={{ width: "339px" }}
+                className="rounded-md hidden w-full md:block lg:hidden h-52 md:h-80"
+                // style={{ width: "339px" }}
                 src={earphonetablet}
                 alt="earphones"
               />
               <img
-                className="rounded-md hidden md:hidden lg:block h-52 md:h-80"
-                style={{ width: "540px", height: "320px" }}
+                className="rounded-md hidden md:hidden lg:block lg:w-full h-52 md:h-80"
+                // style={{ width: "540px", height: "320px" }}
                 src={earphonedesktop}
                 alt="earphones"
               />
             </div>
             <div
-              className="bg-[#F1F1F1] rounded-md flex h-52 md:h-80 flex-col justify-center pl-7 lg:hidden"
-              style={{ width: "328px" }}
+              className="bg-[#F1F1F1] rounded-md flex h-52 md:h-80 flex-col w-full md:w-2/4 justify-center pl-7 lg:hidden"
+              // style={{ width: "328px" }}
             >
               <div>
                 <h1 className="mb-3" style={{ fontSize: "28px" }}>
@@ -171,8 +183,8 @@ function App() {
               </div>
             </div>
             <div
-              className="bg-[#F1F1F1] rounded-md lg:flex h-52 md:h-80 lg:flex-col lg:justify-center lg:items-center pl-7 hidden lg:block"
-              style={{ width: "540px" }}
+              className="bg-[#F1F1F1] rounded-md w-2/4 lg:flex h-52 md:h-80 lg:flex-col lg:justify-center lg:items-center pl-7 hidden lg:block"
+              // style={{ width: "540px" }}
             >
               <div>
                 <h1 className="mb-3" style={{ fontSize: "28px" }}>

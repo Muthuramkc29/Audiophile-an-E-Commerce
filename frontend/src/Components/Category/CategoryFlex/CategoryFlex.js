@@ -42,14 +42,14 @@ function CategoryFlex({
                 style={{ maxWidth: "445px" }}
               >
                 <p
-                  className="uppercase text-[#D87D4A] text-sm"
-                  style={{ letterSpacing: "10px" }}
+                  className="uppercase text-[#D87D4A]"
+                  style={{ letterSpacing: "10px", fontSize: "15px" }}
                 >
                   {newProd === "true" ? "New Product" : ""}
                 </p>
                 <h1
-                  className="uppercase font-bold"
-                  style={{ letterSpacing: "1px", fontSize: "28px" }}
+                  className="uppercase font-bold text-3xl md:text-5xl"
+                  style={{ letterSpacing: "1px" }}
                 >
                   {prodName}
                 </h1>
@@ -76,14 +76,14 @@ function CategoryFlex({
                   style={{ maxWidth: "445px" }}
                 >
                   <p
-                    className="uppercase text-[#D87D4A] text-sm"
-                    style={{ letterSpacing: "10px" }}
+                    className="uppercase text-[#D87D4A]"
+                    style={{ letterSpacing: "10px", fontSize: "15px" }}
                   >
                     {newProd === "true" ? "New Product" : ""}
                   </p>
                   <h1
-                    className="uppercase font-bold"
-                    style={{ letterSpacing: "1px", fontSize: "28px" }}
+                    className="uppercase font-bold text-3xl md:text-5xl"
+                    style={{ letterSpacing: "1px" }}
                   >
                     {prodName}
                   </h1>

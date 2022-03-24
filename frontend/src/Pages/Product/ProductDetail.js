@@ -35,26 +35,39 @@ function ProductDetail() {
         >
           YOU MAY ALSO LIKE
         </h1>
-        <div className="md:flex justify-center items-center md:gap-4">
-          <SuggestionCard
-            img={headphone}
-            imgTab={mark1tab}
-            prodName="XX99 MARK I"
-          />
-          <SuggestionCard
-            img={headphonexx59}
-            imgTab={xx59tab}
-            prodName="XX59"
-          />
-          <SuggestionCard
-            img={speakerzx9}
-            imgTab={zx9tab}
-            prodName="ZX9 SPEAKER"
-          />
+        <div className="md:flex md:justify-between md:items-center md:gap-4">
+          <div className="md:w-1/3">
+            <SuggestionCard
+              img={headphone}
+              imgTab={mark1tab}
+              prodName="XX99 MARK I"
+            />
+          </div>
+          <div className="md:w-1/3">
+            <SuggestionCard
+              img={headphonexx59}
+              imgTab={xx59tab}
+              prodName="XX59"
+            />
+          </div>
+          <div className="md:w-1/3">
+            <SuggestionCard
+              img={speakerzx9}
+              imgTab={zx9tab}
+              prodName="ZX9 SPEAKER"
+            />
+          </div>
         </div>
-        <div className="px-6 md:px-12 xl:px-40 md:flex gap-3 justify-evenly">
+      </div>
+
+      <div className="px-6 md:px-12 xl:px-40 md:flex gap-5 justify-between">
+        <div className="md:w-4/12">
           <CategoryCard img={headphoneCat} name="headphones" to="/headphones" />
+        </div>
+        <div className="md:w-4/12">
           <CategoryCard img={speaker} name="speakers" to="/speakers" />
+        </div>
+        <div className="md:w-4/12">
           <CategoryCard
             img={earphoneCategory}
             name="earphones"
@@ -62,6 +75,7 @@ function ProductDetail() {
           />
         </div>
       </div>
+
       <AboveFooterFlex />
     </div>
   );
