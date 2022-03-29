@@ -1,6 +1,6 @@
 import React from "react";
 import arrow from "../../../Images/icon-arrow-right.svg";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function NavMenu({ img, name, to }) {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import img from "../../Images/image-product.jpg";
+// import img from "../../Images/image-product.jpg";
 
 function SummaryItem({ img, prodName, price, count }) {
   return (
