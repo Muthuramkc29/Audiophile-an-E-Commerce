@@ -15,24 +15,34 @@ import CategoryCard from "../../Components/Category/CategoryCard/CategoryCard";
 import headphone from "../../Images/image-category-thumbnail-headphones.png";
 import speaker from "../../Images/image-category-thumbnail-speakers.png";
 import earphoneCategory from "../../Images/image-category-thumbnail-earphones.png";
-// import NavMenu from "../../Components/Layout/Navbar/NavMenu";
-// import { useSelector } from "react-redux";
-// import bgimg from "../../Images/image-header.jpg";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { setProducts } from "../../redux/reducers/userReducers";
+import { useDispatch, useSelector } from "react-redux";
+import api from "../../api/axiosConfig";
+// import { useDispatch, useSelector } from "react-redux";
+// import { setProducts } from "../../redux/reducers/userReducers";
+// import { useEffect } from "react";
 
 function App() {
-  // const navMenu = useSelector((state) => state.user.navMenu);
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.user.products);
+
+  useEffect(() => {
+    const retrieveProducts = async () => {
+      const response = await api.get("products/");
+      // console.log(response.data);
+      dispatch(setProducts(response.data));
+    };
+
+    retrieveProducts();
+  }, [dispatch]);
+
+  console.log(products);
 
   return (
     <div>
-      <header
-        className="bg-[#000000] text-[#FFFFFF] px-6 md:px-12 xl:px-40 header--mod"
-        style={
-          {
-            // height: "515px",
-            // backgroundImage: `url('${bgimg}')`,
-          }
-        }
-      >
+      <header className="bg-[#000000] text-[#FFFFFF] px-6 md:px-12 xl:px-40 header--mod">
         <hr className="opacity-50"></hr>
         <div className="mt-24 flex flex-col justify-center items-center gap-6 text-center mx-auto lg:text-left max-w-sm md:mx-auto lg:items-start lg:mx-0">
           <p
@@ -45,7 +55,7 @@ function App() {
             className="uppercase font-bold text-4xl lg:text-6xl"
             style={{ letterSpacing: "1.28571px" }}
           >
-            XX99 Mark II HeadphoneS
+            XX99 Mark II Headphones
           </h1>
           <p
             className="opacity-75 font-medium leading-6 mb-2 "
@@ -54,30 +64,22 @@ function App() {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <a href="/productdetail">
+          <Link to="/XX99MarkIIHeadphones">
             <Button bgcolor="#D87D4A" color="white" name="See Product" />
-          </a>
+          </Link>
         </div>
       </header>
-
-      {/* Navbar Menu Home */}
-
-      {/* {navMenu ? (
-        <div className="fixed bg-white top-0 left-0 w-full mt-20">
-          <div className="px-6 md:px-12 xl:px-40 md:flex gap-3 justify-evenly">
-            <NavMenu img={headphone} name="headphones" to="/headphones" />
-            <NavMenu img={speaker} name="speakers" to="/speakers" />
-            <NavMenu img={earphoneCategory} name="earphones" to="/earphones" />
-          </div>
-        </div>
-      ) : (
-        <div></div>
-      )} */}
 
       {/* Category Card Home */}
 
       <div className="px-6 md:px-12 xl:px-40 md:flex gap-5 justify-between">
-        <div className="md:w-4/12">
+        <div
+          className="md:w-4/12"
+          // onClick={() => {
+          //   dispatch(setProducts(headphoneProducts));
+          //   console.log(products);
+          // }}
+        >
           <CategoryCard img={headphone} name="headphones" to="/headphones" />
         </div>
         <div className="md:w-4/12">
@@ -129,7 +131,9 @@ function App() {
                   Upgrade to premium speakers that are phenomenally built to
                   deliver truly remarkable sound.
                 </p>
-                <Button bgcolor="#000000" color="white" name="See Product" />
+                <Link to="/ZX9SPEAKER">
+                  <Button bgcolor="#000000" color="white" name="See Product" />
+                </Link>
               </div>
             </div>
           </div>
@@ -179,7 +183,9 @@ function App() {
                 <h1 className="mb-3" style={{ fontSize: "28px" }}>
                   YX1 EARPHONES
                 </h1>
-                <Button bgcolor="#F1F1F1" color="black" name="See Product" />
+                <Link to="/YX1WIRELESSEARPHONES">
+                  <Button bgcolor="#F1F1F1" color="black" name="See Product" />
+                </Link>
               </div>
             </div>
             <div
@@ -190,7 +196,9 @@ function App() {
                 <h1 className="mb-3" style={{ fontSize: "28px" }}>
                   YX1 EARPHONES
                 </h1>
-                <Button bgcolor="#F1F1F1" color="black" name="See Product" />
+                <Link to="/YX1WIRELESSEARPHONES">
+                  <Button bgcolor="#F1F1F1" color="black" name="See Product" />
+                </Link>
               </div>
             </div>
           </div>

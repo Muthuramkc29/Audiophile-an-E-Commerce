@@ -1,6 +1,6 @@
 import React from "react";
 import arrow from "../../../Images/icon-arrow-right.svg";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function CategoryCard({ img, name, to }) {
   return (
@@ -25,7 +25,7 @@ function CategoryCard({ img, name, to }) {
             >
               {name}
             </p>
-            <a href={`${name}`}>
+            <Link to={`/${name}`}>
               <div className="flex justify-center items-center gap-3">
                 <p
                   className="uppercase"
@@ -40,7 +40,7 @@ function CategoryCard({ img, name, to }) {
                   alt="arrow"
                 />
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

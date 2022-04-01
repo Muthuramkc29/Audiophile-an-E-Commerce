@@ -12,6 +12,13 @@ import { setPaymentModal } from "../../redux/reducers/userReducers";
 function Checkout() {
   const dispatch = useDispatch();
 
+  // useEffect(() => {
+  //   // document.location.reload();
+  //   window.onload = function () {
+  //     window.location.reload();
+  //   };
+  // }, []);
+
   return (
     <div className="bg-[#F2F2F2] px-6 md:px-12 xl:px-40">
       <p

@@ -142,7 +142,7 @@ function Router() {
           <Route path="/headphones" element={<CategoryHeadphones />} />
           <Route path="/speakers" element={<CategorySpeakers />} />
           <Route path="/earphones" element={<CategoryEarphones />} />
-          <Route path="/productdetail" element={<ProductDetail />} />
+          <Route path=":productName" element={<ProductDetail />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>
         <Footer />

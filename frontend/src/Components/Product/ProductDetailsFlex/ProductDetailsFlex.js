@@ -1,24 +1,37 @@
 import React from "react";
-import img from "../../../Images/image-product-xx991.jpg";
-import imgtab from "../../../Images/image-product-suggestion-tablet.jpg";
-import imgdesk from "../../../Images/image-product-suggestion-tablet.jpg";
+// import { useDispatch, useSelector } from "react-redux";
+// import { setCartProducts } from "../../../redux/reducers/userReducers";
+// import img from "../../../Images/image-product-xx991.jpg";
+// import imgtab from "../../../Images/image-product-suggestion-tablet.jpg";
+// import imgdesk from "../../../Images/image-product-suggestion-tablet.jpg";
 import Button from "../../Button/Button";
 
-function ProductDetailsFlex() {
+function ProductDetailsFlex({ product, count, setCount, render }) {
+  // const [count, setCount] = useState(0);
+  // const product = useSelector((state) => state.user.individualProduct);
+  // const cartProducts = useSelector((state) => state.user.cartProducts);
+  // const dispatch = useDispatch();
+
   return (
     <div>
+      {/* {products.map((product, index) => ( */}
+      {/* <div key={index}> */}
       <div className="md:flex md:items-center md:gap-12 xl:gap-32">
         <div>
-          <img className="md:hidden lg:hidden" src={img} alt="img-speaker" />
+          <img
+            className="md:hidden lg:hidden"
+            src={product.productImageMobile}
+            alt="img-speaker"
+          />
           <img
             className="hidden md:block lg:hidden"
-            src={imgtab}
+            src={product.productImageTablet}
             alt="img-speaker"
           />
           <img
             className="hidden md:hidden lg:block xl:w-50 xl:h-80 object-cover"
             style={{ width: "541px", height: "561px" }}
-            src={imgdesk}
+            src={product.productImageDesktop}
             alt="img-speaker"
           />
         </div>
@@ -30,35 +43,74 @@ function ProductDetailsFlex() {
             className="uppercase text-[#D87D4A] text-sm"
             style={{ letterSpacing: "10px" }}
           >
-            New Product
+            {product.newProduct ? "New Product" : ""}
           </p>
           <h1
             className="uppercase font-bold text-3xl xl:text-5xl"
             style={{ letterSpacing: "1px" }}
           >
-            XX99 Mark I Headphones
+            {product.nameProduct}
           </h1>
           <p
             className=" opacity-50"
             style={{ fontSize: "15px", color: "black" }}
           >
-            As the gold standard for headphones, the classic XX99 Mark I offers
-            detailed and accurate audio reproduction for audiophiles, mixing
-            engineers, and music aficionados alike in studios and on the go.
+            {product.description}
           </p>
           <p
             className="font-bold text-lg"
             style={{ letterSpacing: "1.28571px" }}
           >
-            $ 1,750
+            $ {product.price}
           </p>
           <div className="flex items-center gap-5">
-            <div className="flex justify-evenly items-center gap-4 bg-[#F1F1F1] w-32 px-3 py-3">
-              <button>-</button>
-              <p>0</p>
-              <button>+</button>
+            {/* <div className="flex justify-evenly items-center gap-4 bg-[#F1F1F1] w-32 px-3 py-3">
+              <button
+                onClick={() => {
+                  setCount((prevState) =>
+                    prevState === 0 ? prevState : prevState - 1
+                  );
+                }}
+              >
+                -
+              </button>
+              <p>{count}</p>
+              <button
+                onClick={() => {
+                  setCount((prevState) =>
+                    prevState === 8 ? prevState : prevState + 1
+                  );
+                }}
+              >
+                +
+              </button>
+            </div> */}
+            <div
+              onClick={(e) => {
+                render(
+                  product.productImageDesktop,
+                  product.nameProduct,
+                  product.price
+                );
+                // dispatch(setCartProducts([1, 2, 3, count, product.price]));
+                // dispatch(
+                //   setCartProducts([
+                //     ...cartProducts,
+                //     {
+                //       image: product.productImageTablet,
+                //       name: product.nameProduct,
+                //       price: product.price,
+                //       count: count,
+                //     },
+                //   ])
+                // );
+                // console.log([1, 2, 3, 4, 5]);
+                // console.log(cartProducts);
+              }}
+            >
+              {/* Add to Cart */}
+              <Button bgcolor="#D87D4A" color="white" name="Add to Cart" />
             </div>
-            <Button bgcolor="#D87D4A" color="white" name="Add to Cart" />
           </div>
         </div>
       </div>
@@ -71,22 +123,8 @@ function ProductDetailsFlex() {
             Features
           </h1>
           <div className="my-6 text-black opacity-50">
-            <p className="mb-6">
-              These headphones have been created from durable, high-quality
-              materials tough enough to take anywhere. Its compact folding
-              design fuses comfort and minimalist style making it perfect for
-              travel. Flawless transmission is assured by the latest wireless
-              technology engineered for audio synchronization with videos.
-            </p>
-            <p>
-              More than a simple pair of headphones, this headset features a
-              pair of built-in microphones for clear, hands-free calling when
-              paired with a compatible smartphone. Controlling music and calls
-              is also intuitive thanks to easy-access touch buttons on the
-              earcups. Regardless of how you use the XX59 headphones, you can do
-              so all day thanks to an impressive 30-hour battery life that can
-              be rapidly recharged via USB-C.
-            </p>
+            <p className="mb-6">{product.feature1}</p>
+            <p>{product.feature2}</p>
           </div>
         </div>
         <div className="mb-20 lg:mt-20">
@@ -103,7 +141,7 @@ function ProductDetailsFlex() {
                 className="ml-6 text-black opacity-50"
                 style={{ fontSize: "15px" }}
               >
-                Headphone Unit
+                {product.inTheBox1}
               </p>
             </div>
             <div className="flex items-center my-1">
@@ -117,7 +155,7 @@ function ProductDetailsFlex() {
                 className="text-black opacity-50"
                 style={{ marginLeft: "21px", fontSize: "15px" }}
               >
-                Headphone Unit
+                {product.inTheBox2}
               </p>
             </div>
             <div className="flex items-center my-1">
@@ -131,7 +169,7 @@ function ProductDetailsFlex() {
                 className="ml-6 text-black opacity-50"
                 style={{ fontSize: "15px" }}
               >
-                Headphone Unit
+                {product.inTheBox3}
               </p>
             </div>
             <div className="flex items-center my-1">
@@ -145,12 +183,14 @@ function ProductDetailsFlex() {
                 className="ml-6 text-black opacity-50"
                 style={{ fontSize: "15px" }}
               >
-                Headphone Unit
+                {product.inTheBox4}
               </p>
             </div>
           </div>
         </div>
       </div>
+      {/* </div> */}
+      {/* ))} */}
     </div>
   );
 }

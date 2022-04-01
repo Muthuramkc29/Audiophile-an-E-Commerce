@@ -15,25 +15,25 @@ function Footer() {
               <img src={logo} alt="logo" />
             </div>
             <div className="flex flex-col items-center gap-5 md:flex-row">
-              <Link to="/">
-                <a style={{ fontSize: "13px" }} href="/">
-                  HOME
-                </a>
+              <Link style={{ fontSize: "13px" }} to="/">
+                {/* <a href="/"> */}
+                HOME
+                {/* </a> */}
               </Link>
-              <Link to="/headphones">
-                <a style={{ fontSize: "13px" }} href="/">
-                  HEADPHONES
-                </a>
+              <Link style={{ fontSize: "13px" }} to="/headphones">
+                {/* <a style={{ fontSize: "13px" }} href="/"> */}
+                HEADPHONES
+                {/* </a> */}
               </Link>
-              <Link to="/speakers">
-                <a style={{ fontSize: "13px" }} href="/">
-                  SPEAKERS
-                </a>
+              <Link style={{ fontSize: "13px" }} to="/speakers">
+                {/* <a style={{ fontSize: "13px" }} href="/"> */}
+                SPEAKERS
+                {/* </a> */}
               </Link>
-              <Link to="/earphones">
-                <a style={{ fontSize: "13px" }} href="/">
-                  EARPHONES
-                </a>
+              <Link style={{ fontSize: "13px" }} to="/earphones">
+                {/* <a style={{ fontSize: "13px" }} href="/"> */}
+                EARPHONES
+                {/* </a> */}
               </Link>
             </div>
           </div>

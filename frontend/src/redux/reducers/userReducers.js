@@ -6,6 +6,9 @@ const userSlice = createSlice({
     navMenu: false,
     cartMenu: false,
     paymentModal: false,
+    products: [],
+    cartProducts: [],
+    individualProduct: [],
   },
   reducers: {
     setNavMenu: (state, action) => {
@@ -17,9 +20,25 @@ const userSlice = createSlice({
     setPaymentModal: (state, action) => {
       state.paymentModal = action.payload;
     },
+    setProducts: (state, action) => {
+      state.products = action.payload;
+    },
+    setCartProducts: (state, action) => {
+      state.cartProducts = action.payload;
+    },
+    setIndividualProduct: (state, action) => {
+      state.individualProduct = action.payload;
+    },
   },
 });
 
-export const { setNavMenu, setCartMenu, setPaymentModal } = userSlice.actions;
+export const {
+  setNavMenu,
+  setCartMenu,
+  setPaymentModal,
+  setProducts,
+  setCartProducts,
+  setIndividualProduct,
+} = userSlice.actions;
 
 export default userSlice.reducer;

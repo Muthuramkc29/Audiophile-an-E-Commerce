@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AboveFooterFlex from "../../Components/Layout/AboveFooterFlex/AboveFooterFlex";
 
 import headphone from "../../Images/image-product-xx991-tablet.jpg";
@@ -16,18 +16,94 @@ import CategoryCard from "../../Components/Category/CategoryCard/CategoryCard";
 import SuggestionCard from "../../Components/Product/SuggestionCard/SuggestionCard";
 import ProductImageGrid from "../../Components/Product/ProductImageGrid/ProductImageGrid";
 import ProductDetailsFlex from "../../Components/Product/ProductDetailsFlex/ProductDetailsFlex";
+import { Link, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import api from "../../api/axiosConfig";
+import {
+  setCartProducts,
+  // setIndividualProduct,
+  setProducts,
+} from "../../redux/reducers/userReducers";
 
 function ProductDetail() {
+  const dispatch = useDispatch();
+  // const products = useSelector((state) => state.user.products);
+  const [count, setCount] = useState(0);
+  const cartProducts = useSelector((state) => state.user.cartProducts);
+  let params = useParams();
+
+  useEffect(() => {
+    const retrieveProducts = async () => {
+      const response = await api.get("products/");
+      console.log(response.data);
+      window.localStorage.setItem("products", JSON.stringify(response.data));
+      dispatch(setProducts(response.data));
+    };
+    console.log("in useeffect");
+    retrieveProducts();
+    // window.scrollTo(0, 0);
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [dispatch, params]);
+
+  // console.log(products);
+
+  const localProducts = JSON.parse(window.localStorage.getItem("products"));
+
+  function getProduct(productName) {
+    return localProducts.find(
+      (product) => product.name.split(" ").join("") === productName
+    );
+  }
+
+  let product = getProduct(params.productName);
+  // console.log(product);
+
+  // const product = dispatch(setIndividualProduct(product));
+
+  // useEffect(() => {
+  //   window.localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  // }, [cartProducts]);
+
+  const render = (image, name, productPrice) => {
+    dispatch(
+      setCartProducts([
+        ...cartProducts,
+        {
+          img: image,
+          productName: name,
+          productPrice: productPrice,
+          count: count,
+        },
+      ])
+    );
+    console.log(cartProducts);
+  };
+
   return (
     <div>
-      <div className="px-6 md:px-12 xl:px-40">
-        <div className="my-8">
-          <p className="text-black opacity-50">Go Back</p>
-        </div>
+      <div className="px-6 md:px-12 xl:px-40 mt-8 xl:mt-16">
+        {/* <div className="my-8">
+          <p
+            onClick={() => this.props.history.goBack()}
+            className="text-black opacity-50 cursor-pointer"
+          >
+            Go Back
+          </p>
+        </div> */}
 
-        <ProductDetailsFlex />
+        <ProductDetailsFlex
+          product={product}
+          count={count}
+          setCount={setCount}
+          render={render}
+        />
 
-        <ProductImageGrid />
+        <ProductImageGrid product={product} />
 
         <h1
           className="uppercase mt-16 mb-7 text-center font-bold text-2xl"
@@ -37,25 +113,31 @@ function ProductDetail() {
         </h1>
         <div className="md:flex md:justify-between md:items-center md:gap-4">
           <div className="md:w-1/3">
-            <SuggestionCard
-              img={headphone}
-              imgTab={mark1tab}
-              prodName="XX99 MARK I"
-            />
+            <Link to="/XX99MarkIHeadphones">
+              <SuggestionCard
+                img={headphone}
+                imgTab={mark1tab}
+                prodName="XX99 MARK I"
+              />
+            </Link>
           </div>
           <div className="md:w-1/3">
-            <SuggestionCard
-              img={headphonexx59}
-              imgTab={xx59tab}
-              prodName="XX59"
-            />
+            <Link to="/XX59Headphones">
+              <SuggestionCard
+                img={headphonexx59}
+                imgTab={xx59tab}
+                prodName="XX59"
+              />
+            </Link>
           </div>
           <div className="md:w-1/3">
-            <SuggestionCard
-              img={speakerzx9}
-              imgTab={zx9tab}
-              prodName="ZX9 SPEAKER"
-            />
+            <Link to="/ZX9SPEAKER">
+              <SuggestionCard
+                img={speakerzx9}
+                imgTab={zx9tab}
+                prodName="ZX9 SPEAKER"
+              />
+            </Link>
           </div>
         </div>
       </div>

@@ -1,33 +1,47 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CategoryFlex from "../../Components/Category/CategoryFlex/CategoryFlex";
 import CategoryHeader from "../../Components/Category/CategoryHeader/CategoryHeader";
 import AboveFooterFlex from "../../Components/Layout/AboveFooterFlex/AboveFooterFlex";
 
 // For Category Flex
-import earphoneProd from "../../Images/image-product-earphone.jpg";
-import earphoneProdTablet from "../../Images/image-product-earphone-tablet.jpg";
-import earphoneProdDesktop from "../../Images/image-product-earphone-desktop.jpg";
+// import earphoneProd from "../../Images/image-product-earphone.jpg";
+// import earphoneProdTablet from "../../Images/image-product-earphone-tablet.jpg";
+// import earphoneProdDesktop from "../../Images/image-product-earphone-desktop.jpg";
 
 // For CategoryCard
 import headphone from "../../Images/image-category-thumbnail-headphones.png";
 import speaker from "../../Images/image-category-thumbnail-speakers.png";
 import earphoneCategory from "../../Images/image-category-thumbnail-earphones.png";
 import CategoryCard from "../../Components/Category/CategoryCard/CategoryCard";
+import { useDispatch, useSelector } from "react-redux";
+import api from "../../api/axiosConfig";
+import { setProducts } from "../../redux/reducers/userReducers";
 
 function CategoryEarphones() {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.user.products);
+
+  useEffect(() => {
+    const retriveEarphones = async () => {
+      const response = await api.get("earphones/");
+      // console.log(response.data);
+      dispatch(setProducts(response.data));
+    };
+    retriveEarphones();
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [dispatch]);
+
+  console.log(products);
+
   return (
     <div>
       <CategoryHeader category="earphones" />
-      <CategoryFlex
-        position="left"
-        prodName="YX1 WIRELESS
-        EARPHONES"
-        imgMob={earphoneProd}
-        imgTab={earphoneProdTablet}
-        imgDesktop={earphoneProdDesktop}
-        newProd="true"
-        description="Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature."
-      />
+
+      <CategoryFlex products={products} />
 
       {/* Category Card Home */}
 

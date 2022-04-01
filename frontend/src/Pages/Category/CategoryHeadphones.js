@@ -1,54 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CategoryFlex from "../../Components/Category/CategoryFlex/CategoryFlex";
 import CategoryHeader from "../../Components/Category/CategoryHeader/CategoryHeader";
 import AboveFooterFlex from "../../Components/Layout/AboveFooterFlex/AboveFooterFlex";
 
-import headphoneProd from "../../Images/image-product.jpg";
-import headphoneProdTablet from "../../Images/image-product-tablet.jpg";
-import headphoneProdDesktop from "../../Images/image-product-desktop.jpg";
-
-import headphonexx991Prod from "../../Images/image-product-xx991.jpg";
-import headphonexx991ProdTablet from "../../Images/image-product-xx991-tablet.jpg";
-import headphonexx991ProdDesktop from "../../Images/image-product-xx991-desktop.jpg";
-
-import headphonexx59Prod from "../../Images/image-product-xx59.jpg";
-import headphonexx59ProdTablet from "../../Images/image-product-xx59-tablet.jpg";
-import headphonexx59ProdDesktop from "../../Images/image-product-xx59-desktop.jpg";
 import CategoryCard from "../../Components/Category/CategoryCard/CategoryCard";
 
 import headphone from "../../Images/image-category-thumbnail-headphones.png";
 import speaker from "../../Images/image-category-thumbnail-speakers.png";
 import earphoneCategory from "../../Images/image-category-thumbnail-earphones.png";
+import { useDispatch, useSelector } from "react-redux";
+import api from "../../api/axiosConfig";
+import {
+  // setHeadphoneProducts,
+  setProducts,
+} from "../../redux/reducers/userReducers";
 
 function Category() {
+  const dispatch = useDispatch();
+  const products = useSelector((state) => state.user.products);
+
+  useEffect(() => {
+    const retriveHeadphones = async () => {
+      const response = await api.get("headphones/");
+      // console.log(response.data);
+      dispatch(setProducts(response.data));
+    };
+    retriveHeadphones();
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, [dispatch]);
+
+  console.log(products);
+
   return (
     <div>
       <CategoryHeader category="headphones" />
-      <CategoryFlex
-        position="left"
-        prodName="XX99 Mark II Headphones"
-        imgMob={headphoneProd}
-        imgTab={headphoneProdTablet}
-        imgDesktop={headphoneProdDesktop}
-        newProd="true"
-        description="The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound."
-      />
-      <CategoryFlex
-        position="right"
-        prodName="XX99 Mark I Headphones"
-        imgMob={headphonexx991Prod}
-        imgTab={headphonexx991ProdTablet}
-        imgDesktop={headphonexx991ProdDesktop}
-        description="As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go."
-      />
-      <CategoryFlex
-        position="left"
-        prodName="XX59 Headphones"
-        imgMob={headphonexx59Prod}
-        imgTab={headphonexx59ProdTablet}
-        imgDesktop={headphonexx59ProdDesktop}
-        description="Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move."
-      />
+      <CategoryFlex products={products} />
 
       {/* Category Card Home */}
 
