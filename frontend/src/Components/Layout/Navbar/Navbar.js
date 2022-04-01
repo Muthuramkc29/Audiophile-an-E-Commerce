@@ -33,42 +33,34 @@ function Navbar() {
             </Link>
           </div>
           <div className="hidden lg:block lg:mr-3">
-            {/* <Link to="/"> */}
-            <a
+            <Link
               className="font-normal p-2 mr-2"
               style={{ fontSize: "11px", letterSpacing: "2px" }}
-              href="/"
+              to="/"
             >
               HOME
-            </a>
-            {/* </Link> */}
-            {/* <Link to="/headphones"> */}
-            <a
+            </Link>
+            <Link
               className="p-2 mr-2"
-              href="/headphones"
+              to="/headphones"
               style={{ fontSize: "11px", letterSpacing: "2px" }}
             >
               HEADPHONES
-            </a>
-            {/* </Link> */}
-            {/* <Link to="/speakers"> */}
-            <a
+            </Link>
+            <Link
               className="p-2 mr-2"
-              href="/speakers"
+              to="/speakers"
               style={{ fontSize: "11px", letterSpacing: "2px" }}
             >
               SPEAKERS
-            </a>
-            {/* </Link> */}
-            {/* <Link to="/earphones"> */}
-            <a
+            </Link>
+            <Link
               className="p-2 mr-3"
-              href="/earphones"
+              to="/earphones"
               style={{ fontSize: "11px", letterSpacing: "2px" }}
             >
               EARPHONES
-            </a>
-            {/* </Link> */}
+            </Link>
           </div>
           <div>
             <img

@@ -88,7 +88,7 @@ function Router() {
 
         {paymentModal ? (
           <div className="bg-modal px-6 md:px-12 xl:px-40">
-            <div className="mt-32 w-full md:w-3/4 lg:w-2/4 xl:w-4/6 mx-auto bg-white p-12">
+            <div className="mt-32 w-full md:w-3/4 lg:w-2/4 xl:w-3/6 mx-auto bg-white p-12">
               <div className="rounded-full bg-[#D87D4A] w-12 h-12 flex items-center justify-center">
                 <i
                   class="fa fa-check"
