@@ -58,12 +58,12 @@ function Router() {
             >
               <div className="px-6 md:px-12 xl:px-40 md:flex md:flex-row gap-3 justify-evenly w-full h-full">
                 <div className="h-full overflow-y-auto md:flex md:flex-row md:gap-3">
-                  <NavMenu img={headphone} name="headphones" to="/headphones" />
-                  <NavMenu img={speaker} name="speakers" to="/speakers" />
+                  <NavMenu img={headphone} name="headphones" />
+                  <NavMenu img={speaker} name="speakers" />
                   <NavMenu
                     img={earphoneCategory}
                     name="earphones"
-                    to="/earphones"
+                    // to="/earphones"
                   />
                 </div>
               </div>

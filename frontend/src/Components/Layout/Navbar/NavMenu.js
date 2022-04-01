@@ -2,7 +2,7 @@ import React from "react";
 import arrow from "../../../Images/icon-arrow-right.svg";
 // import { Link } from "react-router-dom";
 
-function NavMenu({ img, name, to }) {
+function NavMenu({ img, name }) {
   return (
     <div>
       <div
@@ -25,7 +25,7 @@ function NavMenu({ img, name, to }) {
             >
               {name}
             </p>
-            <a href={`${to}`}>
+            <a href={`/${name}`}>
               <div className="flex justify-center gap-3">
                 <p
                   className="uppercase"
