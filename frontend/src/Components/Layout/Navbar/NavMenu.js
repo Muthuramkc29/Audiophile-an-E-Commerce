@@ -1,6 +1,6 @@
 import React from "react";
 import arrow from "../../../Images/icon-arrow-right.svg";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function NavMenu({ img, name }) {
   return (
@@ -25,7 +25,7 @@ function NavMenu({ img, name }) {
             >
               {name}
             </p>
-            <a href={`/${name}`}>
+            <Link to={`/${name}`}>
               <div className="flex justify-center gap-3">
                 <p
                   className="uppercase"
@@ -35,7 +35,7 @@ function NavMenu({ img, name }) {
                 </p>
                 <img className="img-fluid" src={arrow} alt="arrow" />
               </div>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
