@@ -25,7 +25,7 @@ function Checkout() {
         className="pt-6 pb-5 text-black opacity-50"
         style={{ fontSize: "15px" }}
       >
-        Go Back
+        {/* Go Back */}
       </p>
       <div className="pt-3 pb-12 lg:flex lg:gap-3 xl:gap-3 xl:flex xl:gap-4">
         <div className="bg-white px-5 py-4 rounded-md lg:w-4/6 xl:w-8/12">

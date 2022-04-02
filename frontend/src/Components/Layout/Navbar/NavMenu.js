@@ -1,8 +1,12 @@
 import React from "react";
 import arrow from "../../../Images/icon-arrow-right.svg";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setNavMenu } from "../../../redux/reducers/userReducers";
 
 function NavMenu({ img, name }) {
+  const dispatch = useDispatch();
+
   return (
     <div>
       <div
@@ -25,7 +29,12 @@ function NavMenu({ img, name }) {
             >
               {name}
             </p>
-            <Link to={`/${name}`}>
+            <Link
+              to={`/${name}`}
+              onClick={() => {
+                dispatch(setNavMenu(false));
+              }}
+            >
               <div className="flex justify-center gap-3">
                 <p
                   className="uppercase"

@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setTotalAmount } from "../../redux/reducers/userReducers";
 // import { useSelector } from "react-redux";
 
-function CartItem({ product, count, setCount, price, setPrice }) {
-  // const [count, setCount] = useState(0);
-  // const [price, setPrice] = useState(
-  //   parseInt(product.productPrice.split(",").join(""))
-  // );
+function CartItem({ product, setTotal }) {
+  const [count, setCount] = useState(0);
+  const prodPrice = parseInt(product.productPrice.split(",").join(""));
+  const [price, setPrice] = useState(prodPrice);
   // const cartProducts = useSelector((state) => state.user.cartProducts);
   // console.log(cartProducts);
+  const dispatch = useDispatch();
+  const totalAmount = useSelector((state) => state.user.totalAmount);
+
+  useEffect(() => {
+    setPrice(count === 0 ? prodPrice : prodPrice * count);
+    // dispatch(setTotalAmount(0));
+  }, [count, prodPrice]);
 
   return (
     <div>
@@ -37,15 +45,18 @@ function CartItem({ product, count, setCount, price, setPrice }) {
               setCount((prevState) =>
                 prevState === 0 ? prevState : prevState - 1
               );
+              if (count !== 0) {
+                dispatch(setTotalAmount(totalAmount - prodPrice));
+              }
             }}
           >
             -
           </button>
           <p
-            onChange={(e) => {
-              console.log(e.target.value);
-              setPrice(price * e.target.value);
-            }}
+          // onChange={(e) => {
+          //   console.log(e);
+          //   setPrice(e.target.value);
+          // }}
           >
             {count}
           </p>
@@ -54,6 +65,7 @@ function CartItem({ product, count, setCount, price, setPrice }) {
               setCount((prevState) =>
                 prevState === 8 ? prevState : prevState + 1
               );
+              dispatch(setTotalAmount(totalAmount + prodPrice));
             }}
           >
             +

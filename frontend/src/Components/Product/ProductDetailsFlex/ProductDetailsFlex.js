@@ -7,7 +7,7 @@ import React from "react";
 import Button from "../../Button/Button";
 
 function ProductDetailsFlex({ product, count, setCount, render }) {
-  // const [count, setCount] = useState(0);
+  // const [added, setAdded] = useState(false);
   // const product = useSelector((state) => state.user.individualProduct);
   // const cartProducts = useSelector((state) => state.user.cartProducts);
   // const dispatch = useDispatch();
@@ -85,6 +85,7 @@ function ProductDetailsFlex({ product, count, setCount, render }) {
                 +
               </button>
             </div> */}
+            {/* {!added ? ( */}
             <div
               onClick={(e) => {
                 render(
@@ -92,25 +93,23 @@ function ProductDetailsFlex({ product, count, setCount, render }) {
                   product.nameProduct,
                   product.price
                 );
-                // dispatch(setCartProducts([1, 2, 3, count, product.price]));
-                // dispatch(
-                //   setCartProducts([
-                //     ...cartProducts,
-                //     {
-                //       image: product.productImageTablet,
-                //       name: product.nameProduct,
-                //       price: product.price,
-                //       count: count,
-                //     },
-                //   ])
-                // );
-                // console.log([1, 2, 3, 4, 5]);
-                // console.log(cartProducts);
+                // setAdded(true);
               }}
             >
               {/* Add to Cart */}
               <Button bgcolor="#D87D4A" color="white" name="Add to Cart" />
             </div>
+            {/* ) : ( */}
+            {/* <div> */}
+            {/* Add to Cart */}
+            {/* <Button
+                  bgcolor="#D87D4A"
+                  color="white"
+                  name="Added to Cart"
+                  disabled="true"
+                /> */}
+            {/* </div> */}
+            {/* )} */}
           </div>
         </div>
       </div>

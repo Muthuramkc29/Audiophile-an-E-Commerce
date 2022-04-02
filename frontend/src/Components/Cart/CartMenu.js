@@ -1,17 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "../Button/Button";
 import CartItem from "./CartItem";
 // import mark2 from "../../Images/image-product-desktop.jpg";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // import xx59 from "../../Images/image-product-xx59-desktop.jpg";
 // import yx1 from "../../Images/image-product-earphone.jpg";
 import { Link } from "react-router-dom";
+import {
+  setCartMenu,
+  setCartProducts,
+  setTotalAmount,
+} from "../../redux/reducers/userReducers";
 
 function CartMenu() {
   // const [count, setCount] = useState(0);
   // const [price, setPrice] = useState(4500);
   const cartProducts = useSelector((state) => state.user.cartProducts);
+  const totalAmount = useSelector((state) => state.user.totalAmount);
   console.log(cartProducts);
+
+  const dispatch = useDispatch();
+  const setTotal = (price) => {
+    dispatch(setTotalAmount(totalAmount + price));
+  };
+
+  useEffect(() => {
+    dispatch(setTotalAmount(0));
+  }, [dispatch]);
 
   return (
     <div className="w-full">
@@ -21,8 +36,12 @@ function CartMenu() {
             Cart <span></span>
           </p>
           <p
-            className="text-black opacity-50 underline mt-1"
+            className="text-black opacity-50 underline mt-1 cursor-pointer"
             style={{ fontSize: "14px" }}
+            onClick={() => {
+              dispatch(setCartProducts([]));
+              dispatch(setTotalAmount(0));
+            }}
           >
             Remove all
           </p>
@@ -40,6 +59,7 @@ function CartMenu() {
             <div key={index}>
               <CartItem
                 product={product}
+                setTotal={setTotal}
                 // count={count}
                 // setCount={setCount}
                 // price={price}
@@ -58,10 +78,15 @@ function CartMenu() {
           >
             Total
           </p>
-          <p>$0</p>
+          <p>${totalAmount}</p>
         </div>
         <div className="flex justify-center w-full">
-          <Link to="/checkout">
+          <Link
+            to="/checkout"
+            onClick={() => {
+              dispatch(setCartMenu(false));
+            }}
+          >
             <Button bgcolor="#D87D4A" color="white" name="Checkout" />
           </Link>
         </div>

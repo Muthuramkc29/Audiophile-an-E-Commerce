@@ -70,6 +70,7 @@ function ProductDetail() {
   // }, [cartProducts]);
 
   const render = (image, name, productPrice) => {
+    // if (!(name in cartProducts.productName || cartProducts.length === 0)) {
     dispatch(
       setCartProducts([
         ...cartProducts,
@@ -81,6 +82,7 @@ function ProductDetail() {
         },
       ])
     );
+    // }
     console.log(cartProducts);
   };
 
