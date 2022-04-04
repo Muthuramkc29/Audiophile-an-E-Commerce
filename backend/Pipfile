@@ -9,6 +9,8 @@ django-cors-headers = "*"
 djangorestframework = "*"
 pillow = "*"
 braintree = "*"
+gunicorn = "*"
+django-heroku = "*"
 
 [dev-packages]
 
