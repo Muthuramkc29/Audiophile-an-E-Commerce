@@ -31,6 +31,7 @@ function App() {
   useEffect(() => {
     const retrieveProducts = async () => {
       const response = await api.get("products/");
+      window.localStorage.setItem("products", JSON.stringify(response.data));
       // console.log(response.data);
       dispatch(setProducts(response.data));
     };
