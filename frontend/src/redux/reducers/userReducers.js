@@ -10,8 +10,7 @@ const userSlice = createSlice({
     cartProducts: [],
     individualProduct: [],
     totalAmount: 0,
-    count: 0,
-    // prodPrice
+    summaryItems: [],
   },
   reducers: {
     setNavMenu: (state, action) => {
@@ -35,8 +34,8 @@ const userSlice = createSlice({
     setTotalAmount: (state, action) => {
       state.totalAmount = action.payload;
     },
-    setCount: (state, action) => {
-      state.count = action.payload;
+    setSummaryItems: (state, action) => {
+      state.summaryItems = action.payload;
     },
   },
 });
@@ -50,6 +49,7 @@ export const {
   setIndividualProduct,
   setTotalAmount,
   setCount,
+  setSummaryItems,
 } = userSlice.actions;
 
 export default userSlice.reducer;

@@ -2,15 +2,16 @@ import React from "react";
 import Button from "../../Components/Button/Button";
 import Input from "../../Components/Input/Input";
 import SummaryItem from "../../Components/SummaryItem/SummaryItem";
-import summaryItemImg from "../../Images/image-product.jpg";
-import summaryItemImg1 from "../../Images/image-product-xx59.jpg";
-import summaryItemImg2 from "../../Images/image-product-earphone.jpg";
+// import summaryItemImg from "../../Images/image-product.jpg";
+// import summaryItemImg1 from "../../Images/image-product-xx59.jpg";
+// import summaryItemImg2 from "../../Images/image-product-earphone.jpg";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setPaymentModal } from "../../redux/reducers/userReducers";
 
 function Checkout() {
   const dispatch = useDispatch();
+  const totalAmount = useSelector((state) => state.user.totalAmount);
 
   // useEffect(() => {
   //   // document.location.reload();
@@ -97,12 +98,12 @@ function Checkout() {
             <h1 className="uppercase font-bold text-2xl ">Summary</h1>
             <div className="py-4">
               <SummaryItem
-                img={summaryItemImg}
-                prodName="XX99 MK II"
-                price="$ 2,999"
-                count="x1"
+              // img={summaryItemImg}
+              // prodName="XX99 MK II"
+              // price="$ 2,999"
+              // count="x1"
               />
-              <SummaryItem
+              {/* <SummaryItem
                 img={summaryItemImg1}
                 prodName="XX59"
                 price="$ 899"
@@ -113,7 +114,7 @@ function Checkout() {
                 prodName="YX1"
                 price="$ 599"
                 count="x1"
-              />
+              /> */}
             </div>
             <div className="flex justify-between items-center py-2">
               <p
@@ -123,7 +124,7 @@ function Checkout() {
                 Total
               </p>
               <p className="uppercase font-bold" style={{ fontSize: "18px" }}>
-                $ 5,396
+                $ {totalAmount}
               </p>
             </div>
             <div className="flex justify-between items-center py-2">
@@ -145,7 +146,7 @@ function Checkout() {
                 VAT (INCLUDED)
               </p>
               <p className="uppercase font-bold" style={{ fontSize: "18px" }}>
-                $ 1,079
+                $ {((totalAmount * 18) / 100).toFixed(0)}
               </p>
             </div>
             <div className="flex justify-between items-center py-2">
@@ -159,7 +160,7 @@ function Checkout() {
                 className="uppercase font-bold text-[#D87D4A]"
                 style={{ fontSize: "18px" }}
               >
-                $ 5,446
+                $ {(totalAmount + 50 + (totalAmount * 18) / 100).toFixed(0)}
               </p>
             </div>
             <div

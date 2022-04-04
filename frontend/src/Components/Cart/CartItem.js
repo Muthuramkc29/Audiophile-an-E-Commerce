@@ -1,19 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setTotalAmount } from "../../redux/reducers/userReducers";
+import {
+  // setCartProducts,
+  // setSummaryItems,
+  setTotalAmount,
+} from "../../redux/reducers/userReducers";
 // import { useSelector } from "react-redux";
 
-function CartItem({ product, setTotal }) {
+function CartItem({ product }) {
   const [count, setCount] = useState(0);
   const prodPrice = parseInt(product.productPrice.split(",").join(""));
   const [price, setPrice] = useState(prodPrice);
-  // const cartProducts = useSelector((state) => state.user.cartProducts);
+  // const summaryItems = useSelector((state) => state.user.summaryItems);
   // console.log(cartProducts);
   const dispatch = useDispatch();
   const totalAmount = useSelector((state) => state.user.totalAmount);
 
   useEffect(() => {
     setPrice(count === 0 ? prodPrice : prodPrice * count);
+    // dispatch(
+    //   setSummaryItems([
+    //     ...summaryItems,
+    //     {
+    //       img: product.img,
+    //       productName: product.productName,
+    //       price: prodPrice,
+    //     },
+    //   ])
+    // );
     // dispatch(setTotalAmount(0));
   }, [count, prodPrice]);
 
@@ -55,7 +69,7 @@ function CartItem({ product, setTotal }) {
           <p
           // onChange={(e) => {
           //   console.log(e);
-          //   setPrice(e.target.value);
+          //   // setCount(e.target.value);
           // }}
           >
             {count}

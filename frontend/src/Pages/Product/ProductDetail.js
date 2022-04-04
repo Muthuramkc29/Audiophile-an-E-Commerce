@@ -37,7 +37,7 @@ function ProductDetail() {
     const retrieveProducts = async () => {
       const response = await api.get("products/");
       console.log(response.data);
-      window.localStorage.setItem("products", JSON.stringify(response.data));
+      // window.localStorage.setItem("products", JSON.stringify(response.data));
       dispatch(setProducts(response.data));
     };
     console.log("in useeffect");

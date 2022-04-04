@@ -47,12 +47,14 @@ function CartMenu() {
           </p>
         </div>
 
-        <div
-          className="py-12 text-black opacity-50 text-center hidden"
-          style={{ fontSize: "14px" }}
-        >
-          Currently! No items in the cart...
-        </div>
+        {cartProducts.length === 0 && (
+          <div
+            className="py-12 text-black opacity-50 text-center"
+            style={{ fontSize: "14px" }}
+          >
+            Currently! No items in the cart...
+          </div>
+        )}
 
         <div className="py-4">
           {cartProducts.map((product, index) => (
@@ -80,16 +82,29 @@ function CartMenu() {
           </p>
           <p>${totalAmount}</p>
         </div>
-        <div className="flex justify-center w-full">
-          <Link
-            to="/checkout"
-            onClick={() => {
-              dispatch(setCartMenu(false));
-            }}
-          >
-            <Button bgcolor="#D87D4A" color="white" name="Checkout" />
-          </Link>
-        </div>
+        {cartProducts.length === 0 ? (
+          <div className="flex justify-center w-full">
+            {/* <div> */}
+            <Button
+              bgcolor="#D87D4A"
+              color="white"
+              name="Checkout"
+              disabled="true"
+            />
+            {/* </div> */}
+          </div>
+        ) : (
+          <div className="flex justify-center w-full">
+            <Link
+              to="/checkout"
+              onClick={() => {
+                dispatch(setCartMenu(false));
+              }}
+            >
+              <Button bgcolor="#D87D4A" color="white" name="Checkout" />
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );
