@@ -7,7 +7,7 @@ function Button({ bgcolor, color, hover, name, disabled, hoverColor }) {
         // disabled={disabled}
         className={`bg-[${bgcolor}] text-${color} ${
           bgcolor === "#D87D4A" ? "" : "border border-black"
-        }  py-3 hover:bg-[${hover}] hover:text-${hoverColor} ${
+        } py-3 hover:bg-[${hover}] hover:text-${hoverColor} ${
           disabled === "true" ? "pointer-events-none opacity-50" : ""
         }`}
         style={{ width: "160px" }}
