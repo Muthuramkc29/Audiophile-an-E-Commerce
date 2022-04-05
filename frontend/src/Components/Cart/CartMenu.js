@@ -16,6 +16,7 @@ function CartMenu() {
   // const [count, setCount] = useState(0);
   // const [price, setPrice] = useState(4500);
   const cartProducts = useSelector((state) => state.user.cartProducts);
+  // const summaryItems = useSelector((state) => state.user.summaryItems);
   const totalAmount = useSelector((state) => state.user.totalAmount);
   console.log(cartProducts);
 
@@ -99,6 +100,7 @@ function CartMenu() {
               to="/checkout"
               onClick={() => {
                 dispatch(setCartMenu(false));
+                // dispatch(setSummaryItems([...summaryItems, {}]));
               }}
             >
               <Button bgcolor="#D87D4A" color="white" name="Checkout" />

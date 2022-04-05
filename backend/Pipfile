@@ -11,6 +11,7 @@ pillow = "*"
 braintree = "*"
 gunicorn = "*"
 django-heroku = "*"
+django-cloudinary-storage = "*"
 
 [dev-packages]
 

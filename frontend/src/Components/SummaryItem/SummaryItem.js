@@ -25,13 +25,13 @@ function SummaryItem() {
                 className="font-bold text-black opacity-50"
                 style={{ fontSize: "14px" }}
               >
-                {product.price}
+                {product.productPrice}
               </p>
             </div>
           </div>
-          <div>
+          {/* <div>
             <p className="mr-4">{product.count}</p>
-          </div>
+          </div> */}
         </div>
       ))}
     </div>

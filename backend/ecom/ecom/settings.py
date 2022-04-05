@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 import django_heroku
+import cloudinary
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
     'api.payment',
     'api.earphones',
     'api.speakers',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -136,6 +138,14 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'muthuramkc',
+    'API_KEY': '742111921989144',
+    'API_SECRET': '536JtEqO5gmirTVrbbewe74VgeQ'
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 AUTH_USER_MODEL = 'user.CustomUser'  # Understand Further
 
