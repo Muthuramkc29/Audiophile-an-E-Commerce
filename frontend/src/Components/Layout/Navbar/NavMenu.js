@@ -35,14 +35,19 @@ function NavMenu({ img, name }) {
                 dispatch(setNavMenu(false));
               }}
             >
-              <div className="flex justify-center gap-3">
+              <div className="flex justify-center items-center gap-2">
                 <p
-                  className="uppercase"
+                  className="uppercase font-bold hover:text-[#D87D4A]"
                   style={{ fontSize: "13px", letterSpacing: "1px" }}
                 >
                   Shop
                 </p>
-                <img className="img-fluid" src={arrow} alt="arrow" />
+                <img
+                  className="img-fluid"
+                  style={{ width: "6px", height: "10px" }}
+                  src={arrow}
+                  alt="arrow"
+                />
               </div>
             </Link>
           </div>

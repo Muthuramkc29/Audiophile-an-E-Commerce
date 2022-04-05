@@ -1,11 +1,13 @@
 import React from "react";
 
-function Button({ bgcolor, color, border, name, disabled }) {
+function Button({ bgcolor, color, hover, name, disabled, hoverColor }) {
   return (
     <div>
       <button
         // disabled={disabled}
-        className={`bg-[${bgcolor}] text-${color} border border-black py-3 ${
+        className={`bg-[${bgcolor}] text-${color} ${
+          bgcolor === "#D87D4A" ? "" : "border border-black"
+        }  py-3 hover:bg-[${hover}] hover:text-${hoverColor} ${
           disabled === "true" ? "pointer-events-none opacity-50" : ""
         }`}
         style={{ width: "160px" }}

@@ -103,7 +103,12 @@ function CartMenu() {
                 // dispatch(setSummaryItems([...summaryItems, {}]));
               }}
             >
-              <Button bgcolor="#D87D4A" color="white" name="Checkout" />
+              <Button
+                bgcolor="#D87D4A"
+                color="white"
+                name="Checkout"
+                hover="#fbaf85"
+              />
             </Link>
           </div>
         )}

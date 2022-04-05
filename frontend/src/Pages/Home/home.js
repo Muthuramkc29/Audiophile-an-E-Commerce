@@ -71,7 +71,12 @@ function App() {
             made for the passionate music enthusiast.
           </p>
           <Link to="/XX99MarkIIHeadphones">
-            <Button bgcolor="#D87D4A" color="white" name="See Product" />
+            <Button
+              bgcolor="#D87D4A"
+              color="white"
+              name="See Product"
+              hover="#fbaf85"
+            />
           </Link>
         </div>
       </header>
@@ -138,7 +143,12 @@ function App() {
                   deliver truly remarkable sound.
                 </p>
                 <Link to="/ZX9SPEAKER">
-                  <Button bgcolor="#000000" color="white" name="See Product" />
+                  <Button
+                    bgcolor="#000000"
+                    color="white"
+                    name="See Product"
+                    hover="#4C4C4C"
+                  />
                 </Link>
               </div>
             </div>
@@ -203,7 +213,13 @@ function App() {
                   YX1 EARPHONES
                 </h1>
                 <Link to="/YX1WIRELESSEARPHONES">
-                  <Button bgcolor="#F1F1F1" color="black" name="See Product" />
+                  <Button
+                    bgcolor="#F1F1F1"
+                    color="black"
+                    name="See Product"
+                    hover="#000000"
+                    hoverColor="white"
+                  />
                 </Link>
               </div>
             </div>

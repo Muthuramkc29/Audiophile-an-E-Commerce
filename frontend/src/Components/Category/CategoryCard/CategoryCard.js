@@ -2,7 +2,7 @@ import React from "react";
 import arrow from "../../../Images/icon-arrow-right.svg";
 import { Link } from "react-router-dom";
 
-function CategoryCard({ img, name, to }) {
+function CategoryCard({ img, name }) {
   return (
     <div>
       <div
@@ -28,7 +28,7 @@ function CategoryCard({ img, name, to }) {
             <Link to={`/${name}`}>
               <div className="flex justify-center items-center gap-3">
                 <p
-                  className="uppercase"
+                  className="uppercase font-bold hover:text-[#D87D4A]"
                   style={{ fontSize: "13px", letterSpacing: "1px" }}
                 >
                   Shop

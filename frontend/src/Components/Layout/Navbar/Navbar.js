@@ -14,7 +14,7 @@ function Navbar() {
     <div>
       <div className="bg-[#000000] text-[#FFFFFF] px-6 md:px-12 xl:px-40 p-7">
         <div className="flex justify-between items-center">
-          <div className="block lg:hidden">
+          <div className="block lg:hidden cursor-pointer">
             <i
               className="fa fa-bars"
               style={{ color: "white", fontSize: "28px" }}
@@ -29,7 +29,13 @@ function Navbar() {
           </div>
           <div>
             <Link to="/">
-              <img src={logo} alt="logo" />
+              <img
+                onClick={() => {
+                  dispatch(setNavMenu(false));
+                }}
+                src={logo}
+                alt="logo"
+              />
             </Link>
           </div>
           <div className="hidden lg:block lg:mr-3">

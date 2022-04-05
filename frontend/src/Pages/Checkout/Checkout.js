@@ -174,6 +174,7 @@ function Checkout() {
                 color="white"
                 name="Continue & Pay"
                 width="w-full"
+                hover="#fbaf85"
               />
             </div>
           </div>

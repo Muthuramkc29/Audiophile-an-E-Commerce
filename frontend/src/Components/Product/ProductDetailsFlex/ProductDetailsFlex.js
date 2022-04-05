@@ -6,7 +6,7 @@ import React from "react";
 // import imgdesk from "../../../Images/image-product-suggestion-tablet.jpg";
 import Button from "../../Button/Button";
 
-function ProductDetailsFlex({ product, count, setCount, render }) {
+function ProductDetailsFlex({ product, render }) {
   // const [added, setAdded] = useState(false);
   // const product = useSelector((state) => state.user.individualProduct);
   // const cartProducts = useSelector((state) => state.user.cartProducts);
@@ -97,7 +97,12 @@ function ProductDetailsFlex({ product, count, setCount, render }) {
               }}
             >
               {/* Add to Cart */}
-              <Button bgcolor="#D87D4A" color="white" name="Add to Cart" />
+              <Button
+                bgcolor="#D87D4A"
+                color="white"
+                name="Add to Cart"
+                hover="#fbaf85"
+              />
             </div>
             {/* ) : ( */}
             {/* <div> */}
