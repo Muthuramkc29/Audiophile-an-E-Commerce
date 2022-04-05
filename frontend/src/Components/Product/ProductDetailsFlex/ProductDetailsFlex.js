@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import { useDispatch, useSelector } from "react-redux";
 // import { setCartProducts } from "../../../redux/reducers/userReducers";
 // import img from "../../../Images/image-product-xx991.jpg";
@@ -7,7 +7,10 @@ import React from "react";
 import Button from "../../Button/Button";
 
 function ProductDetailsFlex({ product, render }) {
-  // const [added, setAdded] = useState(false);
+  const [added, setAdded] = useState(false);
+  useEffect(() => {
+    setAdded(false);
+  }, [product.nameProduct]);
   // const product = useSelector((state) => state.user.individualProduct);
   // const cartProducts = useSelector((state) => state.user.cartProducts);
   // const dispatch = useDispatch();
@@ -85,36 +88,34 @@ function ProductDetailsFlex({ product, render }) {
                 +
               </button>
             </div> */}
-            {/* {!added ? ( */}
-            <div
-              onClick={(e) => {
-                render(
-                  product.productImageDesktop,
-                  product.nameProduct,
-                  product.price
-                );
-                // setAdded(true);
-              }}
-            >
-              {/* Add to Cart */}
-              <Button
-                bgcolor="#D87D4A"
-                color="white"
-                name="Add to Cart"
-                hover="#fbaf85"
-              />
-            </div>
-            {/* ) : ( */}
-            {/* <div> */}
-            {/* Add to Cart */}
-            {/* <Button
+            {!added ? (
+              <div
+                onClick={(e) => {
+                  render(
+                    product.productImageDesktop,
+                    product.nameProduct,
+                    product.price
+                  );
+                  setAdded(true);
+                }}
+              >
+                <Button
+                  bgcolor="#D87D4A"
+                  color="white"
+                  name="Add to Cart"
+                  hover="hover:bg-[#fbaf85]"
+                />
+              </div>
+            ) : (
+              <div>
+                <Button
                   bgcolor="#D87D4A"
                   color="white"
                   name="Added to Cart"
                   disabled="true"
-                /> */}
-            {/* </div> */}
-            {/* )} */}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>

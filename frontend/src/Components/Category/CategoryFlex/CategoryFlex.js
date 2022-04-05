@@ -63,7 +63,7 @@ function CategoryFlex({ products }) {
                         bgcolor="#D87D4A"
                         color="white"
                         name="See Product"
-                        hover="#fbaf85"
+                        hover="hover:bg-[#fbaf85]"
                       />
                     </Link>
                   </div>
@@ -102,7 +102,7 @@ function CategoryFlex({ products }) {
                           bgcolor="#D87D4A"
                           color="white"
                           name="See Product"
-                          hover="#fbaf85"
+                          hover="hover:bg-[#fbaf85]"
                         />
                       </Link>
                     </div>

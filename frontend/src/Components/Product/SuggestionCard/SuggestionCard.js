@@ -24,7 +24,12 @@ function SuggestionCard({ img, prodName, imgTab }) {
           >
             {prodName}
           </h1>
-          <Button bgcolor="#D87D4A" color="white" name="See Product" />
+          <Button
+            bgcolor="#D87D4A"
+            color="white"
+            name="See Product"
+            hover="hover:bg-[#fbaf85]"
+          />
         </div>
       </div>
     </div>

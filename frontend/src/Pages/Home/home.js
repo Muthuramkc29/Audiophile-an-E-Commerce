@@ -75,7 +75,7 @@ function App() {
               bgcolor="#D87D4A"
               color="white"
               name="See Product"
-              hover="#fbaf85"
+              hover="hover:bg-[#fbaf85]"
             />
           </Link>
         </div>
@@ -147,7 +147,7 @@ function App() {
                     bgcolor="#000000"
                     color="white"
                     name="See Product"
-                    hover="#4C4C4C"
+                    hover="hover:bg-[#4C4C4C]"
                   />
                 </Link>
               </div>
@@ -217,8 +217,8 @@ function App() {
                     bgcolor="#F1F1F1"
                     color="black"
                     name="See Product"
-                    hover="#000000"
-                    hoverColor="white"
+                    hover="hover:bg-[#000000]"
+                    hoverColor="hover:text-white"
                   />
                 </Link>
               </div>

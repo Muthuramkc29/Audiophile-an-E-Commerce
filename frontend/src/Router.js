@@ -112,7 +112,7 @@ function Router() {
               </div>
               <a href="/">
                 <button
-                  className="bg-[#D87D4A] uppercase text-white w-full py-2 mt-3"
+                  className="bg-[#D87D4A] uppercase text-white hover:bg-[#fbaf85] w-full py-2 mt-3"
                   onClick={() => {
                     dispatch(setPaymentModal(false));
                   }}

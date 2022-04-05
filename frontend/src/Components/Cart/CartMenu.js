@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import {
   setCartMenu,
   setCartProducts,
+  setSummaryItems,
   setTotalAmount,
 } from "../../redux/reducers/userReducers";
 
@@ -16,7 +17,7 @@ function CartMenu() {
   // const [count, setCount] = useState(0);
   // const [price, setPrice] = useState(4500);
   const cartProducts = useSelector((state) => state.user.cartProducts);
-  // const summaryItems = useSelector((state) => state.user.summaryItems);
+  const summaryItems = useSelector((state) => state.user.summaryItems);
   const totalAmount = useSelector((state) => state.user.totalAmount);
   console.log(cartProducts);
 
@@ -37,7 +38,7 @@ function CartMenu() {
             Cart <span></span>
           </p>
           <p
-            className="text-black opacity-50 underline mt-1 cursor-pointer"
+            className="text-black opacity-50 hover:text-[#D87D4A] hover:opacity-100 underline mt-1 cursor-pointer"
             style={{ fontSize: "14px" }}
             onClick={() => {
               dispatch(setCartProducts([]));
@@ -83,7 +84,7 @@ function CartMenu() {
           </p>
           <p>${totalAmount}</p>
         </div>
-        {cartProducts.length === 0 ? (
+        {cartProducts.length === 0 || totalAmount === 0 ? (
           <div className="flex justify-center w-full">
             {/* <div> */}
             <Button
@@ -100,14 +101,15 @@ function CartMenu() {
               to="/checkout"
               onClick={() => {
                 dispatch(setCartMenu(false));
-                // dispatch(setSummaryItems([...summaryItems, {}]));
+                dispatch(setSummaryItems(cartProducts));
+                console.log(summaryItems);
               }}
             >
               <Button
                 bgcolor="#D87D4A"
                 color="white"
                 name="Checkout"
-                hover="#fbaf85"
+                hover="hover:bg-[#fbaf85]"
               />
             </Link>
           </div>

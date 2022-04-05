@@ -31,6 +31,7 @@ function Checkout() {
       <div className="pt-3 pb-12 lg:flex lg:gap-3 xl:gap-3 xl:flex xl:gap-4">
         <div className="bg-white px-5 py-4 rounded-md lg:w-4/6 xl:w-8/12">
           <h1 className="uppercase font-bold text-2xl ">Checkout</h1>
+
           <div className="pt-4">
             <p
               className="uppercase font-bold text-[#D87D4A] pt-3"
@@ -174,7 +175,7 @@ function Checkout() {
                 color="white"
                 name="Continue & Pay"
                 width="w-full"
-                hover="#fbaf85"
+                hover="hover:bg-[#fbaf85]"
               />
             </div>
           </div>

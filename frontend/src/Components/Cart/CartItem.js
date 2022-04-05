@@ -18,6 +18,7 @@ function CartItem({ product }) {
 
   useEffect(() => {
     setPrice(count === 0 ? prodPrice : prodPrice * count);
+    // dispatch(setTotalAmount(count * prodPrice));
     // dispatch(
     //   setSummaryItems([
     //     ...summaryItems,
@@ -28,7 +29,6 @@ function CartItem({ product }) {
     //     },
     //   ])
     // );
-    // dispatch(setTotalAmount(0));
   }, [count, prodPrice]);
 
   return (
