@@ -44,7 +44,7 @@ function Checkout() {
               <Input
                 name="Phone Number"
                 placeholder="+1 202-555-0136"
-                type="number"
+                type="text"
               />
             </div>
           </div>
@@ -61,7 +61,7 @@ function Checkout() {
                 placeholder="1137 Williams Avenue"
                 type="text"
               />
-              <Input name="ZIP Code" placeholder="10001" type="number" />
+              <Input name="ZIP Code" placeholder="10001" type="text" />
               <Input name="City" placeholder="New York" type="text" />
               <Input name="Country" placeholder="United States" type="text" />
             </div>
@@ -83,9 +83,9 @@ function Checkout() {
               <Input
                 name="e-Money Number"
                 placeholder="238521993"
-                type="number"
+                type="text"
               />
-              <Input name="e-Money PIN" placeholder="6891" type="number" />
+              <Input name="e-Money PIN" placeholder="6891" type="text" />
             </div>
           </div>
         </div>

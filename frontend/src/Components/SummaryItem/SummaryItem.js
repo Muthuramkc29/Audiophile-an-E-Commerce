@@ -20,7 +20,10 @@ function SummaryItem() {
               />
             </div>
             <div>
-              <p className="font-bold" style={{ fontSize: "15px" }}>
+              <p
+                className="font-bold text-[#000000]"
+                style={{ fontSize: "15px" }}
+              >
                 {product.productName}
               </p>
               <p

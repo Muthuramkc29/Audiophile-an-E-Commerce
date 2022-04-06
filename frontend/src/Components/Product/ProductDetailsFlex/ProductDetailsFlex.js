@@ -14,6 +14,10 @@ function ProductDetailsFlex({ product, render }) {
   // const product = useSelector((state) => state.user.individualProduct);
   const cartProducts = useSelector((state) => state.user.cartProducts);
   // const dispatch = useDispatch();
+  const cartNameSplit = product.nameProduct.split(" ");
+  const cartNameSlice = cartNameSplit
+    .slice(0, cartNameSplit.length - 1)
+    .join(" ");
 
   return (
     <div>
@@ -93,7 +97,7 @@ function ProductDetailsFlex({ product, render }) {
                 onClick={(e) => {
                   render(
                     product.productImageDesktop,
-                    product.nameProduct,
+                    cartNameSlice,
                     product.price
                   );
                   setAdded(true);
