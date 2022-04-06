@@ -4,7 +4,10 @@ import { useSelector } from "react-redux";
 
 function SummaryItem() {
   const cartProducts = useSelector((state) => state.user.cartProducts);
-  const summaryProducts = JSON.parse(localStorage.getItem("cartProducts"));
+  const summaryProductsStore = JSON.parse(localStorage.getItem("cartProducts"));
+  const summaryProducts = summaryProductsStore.filter((product) => {
+    return product.count !== 0;
+  });
   console.log(cartProducts);
   return (
     <div>
