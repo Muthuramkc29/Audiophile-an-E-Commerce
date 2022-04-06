@@ -82,10 +82,10 @@ function Navbar() {
               alt="cart-icon"
             />
             <div
-              className={`bg-[#D87D4A] text-center rounded-full absolute left-4 bottom-3 pointer-events-none ${
+              className={`bg-[#D87D4A] text-center rounded-full absolute left-4 bottom-3 font-bold pointer-events-none ${
                 cartProducts.length === 0 ? "hidden" : ""
               }`}
-              style={{ width: "23px", height: "23px", fontSize: "16px" }}
+              style={{ width: "23px", height: "23px", fontSize: "15px" }}
             >
               {cartProducts.length}
             </div>

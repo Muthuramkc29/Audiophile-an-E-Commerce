@@ -101,6 +101,11 @@ function ProductDetailsFlex({ product, render }) {
                     product.price
                   );
                   setAdded(true);
+                  window.scroll({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth",
+                  });
                 }}
               >
                 <Button
