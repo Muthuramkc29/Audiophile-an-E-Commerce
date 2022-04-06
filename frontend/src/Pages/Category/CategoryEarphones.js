@@ -15,7 +15,7 @@ import earphoneCategory from "../../Images/image-category-thumbnail-earphones.pn
 import CategoryCard from "../../Components/Category/CategoryCard/CategoryCard";
 import { useDispatch, useSelector } from "react-redux";
 import api from "../../api/axiosConfig";
-import { setProducts } from "../../redux/reducers/userReducers";
+import { setLoading, setProducts } from "../../redux/reducers/userReducers";
 
 function CategoryEarphones() {
   const dispatch = useDispatch();
@@ -23,7 +23,11 @@ function CategoryEarphones() {
 
   useEffect(() => {
     const retriveEarphones = async () => {
+      dispatch(setLoading(true));
       const response = await api.get("earphones/");
+      setTimeout(() => {
+        dispatch(setLoading(false));
+      }, 2700);
       // console.log(response.data);
       dispatch(setProducts(response.data));
     };
