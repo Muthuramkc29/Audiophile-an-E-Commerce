@@ -2,6 +2,7 @@ import React from "react";
 import Button from "../../Components/Button/Button";
 import Input from "../../Components/Input/Input";
 import SummaryItem from "../../Components/SummaryItem/SummaryItem";
+// import { useNavigate } from "react-router-dom";
 // import summaryItemImg from "../../Images/image-product.jpg";
 // import summaryItemImg1 from "../../Images/image-product-xx59.jpg";
 // import summaryItemImg2 from "../../Images/image-product-earphone.jpg";
@@ -11,6 +12,7 @@ import { setPaymentModal } from "../../redux/reducers/userReducers";
 
 function Checkout() {
   const dispatch = useDispatch();
+  // const navigate = useNavigate();
   // const totalAmount = useSelector((state) => state.user.totalAmount);
 
   const total = JSON.parse(localStorage.getItem("totalAmount"));
@@ -18,8 +20,11 @@ function Checkout() {
   return (
     <div className="bg-[#F2F2F2] px-6 md:px-12 xl:px-40">
       <p
-        className="pt-6 pb-5 text-black opacity-50"
+        className="pt-6 pb-5 text-black opacity-50 cursor-pointer"
         style={{ fontSize: "15px" }}
+        //   onClick={() => {
+        //     navigate(-1);
+        //   }}
       >
         {/* Go Back */}
       </p>
@@ -115,7 +120,7 @@ function Checkout() {
                 Total
               </p>
               <p className="uppercase font-bold" style={{ fontSize: "18px" }}>
-                $ {total}
+                $ {total.toLocaleString()}
               </p>
             </div>
             <div className="flex justify-between items-center py-2">
@@ -137,7 +142,7 @@ function Checkout() {
                 VAT (INCLUDED)
               </p>
               <p className="uppercase font-bold" style={{ fontSize: "18px" }}>
-                $ {((total * 18) / 100).toFixed(0)}
+                $ {parseInt(((total * 18) / 100).toFixed(0)).toLocaleString()}
               </p>
             </div>
             <div className="flex justify-between items-center py-2">
@@ -151,7 +156,10 @@ function Checkout() {
                 className="uppercase font-bold text-[#D87D4A]"
                 style={{ fontSize: "18px" }}
               >
-                $ {(total + 50 + (total * 18) / 100).toFixed(0)}
+                ${" "}
+                {parseInt(
+                  (total + 50 + (total * 18) / 100).toFixed(0)
+                ).toLocaleString()}
               </p>
             </div>
             <div

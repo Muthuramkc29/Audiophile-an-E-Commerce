@@ -19,6 +19,13 @@ function Footer() {
                 className="hover:text-[#D87D4A]"
                 style={{ fontSize: "13px" }}
                 to="/"
+                onClick={() => {
+                  window.scroll({
+                    top: 0,
+                    left: 0,
+                    behavior: "smooth",
+                  });
+                }}
               >
                 {/* <a href="/"> */}
                 HOME

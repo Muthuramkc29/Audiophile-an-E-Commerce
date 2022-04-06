@@ -13,23 +13,15 @@ function CartItem({ product, setSummaryProductsFn }) {
   const [count, setCount] = useState(0);
   const prodPrice = parseInt(product.productPrice.split(",").join(""));
   const [price, setPrice] = useState(prodPrice);
-  // const summaryItems = useSelector((state) => state.user.summaryItems);
-  // console.log(cartProducts);
+
   const dispatch = useDispatch();
   const totalAmount = useSelector((state) => state.user.totalAmount);
   const newProduct = { ...product, count: count };
 
   useEffect(() => {
     setPrice(count === 0 ? prodPrice : prodPrice * count);
-    // dispatch(
-    //   setCartProducts(
-    //     cartProducts.map((item) => {
-    //       return item.productName === product.productName ? newProduct : item;
-    //     })
-    //   )
-    // );
-    // setSummaryProductsFn(newProduct);
-  }, [count, prodPrice, product]);
+  }, [count, prodPrice]);
+
   console.log(newProduct);
   console.log(count);
 
@@ -58,7 +50,7 @@ function CartItem({ product, setSummaryProductsFn }) {
               style={{ fontSize: "13px", letterSpacing: "0.32345px" }}
             >
               <span className="mr-1">$</span>
-              {price}
+              {price.toLocaleString()}
             </p>
           </div>
         </div>

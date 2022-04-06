@@ -106,9 +106,9 @@ function CartMenu() {
           </p>
           <p
             className="text-lg font-bold uppercase"
-            style={{ letterSpacing: "0.32345px" }}
+            // style={{ letterSpacing: "0.32345px" }}
           >
-            ${totalAmount}
+            $ {totalAmount.toLocaleString()}
           </p>
         </div>
         {cartProducts.length === 0 || totalAmount === 0 ? (

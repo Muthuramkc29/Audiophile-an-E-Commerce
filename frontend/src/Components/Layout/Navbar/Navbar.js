@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 function Navbar() {
   const navMenu = useSelector((state) => state.user.navMenu);
   const cartMenu = useSelector((state) => state.user.cartMenu);
+  const cartProducts = useSelector((state) => state.user.cartProducts);
   const dispatch = useDispatch();
 
   return (
@@ -68,7 +69,7 @@ function Navbar() {
               EARPHONES
             </Link>
           </div>
-          <div>
+          <div className="flex relative">
             <img
               className="cursor-pointer"
               onClick={() => {
@@ -80,6 +81,14 @@ function Navbar() {
               src={cartIcon}
               alt="cart-icon"
             />
+            <div
+              className={`bg-[#D87D4A] text-center rounded-full absolute left-4 bottom-3 pointer-events-none ${
+                cartProducts.length === 0 ? "hidden" : ""
+              }`}
+              style={{ width: "23px", height: "23px", fontSize: "16px" }}
+            >
+              {cartProducts.length}
+            </div>
           </div>
         </div>
       </div>
