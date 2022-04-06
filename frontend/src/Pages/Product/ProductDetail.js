@@ -82,6 +82,7 @@ function ProductDetail() {
         },
       ])
     );
+
     // }
     console.log(cartProducts);
   };

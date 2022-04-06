@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   // setCartProducts,
   // setSummaryItems,
+  // setCartProducts,
+  // setSummaryItems,
   setTotalAmount,
 } from "../../redux/reducers/userReducers";
 // import { useSelector } from "react-redux";
 
-function CartItem({ product }) {
+function CartItem({ product, setSummaryProductsFn }) {
   const [count, setCount] = useState(0);
   const prodPrice = parseInt(product.productPrice.split(",").join(""));
   const [price, setPrice] = useState(prodPrice);
@@ -15,21 +17,21 @@ function CartItem({ product }) {
   // console.log(cartProducts);
   const dispatch = useDispatch();
   const totalAmount = useSelector((state) => state.user.totalAmount);
+  const newProduct = { ...product, count: count };
 
   useEffect(() => {
     setPrice(count === 0 ? prodPrice : prodPrice * count);
-    // dispatch(setTotalAmount(count * prodPrice));
     // dispatch(
-    //   setSummaryItems([
-    //     ...summaryItems,
-    //     {
-    //       img: product.img,
-    //       productName: product.productName,
-    //       price: prodPrice,
-    //     },
-    //   ])
+    //   setCartProducts(
+    //     cartProducts.map((item) => {
+    //       return item.productName === product.productName ? newProduct : item;
+    //     })
+    //   )
     // );
-  }, [count, prodPrice]);
+    // setSummaryProductsFn(newProduct);
+  }, [count, prodPrice, product]);
+  console.log(newProduct);
+  console.log(count);
 
   return (
     <div>
@@ -62,14 +64,14 @@ function CartItem({ product }) {
               if (count !== 0) {
                 dispatch(setTotalAmount(totalAmount - prodPrice));
               }
+              setSummaryProductsFn({ ...product, count: count - 1 });
             }}
           >
             -
           </button>
           <p
           // onChange={(e) => {
-          //   console.log(e);
-          //   // setCount(e.target.value);
+          //   setSummaryProductsFn({ ...product, count: e.target.value });
           // }}
           >
             {count}
@@ -80,6 +82,7 @@ function CartItem({ product }) {
                 prevState === 8 ? prevState : prevState + 1
               );
               dispatch(setTotalAmount(totalAmount + prodPrice));
+              setSummaryProductsFn({ ...product, count: count + 1 });
             }}
           >
             +

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 // import { setCartProducts } from "../../../redux/reducers/userReducers";
 // import img from "../../../Images/image-product-xx991.jpg";
 // import imgtab from "../../../Images/image-product-suggestion-tablet.jpg";
@@ -12,7 +12,7 @@ function ProductDetailsFlex({ product, render }) {
     setAdded(false);
   }, [product.nameProduct]);
   // const product = useSelector((state) => state.user.individualProduct);
-  // const cartProducts = useSelector((state) => state.user.cartProducts);
+  const cartProducts = useSelector((state) => state.user.cartProducts);
   // const dispatch = useDispatch();
 
   return (
@@ -88,7 +88,7 @@ function ProductDetailsFlex({ product, render }) {
                 +
               </button>
             </div> */}
-            {!added ? (
+            {!added || cartProducts.length === 0 ? (
               <div
                 onClick={(e) => {
                   render(

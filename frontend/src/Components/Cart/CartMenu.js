@@ -19,7 +19,7 @@ function CartMenu() {
   const cartProducts = useSelector((state) => state.user.cartProducts);
   const summaryItems = useSelector((state) => state.user.summaryItems);
   const totalAmount = useSelector((state) => state.user.totalAmount);
-  console.log(cartProducts);
+  // console.log(cartProducts);
 
   const dispatch = useDispatch();
   const setTotal = (price) => {
@@ -29,6 +29,27 @@ function CartMenu() {
   useEffect(() => {
     dispatch(setTotalAmount(0));
   }, [dispatch]);
+
+  useEffect(() => {
+    window.localStorage.setItem("totalAmount", JSON.stringify(totalAmount));
+  }, [totalAmount]);
+
+  useEffect(() => {
+    window.localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  }, [cartProducts]);
+
+  const setSummaryProductsFn = (newProduct) => {
+    dispatch(
+      setCartProducts(
+        cartProducts.map((item) => {
+          return item.productName === newProduct.productName
+            ? newProduct
+            : item;
+        })
+      )
+    );
+    console.log(cartProducts);
+  };
 
   return (
     <div className="w-full">
@@ -64,6 +85,7 @@ function CartMenu() {
               <CartItem
                 product={product}
                 setTotal={setTotal}
+                setSummaryProductsFn={setSummaryProductsFn}
                 // count={count}
                 // setCount={setCount}
                 // price={price}

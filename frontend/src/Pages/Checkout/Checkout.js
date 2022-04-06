@@ -6,19 +6,14 @@ import SummaryItem from "../../Components/SummaryItem/SummaryItem";
 // import summaryItemImg1 from "../../Images/image-product-xx59.jpg";
 // import summaryItemImg2 from "../../Images/image-product-earphone.jpg";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setPaymentModal } from "../../redux/reducers/userReducers";
 
 function Checkout() {
   const dispatch = useDispatch();
-  const totalAmount = useSelector((state) => state.user.totalAmount);
+  // const totalAmount = useSelector((state) => state.user.totalAmount);
 
-  // useEffect(() => {
-  //   // document.location.reload();
-  //   window.onload = function () {
-  //     window.location.reload();
-  //   };
-  // }, []);
+  const total = JSON.parse(localStorage.getItem("totalAmount"));
 
   return (
     <div className="bg-[#F2F2F2] px-6 md:px-12 xl:px-40">
@@ -98,12 +93,7 @@ function Checkout() {
           <div className="bg-white px-5 py-4 rounded-md">
             <h1 className="uppercase font-bold text-2xl ">Summary</h1>
             <div className="py-4">
-              <SummaryItem
-              // img={summaryItemImg}
-              // prodName="XX99 MK II"
-              // price="$ 2,999"
-              // count="x1"
-              />
+              <SummaryItem />
               {/* <SummaryItem
                 img={summaryItemImg1}
                 prodName="XX59"
@@ -125,7 +115,7 @@ function Checkout() {
                 Total
               </p>
               <p className="uppercase font-bold" style={{ fontSize: "18px" }}>
-                $ {totalAmount}
+                $ {total}
               </p>
             </div>
             <div className="flex justify-between items-center py-2">
@@ -147,7 +137,7 @@ function Checkout() {
                 VAT (INCLUDED)
               </p>
               <p className="uppercase font-bold" style={{ fontSize: "18px" }}>
-                $ {((totalAmount * 18) / 100).toFixed(0)}
+                $ {((total * 18) / 100).toFixed(0)}
               </p>
             </div>
             <div className="flex justify-between items-center py-2">
@@ -161,7 +151,7 @@ function Checkout() {
                 className="uppercase font-bold text-[#D87D4A]"
                 style={{ fontSize: "18px" }}
               >
-                $ {(totalAmount + 50 + (totalAmount * 18) / 100).toFixed(0)}
+                $ {(total + 50 + (total * 18) / 100).toFixed(0)}
               </p>
             </div>
             <div

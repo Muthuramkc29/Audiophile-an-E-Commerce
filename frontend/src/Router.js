@@ -46,6 +46,10 @@ function Router() {
     window.scrollTo(0, 0);
   }, [paymentModal]);
 
+  window.onbeforeunload = function () {
+    return "Are you sure you want to navigate away?";
+  };
+
   return (
     <div>
       <BrowserRouter>

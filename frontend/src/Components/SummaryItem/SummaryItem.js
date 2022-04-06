@@ -4,10 +4,11 @@ import { useSelector } from "react-redux";
 
 function SummaryItem() {
   const cartProducts = useSelector((state) => state.user.cartProducts);
+  const summaryProducts = JSON.parse(localStorage.getItem("cartProducts"));
   console.log(cartProducts);
   return (
     <div>
-      {cartProducts.map((product, index) => (
+      {summaryProducts.map((product, index) => (
         <div key={index} className="my-4 flex justify-between items-center">
           <div className="flex items-center gap-4">
             <div>
@@ -29,9 +30,9 @@ function SummaryItem() {
               </p>
             </div>
           </div>
-          {/* <div>
-            <p className="mr-4">{product.count}</p>
-          </div> */}
+          <div>
+            <p className="mr-4">x{product.count}</p>
+          </div>
         </div>
       ))}
     </div>

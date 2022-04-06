@@ -27,6 +27,7 @@ import api from "../../api/axiosConfig";
 function App() {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.user.products);
+  // const cartProducts = useSelector((state) => state.user.cartProducts);
 
   useEffect(() => {
     const retrieveProducts = async () => {
@@ -43,6 +44,10 @@ function App() {
       behavior: "smooth",
     });
   }, [dispatch]);
+
+  // useEffect(() => {
+  //   window.localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  // }, [cartProducts]);
 
   console.log(products);
 
