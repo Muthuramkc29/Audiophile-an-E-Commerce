@@ -97,14 +97,19 @@ function CartMenu() {
           <CartItem img={yx1} prodName="YX1" price="$ 599" /> */}
         </div>
 
-        <div className="flex justify-between pb-5 mx-1">
+        <div className="flex justify-between pb-6 pt-3 mx-4">
           <p
             className="font-bold uppercase text-black opacity-50"
-            style={{ fontSize: "15px" }}
+            style={{ fontSize: "15px", marginTop: "2px" }}
           >
             Total
           </p>
-          <p>${totalAmount}</p>
+          <p
+            className="text-lg font-bold uppercase"
+            style={{ letterSpacing: "0.32345px" }}
+          >
+            ${totalAmount}
+          </p>
         </div>
         {cartProducts.length === 0 || totalAmount === 0 ? (
           <div className="flex justify-center w-full">

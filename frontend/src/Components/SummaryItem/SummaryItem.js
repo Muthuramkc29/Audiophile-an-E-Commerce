@@ -10,10 +10,11 @@ function SummaryItem() {
     <div>
       {summaryProducts.map((product, index) => (
         <div key={index} className="my-4 flex justify-between items-center">
-          <div className="flex items-center gap-4">
-            <div>
+          <div className="flex items-center" style={{ maxWidth: "80%" }}>
+            <div className=" mr-3" style={{ width: "64px" }}>
               <img
-                className="w-16 h-16 rounded-md object-fit"
+                style={{ width: "64px" }}
+                className="w-full rounded-md object-fit"
                 src={product.img}
                 alt="img"
               />

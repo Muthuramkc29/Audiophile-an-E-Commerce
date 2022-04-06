@@ -47,10 +47,17 @@ function CartItem({ product, setSummaryProductsFn }) {
             />
           </div>
           <div>
-            <p className="font-bold" style={{ fontSize: "15px" }}>
+            <p
+              className="text-[#000000] font-bold"
+              style={{ fontSize: "15px" }}
+            >
               {product.productName}
             </p>
-            <p className="text-black opacity-50" style={{ fontSize: "13px" }}>
+            <p
+              className="text-black opacity-50"
+              style={{ fontSize: "13px", letterSpacing: "0.32345px" }}
+            >
+              <span className="mr-1">$</span>
               {price}
             </p>
           </div>
