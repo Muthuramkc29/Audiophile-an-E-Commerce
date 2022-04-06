@@ -15,22 +15,38 @@ function Footer() {
               <img src={logo} alt="logo" />
             </div>
             <div className="flex flex-col items-center gap-5 md:flex-row">
-              <Link style={{ fontSize: "13px" }} to="/">
+              <Link
+                className="hover:text-[#D87D4A]"
+                style={{ fontSize: "13px" }}
+                to="/"
+              >
                 {/* <a href="/"> */}
                 HOME
                 {/* </a> */}
               </Link>
-              <Link style={{ fontSize: "13px" }} to="/headphones">
+              <Link
+                className="hover:text-[#D87D4A]"
+                style={{ fontSize: "13px" }}
+                to="/headphones"
+              >
                 {/* <a style={{ fontSize: "13px" }} href="/"> */}
                 HEADPHONES
                 {/* </a> */}
               </Link>
-              <Link style={{ fontSize: "13px" }} to="/speakers">
+              <Link
+                className="hover:text-[#D87D4A]"
+                style={{ fontSize: "13px" }}
+                to="/speakers"
+              >
                 {/* <a style={{ fontSize: "13px" }} href="/"> */}
                 SPEAKERS
                 {/* </a> */}
               </Link>
-              <Link style={{ fontSize: "13px" }} to="/earphones">
+              <Link
+                className="hover:text-[#D87D4A]"
+                style={{ fontSize: "13px" }}
+                to="/earphones"
+              >
                 {/* <a style={{ fontSize: "13px" }} href="/"> */}
                 EARPHONES
                 {/* </a> */}

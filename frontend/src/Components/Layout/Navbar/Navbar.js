@@ -40,28 +40,28 @@ function Navbar() {
           </div>
           <div className="hidden lg:block lg:mr-3">
             <Link
-              className="font-normal p-2 mr-2"
+              className="font-normal p-2 mr-2 hover:text-[#D87D4A]"
               style={{ fontSize: "11px", letterSpacing: "2px" }}
               to="/"
             >
               HOME
             </Link>
             <Link
-              className="p-2 mr-2"
+              className="p-2 mr-2 hover:text-[#D87D4A]"
               to="/headphones"
               style={{ fontSize: "11px", letterSpacing: "2px" }}
             >
               HEADPHONES
             </Link>
             <Link
-              className="p-2 mr-2"
+              className="p-2 mr-2 hover:text-[#D87D4A] "
               to="/speakers"
               style={{ fontSize: "11px", letterSpacing: "2px" }}
             >
               SPEAKERS
             </Link>
             <Link
-              className="p-2 mr-3"
+              className="p-2 mr-3 hover:text-[#D87D4A]"
               to="/earphones"
               style={{ fontSize: "11px", letterSpacing: "2px" }}
             >
