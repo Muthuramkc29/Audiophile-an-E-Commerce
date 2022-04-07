@@ -56,6 +56,7 @@ function CartItem({ product, setSummaryProductsFn }) {
         </div>
         <div className="flex justify-evenly items-center gap-4 bg-[#F1F1F1] px-3 py-1">
           <button
+            disabled={count === 0 ? "true" : ""}
             onClick={() => {
               setCount((prevState) =>
                 prevState === 0 ? prevState : prevState - 1
@@ -76,11 +77,14 @@ function CartItem({ product, setSummaryProductsFn }) {
             {count}
           </p>
           <button
+            disabled={count === 8 ? "true" : ""}
             onClick={() => {
               setCount((prevState) =>
                 prevState === 8 ? prevState : prevState + 1
               );
-              dispatch(setTotalAmount(totalAmount + prodPrice));
+              if (count !== 8) {
+                dispatch(setTotalAmount(totalAmount + prodPrice));
+              }
               setSummaryProductsFn({ ...product, count: count + 1 });
             }}
           >
