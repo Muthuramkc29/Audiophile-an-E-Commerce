@@ -20,12 +20,14 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { setCartProducts } from "../../redux/reducers/userReducers";
+import { useNavigate } from "react-router-dom";
 
 function ProductDetail() {
   const dispatch = useDispatch();
   const [count, setCount] = useState(0);
   const cartProducts = useSelector((state) => state.user.cartProducts);
   let params = useParams();
+  let navigate = useNavigate();
 
   useEffect(() => {
     window.scroll({
@@ -47,30 +49,37 @@ function ProductDetail() {
 
   // console.log(product);
 
-  // useEffect(() => {
-  //   window.localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
-  // }, [cartProducts]);
-
   const render = (image, name, productPrice) => {
-    // if (name in cartProducts) {
-    // for (var i = 0; i < cartProducts.length; i++) {
-    //     if (cartProducts[i].productName === name) {
-    //       cartProducts[i] = { ...cartProducts[i], count: cartProducts[i]["count"] + 1 };
+    let arr = [];
+
+    for (var i = 0; i < cartProducts.length; i++) {
+      arr.push(cartProducts[i].productName);
+    }
+
+    if (!arr.includes(name)) {
+      dispatch(
+        setCartProducts([
+          ...cartProducts,
+          {
+            img: image,
+            productName: name,
+            productPrice: productPrice,
+            count: 1,
+          },
+        ])
+      );
+    }
+    // else {
+    //   for (var j = 0; j < cartProducts.length; j++) {
+    //     if (cartProducts[j].productName === name) {
+    //       cartProducts[j] = {
+    //         ...cartProducts[j],
+    //         count: cartProducts[j]["count"] + 1,
+    //       };
+    //       console.log(cartProducts[j]);
     //       break;
     //     }
     //   }
-    // } else {
-    dispatch(
-      setCartProducts([
-        ...cartProducts,
-        {
-          img: image,
-          productName: name,
-          productPrice: productPrice,
-          count: 1,
-        },
-      ])
-    );
     // }
 
     console.log(cartProducts);
@@ -82,15 +91,15 @@ function ProductDetail() {
 
   return (
     <div>
-      <div className="px-6 md:px-12 xl:px-40 mt-8 xl:mt-16">
-        {/* <div className="my-8">
+      <div className="px-6 md:px-12 xl:px-40 mt-8 xl:mt-14">
+        <div className="mb-8 mt-4">
           <p
-            onClick={() => this.props.history.goBack()}
+            onClick={() => navigate(-1)}
             className="text-black opacity-50 cursor-pointer"
           >
             Go Back
           </p>
-        </div> */}
+        </div>
 
         <ProductDetailsFlex
           product={product}

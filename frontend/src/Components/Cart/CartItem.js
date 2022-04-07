@@ -71,6 +71,7 @@ function CartItem({ product, setSummaryProductsFn, setCountLocal }) {
         </div>
         <div className="flex justify-evenly items-center gap-4 bg-[#F1F1F1] px-3 py-1">
           <button
+            className="hover:text-[#D87D4A]"
             disabled={count === 0 ? "true" : ""}
             onClick={() => {
               setCount((prevState) =>
@@ -88,10 +89,12 @@ function CartItem({ product, setSummaryProductsFn, setCountLocal }) {
             onChange={(e) => {
               // setSummaryProductsFn({ ...product, count: e.target.value });
             }}
+            className="font-bold"
           >
             {count}
           </p>
           <button
+            className="hover:text-[#D87D4A]"
             disabled={count === 8 ? "true" : ""}
             onClick={() => {
               setCount((prevState) =>

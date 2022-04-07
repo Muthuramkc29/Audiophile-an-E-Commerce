@@ -15,7 +15,7 @@ function CategoryFlex({ products }) {
   return (
     <div>
       {loading ? (
-        <div className="flex justify-center">
+        <div className="flex justify-center mb-16 mt-24">
           <div className="flex flex-col justify-center items-center gap-4">
             <p>Loading Products...</p>
             <ScaleLoader

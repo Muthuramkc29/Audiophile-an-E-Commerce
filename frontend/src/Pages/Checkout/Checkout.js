@@ -3,9 +3,6 @@ import Button from "../../Components/Button/Button";
 import Input from "../../Components/Input/Input";
 import SummaryItem from "../../Components/SummaryItem/SummaryItem";
 // import { useNavigate } from "react-router-dom";
-// import summaryItemImg from "../../Images/image-product.jpg";
-// import summaryItemImg1 from "../../Images/image-product-xx59.jpg";
-// import summaryItemImg2 from "../../Images/image-product-earphone.jpg";
 
 import { useDispatch } from "react-redux";
 import { setPaymentModal } from "../../redux/reducers/userReducers";
@@ -13,7 +10,6 @@ import { setPaymentModal } from "../../redux/reducers/userReducers";
 function Checkout() {
   const dispatch = useDispatch();
   // const navigate = useNavigate();
-  // const totalAmount = useSelector((state) => state.user.totalAmount);
 
   const total = JSON.parse(localStorage.getItem("totalAmount"));
 
@@ -22,9 +18,10 @@ function Checkout() {
       <p
         className="pt-6 pb-5 text-black opacity-50 cursor-pointer"
         style={{ fontSize: "15px" }}
-        //   onClick={() => {
-        //     navigate(-1);
-        //   }}
+        // onClick={() => {
+
+        //   navigate(-1);
+        // }}
       >
         {/* Go Back */}
       </p>
@@ -99,18 +96,6 @@ function Checkout() {
             <h1 className="uppercase font-bold text-2xl ">Summary</h1>
             <div className="py-4">
               <SummaryItem />
-              {/* <SummaryItem
-                img={summaryItemImg1}
-                prodName="XX59"
-                price="$ 899"
-                count="x2"
-              />
-              <SummaryItem
-                img={summaryItemImg2}
-                prodName="YX1"
-                price="$ 599"
-                count="x1"
-              /> */}
             </div>
             <div className="flex justify-between items-center py-2">
               <p

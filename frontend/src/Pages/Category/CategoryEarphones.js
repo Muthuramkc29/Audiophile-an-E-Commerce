@@ -32,12 +32,15 @@ function CategoryEarphones() {
       dispatch(setProducts(response.data));
     };
     retriveEarphones();
+  }, [dispatch]);
+
+  useEffect(() => {
     window.scroll({
       top: 0,
       left: 0,
       behavior: "smooth",
     });
-  }, [dispatch]);
+  });
 
   console.log(products);
 

@@ -3,20 +3,12 @@ import CategoryFlex from "../../Components/Category/CategoryFlex/CategoryFlex";
 import CategoryHeader from "../../Components/Category/CategoryHeader/CategoryHeader";
 import AboveFooterFlex from "../../Components/Layout/AboveFooterFlex/AboveFooterFlex";
 
-// For Category Flex
-// import speakerProd from "../../Images/image-product-speaker-zx9.jpg";
-// import speakerProdTablet from "../../Images/image-product-speakers-zx9-tablet.jpg";
-// import speakerProdDesktop from "../../Images/image-product-speakers-zx9-desktop.jpg";
-
-// import speakerzx7Prod from "../../Images/image-product-speakers-zx7.jpg";
-// import speakerzx7ProdTablet from "../../Images/image-product-speakers-zx7-tablet.jpg";
-// import speakerzx7ProdDesktop from "../../Images/image-product-speakers-zx7-desktop.jpg";
-
 // For CategoryCard
 import headphone from "../../Images/image-category-thumbnail-headphones.png";
 import speaker from "../../Images/image-category-thumbnail-speakers.png";
 import earphoneCategory from "../../Images/image-category-thumbnail-earphones.png";
 import CategoryCard from "../../Components/Category/CategoryCard/CategoryCard";
+
 import { useDispatch, useSelector } from "react-redux";
 import api from "../../api/axiosConfig";
 import { setLoading, setProducts } from "../../redux/reducers/userReducers";
@@ -36,12 +28,15 @@ function CategorySpeakers() {
       dispatch(setProducts(response.data));
     };
     retriveEarphones();
+  }, [dispatch]);
+
+  useEffect(() => {
     window.scroll({
       top: 0,
       left: 0,
       behavior: "smooth",
     });
-  }, [dispatch]);
+  });
 
   console.log(products);
 
