@@ -12,7 +12,7 @@ function Button({ bgcolor, color, hover, name, disabled, hoverColor }) {
         } py-3 ${hover} ${hoverColor} ${
           disabled === "true" ? "pointer-events-none opacity-50" : ""
         }`}
-        style={{ width: "160px" }}
+        style={{ width: "175px" }}
       >
         {name}
       </button>

@@ -2,16 +2,20 @@ import React from "react";
 import Button from "../../Components/Button/Button";
 import Input from "../../Components/Input/Input";
 import SummaryItem from "../../Components/SummaryItem/SummaryItem";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 import { setPaymentModal } from "../../redux/reducers/userReducers";
+// import { Link } from "react-router-dom";
 
 function Checkout() {
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const total = JSON.parse(localStorage.getItem("totalAmount"));
+  const grandTotal = parseInt(
+    (total + 50 + (total * 18) / 100).toFixed(0)
+  ).toLocaleString();
 
   return (
     <div className="bg-[#F2F2F2] px-6 md:px-12 xl:px-40">
@@ -94,73 +98,111 @@ function Checkout() {
         <div className="py-6 pb-8 xl:w-4/12 lg:w-2/6 lg:py-0 xl:py-0">
           <div className="bg-white px-5 py-4 rounded-md">
             <h1 className="uppercase font-bold text-2xl ">Summary</h1>
-            <div className="py-4">
-              <SummaryItem />
-            </div>
-            <div className="flex justify-between items-center py-2">
-              <p
-                className="uppercase text-black opacity-50"
-                style={{ fontSize: "15px" }}
+            {grandTotal === "50" ? (
+              <div
+                className="flex flex-col justify-center items-center gap-5 py-5"
+                onClick={() => {
+                  navigate("/");
+                }}
               >
-                Total
-              </p>
-              <p className="uppercase font-bold" style={{ fontSize: "18px" }}>
-                $ {total.toLocaleString()}
-              </p>
-            </div>
-            <div className="flex justify-between items-center py-2">
-              <p
-                className="uppercase text-black opacity-50"
-                style={{ fontSize: "15px" }}
-              >
-                SHIPPING
-              </p>
-              <p className="uppercase font-bold" style={{ fontSize: "18px" }}>
-                $ 50
-              </p>
-            </div>
-            <div className="flex justify-between items-center py-2">
-              <p
-                className="uppercase text-black opacity-50"
-                style={{ fontSize: "15px" }}
-              >
-                VAT (INCLUDED)
-              </p>
-              <p className="uppercase font-bold" style={{ fontSize: "18px" }}>
-                $ {parseInt(((total * 18) / 100).toFixed(0)).toLocaleString()}
-              </p>
-            </div>
-            <div className="flex justify-between items-center py-2">
-              <p
-                className="uppercase text-black opacity-50"
-                style={{ fontSize: "15px" }}
-              >
-                Grand Total
-              </p>
-              <p
-                className="uppercase font-bold text-[#D87D4A]"
-                style={{ fontSize: "18px" }}
-              >
-                ${" "}
-                {parseInt(
-                  (total + 50 + (total * 18) / 100).toFixed(0)
-                ).toLocaleString()}
-              </p>
-            </div>
-            <div
-              className="flex justify-center items-center py-5"
-              onClick={() => {
-                dispatch(setPaymentModal(true));
-              }}
-            >
-              <Button
-                bgcolor="#D87D4A"
-                color="white"
-                name="Continue & Pay"
-                width="w-full"
-                hover="hover:bg-[#fbaf85]"
-              />
-            </div>
+                <iframe
+                  title="random gif"
+                  src="https://giphy.com/embed/nKERd2uhn8hhe"
+                  width="240"
+                  height="180"
+                  // style="pointer-events: none; border: 0px;"
+                ></iframe>
+
+                <Button
+                  bgcolor="#000000"
+                  color="white"
+                  name="Back to Purchase"
+                  width="w-full"
+                  hover="hover:bg-[#000000]"
+                />
+              </div>
+            ) : (
+              <div>
+                <div className="py-4">
+                  <SummaryItem />
+                </div>
+                <div className="flex justify-between items-center py-2">
+                  <p
+                    className="uppercase text-black opacity-50"
+                    style={{ fontSize: "15px" }}
+                  >
+                    Total
+                  </p>
+                  <p
+                    className="uppercase font-bold"
+                    style={{ fontSize: "18px" }}
+                  >
+                    $ {total.toLocaleString()}
+                  </p>
+                </div>
+                <div className="flex justify-between items-center py-2">
+                  <p
+                    className="uppercase text-black opacity-50"
+                    style={{ fontSize: "15px" }}
+                  >
+                    SHIPPING
+                  </p>
+                  <p
+                    className="uppercase font-bold"
+                    style={{ fontSize: "18px" }}
+                  >
+                    $ 50
+                  </p>
+                </div>
+                <div className="flex justify-between items-center py-2">
+                  <p
+                    className="uppercase text-black opacity-50"
+                    style={{ fontSize: "15px" }}
+                  >
+                    VAT (INCLUDED)
+                  </p>
+                  <p
+                    className="uppercase font-bold"
+                    style={{ fontSize: "18px" }}
+                  >
+                    ${" "}
+                    {parseInt(((total * 18) / 100).toFixed(0)).toLocaleString()}
+                  </p>
+                </div>
+                <div className="flex justify-between items-center py-2">
+                  <p
+                    className="uppercase text-black opacity-50"
+                    style={{ fontSize: "15px" }}
+                  >
+                    Grand Total
+                  </p>
+                  <p
+                    className="uppercase font-bold text-[#D87D4A]"
+                    style={{ fontSize: "18px" }}
+                  >
+                    ${" "}
+                    {parseInt(
+                      (total + 50 + (total * 8) / 100).toFixed(0)
+                    ).toLocaleString()}
+                  </p>
+                </div>
+
+                <div
+                  className="flex justify-center items-center py-5"
+                  onClick={() => {
+                    dispatch(setPaymentModal(true));
+                  }}
+                >
+                  <Button
+                    bgcolor="#D87D4A"
+                    color="white"
+                    name="Continue & Pay"
+                    width="w-full"
+                    hover="hover:bg-[#fbaf85]"
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>

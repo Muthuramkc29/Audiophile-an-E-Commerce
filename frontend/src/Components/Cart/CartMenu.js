@@ -27,7 +27,8 @@ function CartMenu() {
     let sum = 0;
     for (let i = 0; i < cartProducts.length; i++) {
       let price = parseInt(cartProducts[i].productPrice.replace(/,/g, ""));
-      sum += price;
+      let count = cartProducts[i].count;
+      sum += count * price;
     }
     return sum;
   };
@@ -80,10 +81,10 @@ function CartMenu() {
 
   return (
     <div className="w-full">
-      <div className="py-6 px-4">
+      <div className="py-6 px-4 xl:px-7">
         <div className="bg-white flex justify-between items-center">
-          <p>
-            Cart <span></span>
+          <p className="font-bold">
+            Cart <span>({cartProducts.length})</span>
           </p>
           <p
             className="text-black opacity-50 hover:text-[#D87D4A] hover:opacity-100 underline mt-1 cursor-pointer"
@@ -113,15 +114,9 @@ function CartMenu() {
                 product={product}
                 setSummaryProductsFn={setSummaryProductsFn}
                 setCountLocal={setCountLocal}
-                // count={count}
-                // setCount={setCount}
-                // price={price}
-                // setPrice={setPrice}
               />
             </div>
           ))}
-          {/* <CartItem img={xx59} prodName="XX59" price="$ 899" />
-          <CartItem img={yx1} prodName="YX1" price="$ 599" /> */}
         </div>
 
         <div className="flex justify-between pb-6 pt-3 mx-4">
@@ -142,10 +137,10 @@ function CartMenu() {
           <div className="flex justify-center w-full">
             {/* <div> */}
             <Button
-              bgcolor="#D87D4A"
+              bgcolor="#000000"
               color="white"
-              name="Checkout"
-              disabled="true"
+              name="No items added"
+              hover="hover:bg-[#000000]"
             />
             {/* </div> */}
           </div>
@@ -155,8 +150,6 @@ function CartMenu() {
               to="/checkout"
               onClick={() => {
                 dispatch(setCartMenu(false));
-                // dispatch(setSummaryItems(cartProducts));
-                // console.log(summaryItems);
               }}
             >
               <Button
