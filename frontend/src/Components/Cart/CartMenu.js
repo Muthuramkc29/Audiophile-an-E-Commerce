@@ -22,21 +22,30 @@ function CartMenu() {
   // console.log(cartProducts);
 
   const dispatch = useDispatch();
-  const setTotal = (price) => {
-    dispatch(setTotalAmount(totalAmount + price));
+
+  const setTotalMount = () => {
+    let sum = 0;
+    for (let i = 0; i < cartProducts.length; i++) {
+      let price = parseInt(cartProducts[i].productPrice.replace(/,/g, ""));
+      sum += price;
+    }
+    return sum;
   };
 
+  const sum = setTotalMount();
+  console.log(sum);
+
   useEffect(() => {
-    dispatch(setTotalAmount(0));
-  }, [dispatch]);
+    dispatch(setTotalAmount(sum));
+  }, [dispatch, sum]);
 
   useEffect(() => {
     window.localStorage.setItem("totalAmount", JSON.stringify(totalAmount));
   }, [totalAmount]);
 
-  useEffect(() => {
-    window.localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
-  }, [cartProducts]);
+  // useEffect(() => {
+  //   window.localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  // }, [cartProducts]);
 
   const setSummaryProductsFn = (newProduct) => {
     dispatch(
@@ -50,6 +59,24 @@ function CartMenu() {
     );
     console.log(cartProducts);
   };
+
+  const setCountLocal = (product, count) => {
+    const oldCountObjs = JSON.parse(localStorage.getItem("cartProducts"));
+    for (var i = 0; i < oldCountObjs.length; i++) {
+      if (i.productName === product.productName) {
+        //look for match with name
+        i = { ...i, count: count }; //add two
+        break; //exit loop since you found the person
+      }
+    }
+    localStorage.setItem("cartProducts", JSON.stringify(oldCountObjs));
+    console.log(cartProducts);
+  };
+
+  // useEffect(() => {
+  //   const cartProductsLocal = JSON.parse(localStorage.getItem("cartProducts"));
+  //   dispatch(setCartProducts(cartProductsLocal));
+  // }, [dispatch]);
 
   return (
     <div className="w-full">
@@ -84,8 +111,8 @@ function CartMenu() {
             <div key={index}>
               <CartItem
                 product={product}
-                setTotal={setTotal}
                 setSummaryProductsFn={setSummaryProductsFn}
+                setCountLocal={setCountLocal}
                 // count={count}
                 // setCount={setCount}
                 // price={price}

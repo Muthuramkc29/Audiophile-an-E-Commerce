@@ -19,38 +19,21 @@ import ProductDetailsFlex from "../../Components/Product/ProductDetailsFlex/Prod
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import api from "../../api/axiosConfig";
-import {
-  setCartProducts,
-  // setIndividualProduct,
-  setProducts,
-} from "../../redux/reducers/userReducers";
+import { setCartProducts } from "../../redux/reducers/userReducers";
 
 function ProductDetail() {
   const dispatch = useDispatch();
-  // const products = useSelector((state) => state.user.products);
   const [count, setCount] = useState(0);
   const cartProducts = useSelector((state) => state.user.cartProducts);
   let params = useParams();
 
   useEffect(() => {
-    const retrieveProducts = async () => {
-      const response = await api.get("products/");
-      console.log(response.data);
-      // window.localStorage.setItem("products", JSON.stringify(response.data));
-      dispatch(setProducts(response.data));
-    };
-    console.log("in useeffect");
-    retrieveProducts();
-    // window.scrollTo(0, 0);
     window.scroll({
       top: 0,
       left: 0,
       behavior: "smooth",
     });
-  }, [dispatch, params]);
-
-  // console.log(products);
+  }, [params]);
 
   const localProducts = JSON.parse(window.localStorage.getItem("products"));
 
@@ -61,16 +44,22 @@ function ProductDetail() {
   }
 
   let product = getProduct(params.productName);
-  // console.log(product);
 
-  // const product = dispatch(setIndividualProduct(product));
+  // console.log(product);
 
   // useEffect(() => {
   //   window.localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
   // }, [cartProducts]);
 
   const render = (image, name, productPrice) => {
-    // if (!(name in cartProducts.productName || cartProducts.length === 0)) {
+    // if (name in cartProducts) {
+    // for (var i = 0; i < cartProducts.length; i++) {
+    //     if (cartProducts[i].productName === name) {
+    //       cartProducts[i] = { ...cartProducts[i], count: cartProducts[i]["count"] + 1 };
+    //       break;
+    //     }
+    //   }
+    // } else {
     dispatch(
       setCartProducts([
         ...cartProducts,
@@ -78,14 +67,18 @@ function ProductDetail() {
           img: image,
           productName: name,
           productPrice: productPrice,
-          count: count,
+          count: 1,
         },
       ])
     );
-
     // }
+
     console.log(cartProducts);
   };
+
+  useEffect(() => {
+    window.localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  }, [cartProducts]);
 
   return (
     <div>

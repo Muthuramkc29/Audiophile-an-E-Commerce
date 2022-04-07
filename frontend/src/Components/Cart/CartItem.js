@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   // setCartProducts,
+  // setCartProducts,
   // setSummaryItems,
   // setCartProducts,
   // setSummaryItems,
@@ -9,21 +10,35 @@ import {
 } from "../../redux/reducers/userReducers";
 // import { useSelector } from "react-redux";
 
-function CartItem({ product, setSummaryProductsFn }) {
+function CartItem({ product, setSummaryProductsFn, setCountLocal }) {
   const [count, setCount] = useState(0);
   const prodPrice = parseInt(product.productPrice.split(",").join(""));
-  const [price, setPrice] = useState(prodPrice);
+  const price = prodPrice;
 
   const dispatch = useDispatch();
   const totalAmount = useSelector((state) => state.user.totalAmount);
-  const newProduct = { ...product, count: count };
+  // const cartProducts = useSelector((state) => state.user.cartProducts);
+  // const newProduct = { ...product, count: count };
+
+  // useEffect(() => {
+  //   // setCount(product.count);
+  //   setPrice(count === 0 ? prodPrice : prodPrice * count);
+  //   // window.localStorage.setItem(
+  //   //   "cartProducts",
+  //   //   JSON.stringify([...cartProducts, { ...product, count: count }])
+  //   // );
+  //   // setCartLocal(product, count);
+  //   // window.localStorage.setItem("count", count);
+  //   // window.localStorage.setItem("prodPrice", price);
+  // }, [count, prodPrice, product, setCartLocal]);
 
   useEffect(() => {
-    setPrice(count === 0 ? prodPrice : prodPrice * count);
-  }, [count, prodPrice]);
+    setCount(product.count);
+  }, [product.count]);
 
-  console.log(newProduct);
-  console.log(count);
+  useEffect(() => {
+    setCountLocal(count, product);
+  }, [count, setCountLocal, product]);
 
   return (
     <div>
@@ -70,9 +85,9 @@ function CartItem({ product, setSummaryProductsFn }) {
             -
           </button>
           <p
-          // onChange={(e) => {
-          //   setSummaryProductsFn({ ...product, count: e.target.value });
-          // }}
+            onChange={(e) => {
+              // setSummaryProductsFn({ ...product, count: e.target.value });
+            }}
           >
             {count}
           </p>

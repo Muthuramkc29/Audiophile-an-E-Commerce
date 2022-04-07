@@ -8,9 +8,7 @@ const userSlice = createSlice({
     paymentModal: false,
     products: [],
     cartProducts: [],
-    individualProduct: [],
     totalAmount: 0,
-    // summaryItems: [],
     loading: false,
   },
   reducers: {
@@ -29,15 +27,9 @@ const userSlice = createSlice({
     setCartProducts: (state, action) => {
       state.cartProducts = action.payload;
     },
-    setIndividualProduct: (state, action) => {
-      state.individualProduct = action.payload;
-    },
     setTotalAmount: (state, action) => {
       state.totalAmount = action.payload;
     },
-    // setSummaryItems: (state, action) => {
-    //   state.summaryItems = action.payload;
-    // },
     setLoading: (state, action) => {
       state.loading = action.payload;
     },
@@ -53,7 +45,6 @@ export const {
   setIndividualProduct,
   setTotalAmount,
   setCount,
-  // setSummaryItems,
   setLoading,
 } = userSlice.actions;
 
