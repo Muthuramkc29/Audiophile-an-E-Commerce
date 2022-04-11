@@ -17,10 +17,6 @@ function Checkout() {
     (total + 50 + (total * 18) / 100).toFixed(0)
   ).toLocaleString();
 
-  window.onbeforeunload = function () {
-    return "Are you sure you want to navigate away?";
-  };
-
   return (
     <div className="bg-[#F2F2F2] px-6 md:px-12 xl:px-40">
       <p
