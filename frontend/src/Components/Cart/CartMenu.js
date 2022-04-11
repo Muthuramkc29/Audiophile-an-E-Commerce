@@ -107,7 +107,7 @@ function CartMenu() {
           </div>
         )}
 
-        <div className="py-4 overflow-y-auto max-h-96 my-4 px-2">
+        <div className="py-4 overflow-y-auto max-h-96 my-2 px-2">
           {cartProducts.map((product, index) => (
             <div key={index}>
               <CartItem
