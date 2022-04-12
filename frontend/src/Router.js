@@ -88,9 +88,9 @@ function Router() {
 
         {cartMenu ? (
           <div
-            onClick={() => {
-              dispatch(setCartMenu(false));
-            }}
+            // onClick={() => {
+            //   dispatch(setCartMenu(false));
+            // }}
             className="bg-modal"
           >
             <div
