@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "../../Components/Button/Button";
 import Input from "../../Components/Input/Input";
 import SummaryItem from "../../Components/SummaryItem/SummaryItem";
@@ -11,11 +11,17 @@ import { setPaymentModal } from "../../redux/reducers/userReducers";
 function Checkout() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [data, setData] = useState(false);
 
   const total = JSON.parse(localStorage.getItem("totalAmount"));
   const grandTotal = parseInt(
     (total + 50 + (total * 18) / 100).toFixed(0)
   ).toLocaleString();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setData(true);
+  };
 
   return (
     <div className="bg-[#F2F2F2] px-6 md:px-12 xl:px-40">
@@ -31,69 +37,70 @@ function Checkout() {
       </p>
       <div className="pt-3 pb-12 lg:flex lg:gap-3 xl:gap-3 xl:flex xl:gap-4">
         <div className="bg-white px-5 py-4 rounded-md lg:w-4/6 xl:w-8/12">
-          <h1 className="uppercase font-bold text-2xl ">Checkout</h1>
-
-          <div className="pt-4">
-            <p
-              className="uppercase font-bold text-[#D87D4A] pt-3"
-              style={{ fontSize: "13px", letterSpacing: "0.928571px" }}
-            >
-              Billing Details
-            </p>
-            <div className="lg:flex lg:flex-wrap lg:gap-3 xl:flex xl:gap-4 xl:flex-wrap my-4">
-              <Input name="Name" placeholder="Alexei Ward" type="text" />
-              <Input
-                name="Email Address"
-                placeholder="alexei@mail.com"
-                type="email"
-              />
-              <Input
-                name="Phone Number"
-                placeholder="+1 202-555-0136"
-                type="text"
-              />
+          <form id="checkout-form" onSubmit={handleSubmit}>
+            <h1 className="uppercase font-bold text-2xl ">Checkout</h1>
+            <div className="pt-4">
+              <p
+                className="uppercase font-bold text-[#D87D4A] pt-3"
+                style={{ fontSize: "13px", letterSpacing: "0.928571px" }}
+              >
+                Billing Details
+              </p>
+              <div className="lg:flex lg:flex-wrap lg:gap-3 xl:flex xl:gap-4 xl:flex-wrap my-4">
+                <Input name="Name" placeholder="Alexei Ward" type="text" />
+                <Input
+                  name="Email Address"
+                  placeholder="alexei@mail.com"
+                  type="email"
+                />
+                <Input
+                  name="Phone Number"
+                  placeholder="+1 202-555-0136"
+                  type="number"
+                />
+              </div>
             </div>
-          </div>
-          <div className="pt-4">
-            <p
-              className="uppercase font-bold text-[#D87D4A] pt-3"
-              style={{ fontSize: "13px", letterSpacing: "0.928571px" }}
-            >
-              Shipping info
-            </p>
-            <div className="lg:flex lg:flex-wrap lg:gap-3 xl:flex xl:gap-4 xl:flex-wrap my-4">
-              <Input
-                name="Your Address"
-                placeholder="1137 Williams Avenue"
-                type="text"
-              />
-              <Input name="ZIP Code" placeholder="10001" type="text" />
-              <Input name="City" placeholder="New York" type="text" />
-              <Input name="Country" placeholder="United States" type="text" />
+            <div className="pt-4">
+              <p
+                className="uppercase font-bold text-[#D87D4A] pt-3"
+                style={{ fontSize: "13px", letterSpacing: "0.928571px" }}
+              >
+                Shipping info
+              </p>
+              <div className="lg:flex lg:flex-wrap lg:gap-3 xl:flex xl:gap-4 xl:flex-wrap my-4">
+                <Input
+                  name="Your Address"
+                  placeholder="1137 Williams Avenue"
+                  type="text"
+                />
+                <Input name="ZIP Code" placeholder="10001" type="number" />
+                <Input name="City" placeholder="New York" type="text" />
+                <Input name="Country" placeholder="United States" type="text" />
+              </div>
             </div>
-          </div>
-          <div>
-            <p
-              className="uppercase font-bold text-[#D87D4A] pt-3 pb-3"
-              style={{ fontSize: "12px", letterSpacing: "0.928571px" }}
-            >
-              Payment Details
-            </p>
-            <p
-              className="font-bold pt-2"
-              style={{ fontSize: "13px", letterSpacing: "-0.214286px" }}
-            >
-              Payment Method
-            </p>
-            <div className="lg:flex lg:flex-wrap lg:gap-3 xl:flex xl:gap-4 xl:flex-wrap my-4">
-              <Input
-                name="e-Money Number"
-                placeholder="238521993"
-                type="text"
-              />
-              <Input name="e-Money PIN" placeholder="6891" type="text" />
+            <div>
+              <p
+                className="uppercase font-bold text-[#D87D4A] pt-3 pb-3"
+                style={{ fontSize: "12px", letterSpacing: "0.928571px" }}
+              >
+                Payment Details
+              </p>
+              <p
+                className="font-bold pt-2"
+                style={{ fontSize: "13px", letterSpacing: "-0.214286px" }}
+              >
+                Payment Method
+              </p>
+              <div className="lg:flex lg:flex-wrap lg:gap-3 xl:flex xl:gap-4 xl:flex-wrap my-4">
+                <Input
+                  name="e-Money Number"
+                  placeholder="238521993"
+                  type="number"
+                />
+                <Input name="e-Money PIN" placeholder="6891" type="number" />
+              </div>
             </div>
-          </div>
+          </form>
         </div>
         <div className="py-6 pb-8 xl:w-4/12 lg:w-2/6 lg:py-0 xl:py-0">
           <div className="bg-white px-5 py-4 rounded-md">
@@ -112,7 +119,6 @@ function Checkout() {
                   height="180"
                   // style="pointer-events: none; border: 0px;"
                 ></iframe>
-
                 <Button
                   bgcolor="#000000"
                   color="white"
@@ -186,20 +192,28 @@ function Checkout() {
                     ).toLocaleString()}
                   </p>
                 </div>
-
                 <div
                   className="flex justify-center items-center py-5"
                   onClick={() => {
-                    dispatch(setPaymentModal(true));
+                    if (data === true) {
+                      dispatch(setPaymentModal(true));
+                    }
                   }}
                 >
-                  <Button
-                    bgcolor="#D87D4A"
-                    color="white"
-                    name="Continue & Pay"
-                    width="w-full"
-                    hover="hover:bg-[#fbaf85]"
-                  />
+                  {/* <Button
+                      bgcolor="#D87D4A"
+                      color="white"
+                      name="Continue & Pay"
+                      width="w-full"
+                      hover="hover:bg-[#fbaf85]"
+                    /> */}
+                  <button
+                    className="bg-[#D87D4A] text-white hover:bg-[#fbaf85] w-full p-3"
+                    form="checkout-form"
+                    type="submit"
+                  >
+                    Continue & Pay
+                  </button>
                 </div>
               </div>
             )}

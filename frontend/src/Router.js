@@ -19,7 +19,11 @@ import earphoneCategory from "./Images/image-category-thumbnail-earphones.png";
 
 import "./index.css";
 import CartMenu from "./Components/Cart/CartMenu";
-import { setPaymentModal } from "./redux/reducers/userReducers";
+import {
+  setCartMenu,
+  setNavMenu,
+  setPaymentModal,
+} from "./redux/reducers/userReducers";
 
 function Router() {
   const navMenu = useSelector((state) => state.user.navMenu);
@@ -55,7 +59,12 @@ function Router() {
       <BrowserRouter>
         <Navbar />
         {navMenu ? (
-          <div className="bg-modal">
+          <div
+            onClick={() => {
+              dispatch(setNavMenu(false));
+            }}
+            className="bg-modal"
+          >
             <div
               className={`fixed bg-white top-0 left-0 w-full h-fit mt-20 menu`}
               style={{ zIndex: 1 }}
@@ -78,7 +87,12 @@ function Router() {
         )}
 
         {cartMenu ? (
-          <div className="bg-modal">
+          <div
+            onClick={() => {
+              dispatch(setCartMenu(false));
+            }}
+            className="bg-modal"
+          >
             <div
               className="fixed bg-white top-0 right-0 mx-6 w-10/12 md:w-3/6 lg:w-2/6 mt-28 xl:mr-40 rounded-md"
               style={{ zIndex: 1 }}
@@ -91,7 +105,12 @@ function Router() {
         )}
 
         {paymentModal ? (
-          <div className="bg-modal px-6 md:px-12 xl:px-40">
+          <div
+            onClick={() => {
+              dispatch(setPaymentModal(false));
+            }}
+            className="bg-modal px-6 md:px-12 xl:px-40"
+          >
             <div className="mt-32 w-full md:w-3/4 lg:w-2/4 xl:w-3/6 mx-auto bg-white p-12">
               <div className="rounded-full bg-[#D87D4A] w-12 h-12 flex items-center justify-center">
                 <i
