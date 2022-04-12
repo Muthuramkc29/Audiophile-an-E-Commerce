@@ -72,15 +72,27 @@ function Footer() {
             </p>
           </div>
           <div className="flex flex-col md:flex-row md:w-full md:justify-between items-center gap-10">
-            <div>
-              <p style={{ fontSize: "15px", color: "gray" }}>
-                Copyright 2021. All Rights Reserved
+            <div className="w-60 md:w-full">
+              <p
+                className="mt-1 text-center md:text-left"
+                style={{ fontSize: "15px", color: "gray" }}
+              >
+                Challenge by{" "}
+                <span className="mx-1 text-blue-700 underline mt-1 block mr-2 md:inline-block">
+                  <a href="https://www.frontendmentor.io/challenges">
+                    Frontend Mentor
+                  </a>
+                </span>
+                Developed by{" "}
+                <span className="mx-1 mr-2 text-blue-700 underline mt-2">
+                  <a href="https://github.com/Muthuramkc29">Muthuram K C</a>
+                </span>
               </p>
             </div>
             <div className="flex gap-4">
-              <img src={fb} alt="" />
-              <img src={twitter} alt="" />
-              <img src={insta} alt="" />
+              <img src={fb} alt="fb" />
+              <img src={twitter} alt="twt" />
+              <img src={insta} alt="insta" />
             </div>
           </div>
         </div>

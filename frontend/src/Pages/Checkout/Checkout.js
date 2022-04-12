@@ -8,20 +8,33 @@ import { useDispatch } from "react-redux";
 import { setPaymentModal } from "../../redux/reducers/userReducers";
 // import { Link } from "react-router-dom";
 
+import { useForm } from "react-hook-form";
+
 function Checkout() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [data, setData] = useState(false);
+  const [data] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
   const total = JSON.parse(localStorage.getItem("totalAmount"));
   const grandTotal = parseInt(
     (total + 50 + (total * 18) / 100).toFixed(0)
   ).toLocaleString();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setData(true);
+  const onSubmit = (data) => {
+    console.log(data);
+    dispatch(setPaymentModal(true));
   };
+
+  console.log(watch());
+
+  console.log(errors);
 
   return (
     <div className="bg-[#F2F2F2] px-6 md:px-12 xl:px-40">
@@ -37,7 +50,7 @@ function Checkout() {
       </p>
       <div className="pt-3 pb-12 lg:flex lg:gap-3 xl:gap-3 xl:flex xl:gap-4">
         <div className="bg-white px-5 py-4 rounded-md lg:w-4/6 xl:w-8/12">
-          <form id="checkout-form" onSubmit={handleSubmit}>
+          <form id="checkout-form" onSubmit={handleSubmit(onSubmit)}>
             <h1 className="uppercase font-bold text-2xl ">Checkout</h1>
             <div className="pt-4">
               <p
@@ -47,17 +60,80 @@ function Checkout() {
                 Billing Details
               </p>
               <div className="lg:flex lg:flex-wrap lg:gap-3 xl:flex xl:gap-4 xl:flex-wrap my-4">
-                <Input name="Name" placeholder="Alexei Ward" type="text" />
-                <Input
-                  name="Email Address"
-                  placeholder="alexei@mail.com"
-                  type="email"
-                />
-                <Input
-                  name="Phone Number"
-                  placeholder="+1 202-555-0136"
-                  type="number"
-                />
+                <div>
+                  <Input
+                    name="Name"
+                    placeholder="Alexei Ward"
+                    type="text"
+                    formInputValue="name"
+                    register={register}
+                    rules={{
+                      required: "Name is required!",
+                      minLength: {
+                        value: 4,
+                        message: "Name should contain atleast 4 characters!",
+                      },
+                    }}
+                    outline={
+                      errors.name ? "outline-[#CD2C2C]" : "outline-[#D87D4A]"
+                    }
+                    // errorText={errors.name?.message}
+                    error={errors}
+                  />
+                  {errors.name ? (
+                    <p className="text-xs text-red-700 my-2 ml-1">
+                      {errors.name?.message}
+                    </p>
+                  ) : null}
+                </div>
+                <div>
+                  <Input
+                    name="Email Address"
+                    placeholder="alexei@mail.com"
+                    type="email"
+                    formInputValue="email"
+                    register={register}
+                    rules={{ required: "Email is required!" }}
+                    outline={
+                      errors.email ? "outline-[#CD2C2C]" : "outline-[#D87D4A]"
+                    }
+                    // errorText={errors.name?.message}
+                    error={errors}
+                  />
+                  {errors.email ? (
+                    <p className="text-xs text-red-700 my-2 ml-1">
+                      {errors.email?.message}
+                    </p>
+                  ) : null}
+                </div>
+                <div>
+                  <Input
+                    name="Phone Number"
+                    placeholder="+1 202-555-0136"
+                    type="number"
+                    formInputValue="phoneNumber"
+                    register={register}
+                    rules={{
+                      required: "Phone Number is required!",
+                      maxLength: {
+                        value: 12,
+                        message: "Phone Number cannot exceed 12 characters!",
+                      },
+                    }}
+                    outline={
+                      errors.phoneNumber
+                        ? "outline-[#CD2C2C]"
+                        : "outline-[#D87D4A]"
+                    }
+                    error={errors}
+                    // errorText={errors.name?.message}
+                  />
+                  {errors.phoneNumber ? (
+                    <p className="text-xs text-red-700 my-2 ml-1">
+                      {errors.phoneNumber?.message}
+                    </p>
+                  ) : null}
+                </div>
               </div>
             </div>
             <div className="pt-4">
@@ -68,14 +144,96 @@ function Checkout() {
                 Shipping info
               </p>
               <div className="lg:flex lg:flex-wrap lg:gap-3 xl:flex xl:gap-4 xl:flex-wrap my-4">
-                <Input
-                  name="Your Address"
-                  placeholder="1137 Williams Avenue"
-                  type="text"
-                />
-                <Input name="ZIP Code" placeholder="10001" type="number" />
-                <Input name="City" placeholder="New York" type="text" />
-                <Input name="Country" placeholder="United States" type="text" />
+                <div>
+                  <Input
+                    name="Your Address"
+                    placeholder="1137 Williams Avenue"
+                    type="text"
+                    formInputValue="address"
+                    register={register}
+                    rules={{
+                      required: "Address is required!",
+                      minLength: {
+                        value: 10,
+                        message:
+                          "Address should contain atleast 10 characters!",
+                      },
+                    }}
+                    outline={
+                      errors.address ? "outline-[#CD2C2C]" : "outline-[#D87D4A]"
+                    }
+                    // errorText={errors.address?.message}
+                    error={errors}
+                  />
+                  {errors.address ? (
+                    <p className="text-xs text-red-700 my-2 ml-1">
+                      {errors.address?.message}
+                    </p>
+                  ) : null}
+                </div>
+                <div>
+                  <Input
+                    name="ZIP Code"
+                    placeholder="10001"
+                    type="number"
+                    outline={
+                      errors.zipcode ? "outline-[#CD2C2C]" : "outline-[#D87D4A]"
+                    }
+                    formInputValue="zipcode"
+                    register={register}
+                    rules={{
+                      required: "Zipcode is required!",
+                      maxLength: {
+                        value: 6,
+                        message: "Zipcode cannot exceed 6 characters!",
+                      },
+                    }}
+                    error={errors}
+                  />
+                  {errors.zipcode ? (
+                    <p className="text-xs text-red-700 my-2 ml-1">
+                      {errors.zipcode?.message}
+                    </p>
+                  ) : null}
+                </div>
+                <div>
+                  <Input
+                    name="City"
+                    placeholder="New York"
+                    type="text"
+                    formInputValue="city"
+                    register={register}
+                    rules={{ required: "City is required!" }}
+                    outline={
+                      errors.city ? "outline-[#CD2C2C]" : "outline-[#D87D4A]"
+                    }
+                    error={errors}
+                  />
+                  {errors.city ? (
+                    <p className="text-xs text-red-700 my-2 ml-1">
+                      {errors.city?.message}
+                    </p>
+                  ) : null}
+                </div>
+                <div>
+                  <Input
+                    name="Country"
+                    placeholder="United States"
+                    type="text"
+                    formInputValue="country"
+                    outline={
+                      errors.country ? "outline-[#CD2C2C]" : "outline-[#D87D4A]"
+                    }
+                    register={register}
+                    rules={{ required: "Country is required!" }}
+                    error={errors}
+                  />
+                  {errors.country ? (
+                    <p className="text-xs text-red-700 my-2 ml-1">
+                      {errors.country?.message}
+                    </p>
+                  ) : null}
+                </div>
               </div>
             </div>
             <div>
@@ -92,12 +250,65 @@ function Checkout() {
                 Payment Method
               </p>
               <div className="lg:flex lg:flex-wrap lg:gap-3 xl:flex xl:gap-4 xl:flex-wrap my-4">
-                <Input
-                  name="e-Money Number"
-                  placeholder="238521993"
-                  type="number"
-                />
-                <Input name="e-Money PIN" placeholder="6891" type="number" />
+                <div>
+                  <Input
+                    name="e-Money Number"
+                    placeholder="238521993"
+                    type="number"
+                    outline={
+                      errors.eMoneyNumber
+                        ? "outline-[#CD2C2C]"
+                        : "outline-[#D87D4A]"
+                    }
+                    formInputValue="eMoneyNumber"
+                    register={register}
+                    rules={{
+                      required: "E-Money Number is required!",
+                      maxLength: {
+                        value: 9,
+                        message: "E-Money Number cannot exceed 9 characters!",
+                      },
+                      minLength: {
+                        value: 8,
+                        message:
+                          "E-Money Pin should atleast contain 8 characters!",
+                      },
+                    }}
+                    error={errors}
+                  />
+                  {errors.eMoneyNumber ? (
+                    <p className="text-xs text-red-700 my-2 ml-1">
+                      {errors.eMoneyNumber?.message}
+                    </p>
+                  ) : null}
+                </div>
+                <div>
+                  <Input
+                    name="e-Money PIN"
+                    placeholder="6891"
+                    type="number"
+                    formInputValue="eMoneyPin"
+                    register={register}
+                    rules={{
+                      required: "E-Money Pin is required!",
+                      maxLength: {
+                        value: 4,
+                        message: "E-Money Pin cannot exceed 4 characters!",
+                      },
+                    }}
+                    outline={
+                      errors.eMoneyPin
+                        ? "outline-[#CD2C2C]"
+                        : "outline-[#D87D4A]"
+                    }
+                    error={errors}
+                  />
+                  {errors.eMoneyPin ? (
+                    <p className="text-xs text-red-700 my-2 ml-1">
+                      {errors.eMoneyPin?.message}
+                    </p>
+                  ) : null}
+                </div>
               </div>
             </div>
           </form>

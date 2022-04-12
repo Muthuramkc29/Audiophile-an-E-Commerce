@@ -19,11 +19,7 @@ import earphoneCategory from "./Images/image-category-thumbnail-earphones.png";
 
 import "./index.css";
 import CartMenu from "./Components/Cart/CartMenu";
-import {
-  setCartMenu,
-  setNavMenu,
-  setPaymentModal,
-} from "./redux/reducers/userReducers";
+import { setNavMenu, setPaymentModal } from "./redux/reducers/userReducers";
 
 function Router() {
   const navMenu = useSelector((state) => state.user.navMenu);
@@ -106,9 +102,9 @@ function Router() {
 
         {paymentModal ? (
           <div
-            onClick={() => {
-              dispatch(setPaymentModal(false));
-            }}
+            // onClick={() => {
+            //   dispatch(setPaymentModal(false));
+            // }}
             className="bg-modal px-6 md:px-12 xl:px-40"
           >
             <div className="mt-32 w-full md:w-3/4 lg:w-2/4 xl:w-3/6 mx-auto bg-white p-12">
@@ -130,7 +126,28 @@ function Router() {
                   className="text-black opacity-50 mt-2"
                   style={{ fontSize: "13px" }}
                 >
-                  You will receive an email confirmation shortly
+                  You will receive an email confirmation shortly!
+                </p>
+                <p
+                  className="text-black opacity-50 mt-2"
+                  style={{ fontSize: "13px" }}
+                >
+                  This is just a demo app!
+                  <p className="mt-1">
+                    Challenge by{" "}
+                    <span className=" mx-1 text-[#0000EE] underline">
+                      <a
+                        href="https://www.frontendmentor.io/challenges"
+                        // target="_blank"
+                      >
+                        Frontend Mentor
+                      </a>
+                    </span>
+                    Developed by{" "}
+                    <span className="mx-1 text-[#0000EE] underline">
+                      <a href="https://github.com/Muthuramkc29">Muthuram K C</a>
+                    </span>
+                  </p>
                 </p>
               </div>
               <a href="/">
