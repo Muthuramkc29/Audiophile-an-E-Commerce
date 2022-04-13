@@ -72,8 +72,8 @@ function Footer() {
             </p>
           </div>
           <div className="flex flex-col md:flex-row md:w-full md:justify-between items-center gap-10">
-            <div className="w-60 md:w-full">
-              <p
+            <div className="w-full md:w-full">
+              {/* <p
                 className="mt-1 text-center md:text-left"
                 style={{ fontSize: "15px", color: "gray" }}
               >
@@ -87,6 +87,12 @@ function Footer() {
                 <span className="mx-1 mr-2 text-blue-700 underline mt-2">
                   <a href="https://github.com/Muthuramkc29">Muthuram K C</a>
                 </span>
+              </p> */}
+              <p
+                className="text-center md:text-left font-bold"
+                style={{ fontSize: "15px", color: "gray" }}
+              >
+                Copyright 2021. All Rights Reserved
               </p>
             </div>
             <div className="flex gap-4">
