@@ -81,7 +81,7 @@ function Checkout() {
                     error={errors}
                   />
                   {errors.name ? (
-                    <p className="text-xs text-red-700 my-2 ml-1">
+                    <p className="text-xs text-red-700 mb-2 ml-1">
                       {errors.name?.message}
                     </p>
                   ) : null}
@@ -118,6 +118,11 @@ function Checkout() {
                       maxLength: {
                         value: 12,
                         message: "Phone Number cannot exceed 12 characters!",
+                      },
+                      minLength: {
+                        value: 10,
+                        message:
+                          "Phone Number should contain atleast 10 characters!",
                       },
                     }}
                     outline={
