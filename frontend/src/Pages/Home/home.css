@@ -54,6 +54,6 @@
     background-size: contain;
     background-position: 90% 35%;
     background-repeat: no-repeat;
-    height: 640px;
+    height: 100vh;
   }
 }

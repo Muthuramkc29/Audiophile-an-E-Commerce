@@ -20,8 +20,14 @@ import earphoneCategory from "./Images/image-category-thumbnail-earphones.png";
 import "./index.css";
 import CartMenu from "./Components/Cart/CartMenu";
 import { setNavMenu, setPaymentModal } from "./redux/reducers/userReducers";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 function Router() {
+  Aos.init({
+    once: true,
+  });
+
   const navMenu = useSelector((state) => state.user.navMenu);
   const cartMenu = useSelector((state) => state.user.cartMenu);
   const paymentModal = useSelector((state) => state.user.paymentModal);

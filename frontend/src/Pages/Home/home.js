@@ -53,29 +53,42 @@ function App() {
 
   return (
     <div>
-      <header className="bg-[#000000] text-[#FFFFFF] px-6 md:px-12 xl:px-40 header--mod">
+      <header className="bg-[#000000] px-6 md:px-12 xl:px-40 header--mod">
         <hr className="opacity-50"></hr>
         <div className="mt-24 flex flex-col justify-center items-center gap-6 text-center mx-auto lg:text-left max-w-sm md:mx-auto lg:items-start lg:mx-0">
           <p
-            className="uppercase opacity-50 text-sm font-normal md:mt-6 lg:mt-6"
-            style={{ letterSpacing: "10px" }}
+            className="uppercase text-sm font-normal md:mt-6 lg:mt-6"
+            style={{ letterSpacing: "10px", color: "white", opacity: "50%" }}
+            data-aos="fade-down"
+            data-aos-duration="500"
           >
             New Product
           </p>
           <h1
-            className="uppercase font-bold text-4xl lg:text-6xl"
+            className="uppercase text-[#FFFFFF] font-bold text-4xl lg:text-6xl"
             style={{ letterSpacing: "1.28571px" }}
+            data-aos="fade-right"
+            data-aos-duration="700"
+            data-aos-delay="500"
           >
             XX99 Mark II Headphones
           </h1>
           <p
-            className="opacity-75 font-medium leading-6 mb-2 "
-            style={{ fontSize: "15px" }}
+            className="font-medium leading-6 mb-2 "
+            style={{ fontSize: "15px", color: "white", opacity: "50%" }}
+            data-aos="flip-left"
+            data-aos-delay="900"
+            data-aos-duration="700"
           >
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <Link to="/XX99MarkIIHeadphones">
+          <Link
+            to="/XX99MarkIIHeadphones"
+            data-aos="fade"
+            data-aos-delay="1100"
+            data-aos-duration="700"
+          >
             <Button
               bgcolor="#D87D4A"
               color="white"
@@ -91,6 +104,11 @@ function App() {
       <div className="px-6 md:px-12 xl:px-40 md:flex gap-5 justify-between">
         <div
           className="md:w-4/12"
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="700"
+          data-aos-delay="200"
+          data-aos-offset="0"
           // onClick={() => {
           //   dispatch(setProducts(headphoneProducts));
           //   console.log(products);
@@ -98,10 +116,24 @@ function App() {
         >
           <CategoryCard img={headphone} name="headphones" to="/headphones" />
         </div>
-        <div className="md:w-4/12">
+        <div
+          className="md:w-4/12"
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="700"
+          data-aos-delay="300"
+          data-aos-offset="0"
+        >
           <CategoryCard img={speaker} name="speakers" to="/speakers" />
         </div>
-        <div className="md:w-4/12">
+        <div
+          className="md:w-4/12"
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="700"
+          data-aos-delay="400"
+          data-aos-offset="0"
+        >
           <CategoryCard
             img={earphoneCategory}
             name="earphones"
@@ -119,7 +151,11 @@ function App() {
             style={{ height: "647px" }}
           >
             <div className="flex flex-col lg:flex-row justify-center items-center gap-7 lg:gap-16 zx9--mod">
-              <div>
+              <div
+                data-aos="zoom-in-up"
+                data-aos-delay="100"
+                data-aos-duration="700"
+              >
                 <img
                   className="block lg:hidden"
                   src={imgspeaker}
@@ -158,7 +194,12 @@ function App() {
               </div>
             </div>
           </div>
-          <div className="w-full">
+          <div
+            className="w-full"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+            data-aos-duration="700"
+          >
             <img
               className="rounded-md w-full md:hidden lg:hidden"
               src={imgspeakerzx7}
@@ -177,7 +218,12 @@ function App() {
             />
           </div>
           <div className="flex flex-col w-full md:flex-row md:justify-between gap-7 lg:flex-row lg:justify-between lg:gap-5 md:gap-3 lg:w-full">
-            <div className="md:w-2/4">
+            <div
+              className="md:w-2/4"
+              data-aos="flip-left"
+              data-aos-delay="100"
+              data-aos-duration="900"
+            >
               <img
                 className="rounded-md w-full md:hidden lg:hidden"
                 src={earphone}
