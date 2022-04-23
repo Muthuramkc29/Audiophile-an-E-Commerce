@@ -9,32 +9,33 @@ function NavMenu({ img, name }) {
 
   return (
     <div>
-      <div
-        className="rounded-md w-full md:w-52 lg:w-64 xl:w-80 lg:h-52 bg-[#F1F1F1] my-12 mx-auto py-5"
-        // style={{ width: "325px" }}
+      <Link
+        to={`/${name}`}
+        onClick={() => {
+          dispatch(setNavMenu(false));
+        }}
       >
-        <div className="flex flex-col justify-center items-center">
-          <div>
-            <img
-              className="w-20 h-14 md:w-28 h-24"
-              src={img}
-              alt="headphone"
-              // style={{ width: "130px", height: "113px" }}
-            />
-          </div>
-          <div className="text-center">
-            <p
-              className="uppercase font-bold mb-2"
-              style={{ fontSize: "15px" }}
-            >
-              {name}
-            </p>
-            <Link
-              to={`/${name}`}
-              onClick={() => {
-                dispatch(setNavMenu(false));
-              }}
-            >
+        <div
+          className="rounded-md w-full md:w-52 lg:w-64 xl:w-80 lg:h-52 bg-[#F1F1F1] my-12 mx-auto py-5"
+          // style={{ width: "325px" }}
+        >
+          <div className="flex flex-col justify-center items-center">
+            <div>
+              <img
+                className="w-20 h-14 md:w-28 h-24"
+                src={img}
+                alt="headphone"
+                // style={{ width: "130px", height: "113px" }}
+              />
+            </div>
+            <div className="text-center">
+              <p
+                className="uppercase font-bold mb-2"
+                style={{ fontSize: "17px" }}
+              >
+                {name}
+              </p>
+
               <div className="flex justify-center items-center gap-2">
                 <p
                   className="uppercase font-bold hover:text-[#D87D4A]"
@@ -49,10 +50,10 @@ function NavMenu({ img, name }) {
                   alt="arrow"
                 />
               </div>
-            </Link>
+            </div>
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }

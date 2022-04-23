@@ -16,7 +16,7 @@ function CategoryFlex({ products }) {
     <div>
       {loading ? (
         <div className="flex justify-center mb-16 mt-24">
-          <div className="flex flex-col justify-center items-center gap-4">
+          <div className="flex flex-col justify-center items-center gap-4 mb-16">
             <p>Loading Products...</p>
             <ScaleLoader
               color={"#D87D4A"}
@@ -35,7 +35,11 @@ function CategoryFlex({ products }) {
               <div key={index}>
                 <div className="my-24 px-6 md:px-12 xl:px-40">
                   <div className="flex flex-col items-center justify-center gap-7 lg:flex-row lg:justify-between lg:items-center">
-                    <div>
+                    <div
+                      data-aos="fade"
+                      data-aos-duration="700"
+                      data-aos-delay="100"
+                    >
                       <img
                         className="rounded-md md:hidden lg:hidden"
                         src={product.productMobile}
@@ -123,7 +127,11 @@ function CategoryFlex({ products }) {
                           />
                         </Link>
                       </div>
-                      <div>
+                      <div
+                        data-aos="fade"
+                        data-aos-duration="700"
+                        data-aos-delay="100"
+                      >
                         <img
                           className="rounded-md md:hidden lg:hidden"
                           src={product.productMobile}

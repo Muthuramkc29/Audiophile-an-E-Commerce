@@ -24,7 +24,7 @@ function ProductDetailsFlex({ product, render }) {
       {/* {products.map((product, index) => ( */}
       {/* <div key={index}> */}
       <div className="md:flex md:items-center md:gap-12 xl:gap-32">
-        <div>
+        <div data-aos="fade" data-aos-duration="600" data-aos-delay="50">
           <img
             className="md:hidden lg:hidden"
             src={product.productImageMobile}

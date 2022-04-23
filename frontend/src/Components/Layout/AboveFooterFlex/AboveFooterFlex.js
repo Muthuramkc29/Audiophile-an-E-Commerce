@@ -7,7 +7,7 @@ function AboveFooterFlex() {
   return (
     <div>
       <div className="px-6 md:px-12 xl:px-40 my-28 md:my-24 lg:my-12 xl:my-32 flex flex-col lg:flex-row-reverse justify-center lg:justify-between items-center text-center lg:text-left gap-10">
-        <div data-aos="flip-right" data-aos-duration="800" data-aos-delay="100">
+        <div data-aos="flip-right" data-aos-duration="800" data-aos-delay="200">
           <img
             className="rounded-md md:hidden"
             src={imagebestgear}

@@ -148,13 +148,34 @@ function ProductDetail() {
       </div>
 
       <div className="px-6 md:px-12 xl:px-40 md:flex gap-5 justify-between">
-        <div className="md:w-4/12">
+        <div
+          className="md:w-4/12"
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="700"
+          data-aos-delay="200"
+          data-aos-offset="0"
+        >
           <CategoryCard img={headphoneCat} name="headphones" to="/headphones" />
         </div>
-        <div className="md:w-4/12">
+        <div
+          className="md:w-4/12"
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="700"
+          data-aos-delay="300"
+          data-aos-offset="0"
+        >
           <CategoryCard img={speaker} name="speakers" to="/speakers" />
         </div>
-        <div className="md:w-4/12">
+        <div
+          className="md:w-4/12"
+          data-aos="flip-left"
+          data-aos-easing="ease-out-cubic"
+          data-aos-duration="700"
+          data-aos-delay="400"
+          data-aos-offset="0"
+        >
           <CategoryCard
             img={earphoneCategory}
             name="earphones"
