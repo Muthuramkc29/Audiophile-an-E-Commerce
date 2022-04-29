@@ -19,7 +19,11 @@ import earphoneCategory from "./Images/image-category-thumbnail-earphones.png";
 
 import "./index.css";
 import CartMenu from "./Components/Cart/CartMenu";
-import { setNavMenu, setPaymentModal } from "./redux/reducers/userReducers";
+import {
+  setCartProducts,
+  setNavMenu,
+  setPaymentModal,
+} from "./redux/reducers/userReducers";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -31,6 +35,7 @@ function Router() {
   const navMenu = useSelector((state) => state.user.navMenu);
   const cartMenu = useSelector((state) => state.user.cartMenu);
   const paymentModal = useSelector((state) => state.user.paymentModal);
+  const cartProducts = useSelector((state) => state.user.cartProducts);
   const dispatch = useDispatch();
 
   const openModal = (event) => {
@@ -55,6 +60,15 @@ function Router() {
   window.onbeforeunload = function () {
     return "Are you sure you want to navigate away?";
   };
+
+  useEffect(() => {
+    const cartProductsLocal = JSON.parse(localStorage.getItem("cartProducts"));
+    dispatch(setCartProducts(cartProductsLocal));
+  }, [dispatch]);
+
+  useEffect(() => {
+    window.localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  }, [cartProducts]);
 
   return (
     <div>

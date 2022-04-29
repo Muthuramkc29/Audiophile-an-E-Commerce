@@ -85,9 +85,9 @@ function ProductDetail() {
     console.log(cartProducts);
   };
 
-  useEffect(() => {
-    window.localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
-  }, [cartProducts]);
+  // useEffect(() => {
+  //   window.localStorage.setItem("cartProducts", JSON.stringify(cartProducts));
+  // }, [cartProducts]);
 
   return (
     <div>
