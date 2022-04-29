@@ -41,7 +41,7 @@ code {
   width: 100%;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.7);
-  top: 0;
+  top: 9%;
   z-index: 1;
 }
 
@@ -50,7 +50,7 @@ code {
   width: 100vw;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.7);
-  top: 9%;
+  top: 0;
   z-index: 1;
 }
 
