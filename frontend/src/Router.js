@@ -57,10 +57,6 @@ function Router() {
     window.scrollTo(0, 0);
   }, [paymentModal]);
 
-  window.onbeforeunload = function () {
-    return "Are you sure you want to navigate away?";
-  };
-
   useEffect(() => {
     const cartProductsLocal = JSON.parse(localStorage.getItem("cartProducts"));
     dispatch(setCartProducts(cartProductsLocal));
