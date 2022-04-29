@@ -101,7 +101,7 @@ function App() {
 
       {/* Category Card Home */}
 
-      <div className="px-6 md:px-12 xl:px-40 md:flex gap-5 justify-between">
+      <div className="px-6 md:px-12 xl:px-40 md:flex gap-5 justify-between lg:my-16">
         <div
           className="md:w-4/12"
           data-aos="flip-left"
