@@ -86,16 +86,27 @@ function CartMenu() {
           <p className="font-bold">
             Cart <span>({cartProducts.length})</span>
           </p>
-          <p
-            className="text-black opacity-50 hover:text-[#D87D4A] hover:opacity-100 underline mt-1 cursor-pointer"
-            style={{ fontSize: "14px" }}
-            onClick={() => {
-              dispatch(setCartProducts([]));
-              dispatch(setTotalAmount(0));
-            }}
-          >
-            Remove all
-          </p>
+          <div className="flex gap-2 items-center">
+            <p
+              className="text-black opacity-50 hover:text-[#D87D4A] hover:opacity-100 underline mt-1 cursor-pointer"
+              style={{ fontSize: "14px" }}
+              onClick={() => {
+                dispatch(setCartProducts([]));
+                dispatch(setTotalAmount(0));
+              }}
+            >
+              Remove all
+            </p>
+            <p
+              className="text-black opacity-50 text-center mt-4 mb-3 cursor-pointer hover:text-[#D87D4A] hover:opacity-100 underline"
+              onClick={() => {
+                dispatch(setCartMenu(false));
+              }}
+              style={{ fontSize: "14px" }}
+            >
+              Close
+            </p>
+          </div>
         </div>
 
         {cartProducts.length === 0 && (

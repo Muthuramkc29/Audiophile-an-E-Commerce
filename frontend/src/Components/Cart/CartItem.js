@@ -44,7 +44,7 @@ function CartItem({ product, setSummaryProductsFn, setCountLocal }) {
     <div>
       {/* {product.map((product, index) => ( */}
       {/* <div key={index}> */}
-      <div className="flex justify-between items-center gap-5 py-2">
+      <div className="flex justify-between items-center gap-5 py-1">
         <div className="flex justify-between items-center gap-3">
           <div>
             <img
