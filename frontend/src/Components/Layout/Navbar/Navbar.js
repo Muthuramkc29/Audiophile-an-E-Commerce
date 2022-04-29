@@ -13,8 +13,8 @@ function Navbar() {
 
   return (
     <div>
-      <div className="bg-[#000000] text-[#FFFFFF] px-6 md:px-12 xl:px-40 p-7">
-        <div className="flex justify-between items-center">
+      <div className="bg-[#000000] text-[#FFFFFF] py-7">
+        <div className="flex justify-between items-center container--mod mx-auto">
           <div className="block lg:hidden cursor-pointer">
             <i
               className="fa fa-bars"

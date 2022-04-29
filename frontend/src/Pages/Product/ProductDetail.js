@@ -91,7 +91,7 @@ function ProductDetail() {
 
   return (
     <div>
-      <div className="px-6 md:px-12 xl:px-40 mt-8 xl:mt-14">
+      <div className="container--mod mx-auto mt-8 xl:mt-14">
         <div className="mb-8 mt-4">
           <p
             onClick={() => navigate(-1)}
@@ -147,7 +147,7 @@ function ProductDetail() {
         </div>
       </div>
 
-      <div className="px-6 md:px-12 xl:px-40 md:flex gap-5 justify-between">
+      <div className="container--mod mx-auto md:flex gap-5 justify-between">
         <div
           className="md:w-4/12"
           data-aos="flip-left"

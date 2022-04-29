@@ -70,6 +70,8 @@ function Router() {
             <div
               className={`fixed bg-white top-0 left-0 w-full h-fit mt-20 menu`}
               style={{ zIndex: 1 }}
+              data-aos="fade-right"
+              data-aos-delay="100"
             >
               <div className="px-6 md:px-12 xl:px-40 md:flex md:flex-row gap-3 justify-evenly w-full h-full">
                 <div className="h-full overflow-y-auto md:flex md:flex-row md:gap-3">
@@ -95,11 +97,15 @@ function Router() {
             // }}
             className="bg-modal"
           >
-            <div
-              className="fixed bg-white top-0 right-0 mx-6 w-10/12 md:w-3/6 lg:w-2/6 mt-28 xl:mr-40 rounded-md"
-              style={{ zIndex: 1 }}
-            >
-              <CartMenu />
+            <div className="container--mod mx-auto relative top-16">
+              <div
+                className="absolute bg-white right-0 w-full mt-10 md:w-3/6 lg:w-2/6 xl:w-2/5 rounded-md"
+                style={{ zIndex: 1 }}
+                data-aos="fade-down"
+                data-aos-delay="100"
+              >
+                <CartMenu />
+              </div>
             </div>
           </div>
         ) : (

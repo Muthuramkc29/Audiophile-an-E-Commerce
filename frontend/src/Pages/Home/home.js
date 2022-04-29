@@ -23,6 +23,7 @@ import api from "../../api/axiosConfig";
 // import { useDispatch, useSelector } from "react-redux";
 // import { setProducts } from "../../redux/reducers/userReducers";
 // import { useEffect } from "react";
+import "../../index.css";
 
 function App() {
   const dispatch = useDispatch();
@@ -53,55 +54,57 @@ function App() {
 
   return (
     <div>
-      <header className="bg-[#000000] px-6 md:px-12 xl:px-40 header--mod">
-        <hr className="opacity-50"></hr>
-        <div className="mt-24 flex flex-col justify-center items-center gap-6 text-center mx-auto lg:text-left max-w-sm md:mx-auto lg:items-start lg:mx-0">
-          <p
-            className="uppercase text-sm font-normal md:mt-6 lg:mt-6"
-            style={{ letterSpacing: "10px", color: "white", opacity: "50%" }}
-            data-aos="fade-down"
-            data-aos-duration="500"
-          >
-            New Product
-          </p>
-          <h1
-            className="uppercase text-[#FFFFFF] font-bold text-4xl lg:text-6xl"
-            style={{ letterSpacing: "1.28571px" }}
-            data-aos="fade-right"
-            data-aos-duration="700"
-            data-aos-delay="500"
-          >
-            XX99 Mark II Headphones
-          </h1>
-          <p
-            className="font-medium leading-6 mb-2 "
-            style={{ fontSize: "15px", color: "white", opacity: "50%" }}
-            data-aos="flip-left"
-            data-aos-delay="900"
-            data-aos-duration="700"
-          >
-            Experience natural, lifelike audio and exceptional build quality
-            made for the passionate music enthusiast.
-          </p>
-          <Link
-            to="/XX99MarkIIHeadphones"
-            data-aos="fade"
-            data-aos-delay="1100"
-            data-aos-duration="700"
-          >
-            <Button
-              bgcolor="#D87D4A"
-              color="white"
-              name="See Product"
-              hover="hover:bg-[#fbaf85]"
-            />
-          </Link>
+      <header className="bg-[#000000] header--mod">
+        <div className="container--mod mx-auto">
+          <hr className="opacity-50"></hr>
+          <div className="mt-24 flex flex-col justify-center items-center gap-6 text-center mx-auto lg:text-left max-w-sm md:mx-auto lg:items-start lg:mx-0">
+            <p
+              className="uppercase text-sm font-normal md:mt-6 lg:mt-6"
+              style={{ letterSpacing: "10px", color: "white", opacity: "50%" }}
+              data-aos="fade-down"
+              data-aos-duration="500"
+            >
+              New Product
+            </p>
+            <h1
+              className="uppercase text-[#FFFFFF] font-bold text-4xl lg:text-6xl"
+              style={{ letterSpacing: "1.28571px" }}
+              data-aos="fade-right"
+              data-aos-duration="700"
+              data-aos-delay="500"
+            >
+              XX99 Mark II Headphones
+            </h1>
+            <p
+              className="font-medium leading-6 mb-2 "
+              style={{ fontSize: "15px", color: "white", opacity: "50%" }}
+              data-aos="flip-left"
+              data-aos-delay="900"
+              data-aos-duration="700"
+            >
+              Experience natural, lifelike audio and exceptional build quality
+              made for the passionate music enthusiast.
+            </p>
+            <Link
+              to="/XX99MarkIIHeadphones"
+              data-aos="fade"
+              data-aos-delay="1100"
+              data-aos-duration="700"
+            >
+              <Button
+                bgcolor="#D87D4A"
+                color="white"
+                name="See Product"
+                hover="hover:bg-[#fbaf85]"
+              />
+            </Link>
+          </div>
         </div>
       </header>
 
       {/* Category Card Home */}
 
-      <div className="px-6 md:px-12 xl:px-40 md:flex gap-5 justify-between lg:my-16">
+      <div className="container--mod mx-auto md:flex gap-5 justify-between lg:my-16">
         <div
           className="md:w-4/12"
           data-aos="flip-left"
@@ -144,7 +147,7 @@ function App() {
 
       {/* Products Section Home */}
 
-      <section className="px-6 md:px-12 xl:px-40">
+      <section className="container--mod mx-auto">
         <div className="flex flex-col justify-center items-center lg:items-between gap-7 ">
           <div
             className="rounded-md w-full bg-[#D87D4A] pt-16 pb-2"

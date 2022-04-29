@@ -3,10 +3,7 @@ import Button from "../../Button/Button";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ScaleLoader from "react-spinners/ScaleLoader";
-
-// import headphoneProd from "../../../Images/image-product.jpg";
-// import headphoneProdTablet from "../../../Images/image-product-tablet.jpg";
-// import headphoneProdDesktop from "../../../Images/image-product-desktop.jpg";
+import "../../../index.css";
 
 function CategoryFlex({ products }) {
   const loading = useSelector((state) => state.user.loading);
@@ -33,7 +30,7 @@ function CategoryFlex({ products }) {
           {products.map((product, index) =>
             index !== 1 ? (
               <div key={index}>
-                <div className="my-24 px-6 md:px-12 xl:px-40">
+                <div className="my-24 container--mod mx-auto">
                   <div className="flex flex-col items-center justify-center gap-7 lg:flex-row lg:justify-between lg:items-center">
                     <div
                       data-aos="fade"
@@ -94,7 +91,7 @@ function CategoryFlex({ products }) {
             ) : (
               <div key={index}>
                 <div>
-                  <div className="my-16 px-6 md:px-12 xl:px-40">
+                  <div className="my-16 container--mod mx-auto">
                     <div className="flex flex-col-reverse items-center justify-center gap-7 lg:flex-row lg:justify-between lg:items-center">
                       <div
                         className="text-center lg:text-left flex flex-col gap-7"

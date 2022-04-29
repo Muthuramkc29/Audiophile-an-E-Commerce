@@ -18,6 +18,8 @@ function NavMenu({ img, name }) {
         <div
           className="rounded-md w-full md:w-52 lg:w-64 xl:w-80 lg:h-52 bg-[#F1F1F1] my-12 mx-auto py-5"
           // style={{ width: "325px" }}
+          data-aos="fade-down"
+          data-aos-delay="200"
         >
           <div className="flex flex-col justify-center items-center">
             <div>

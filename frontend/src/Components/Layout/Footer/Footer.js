@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <div>
-      <div className="bg-[#000000] text-[#FFFFFF] px-6 md:px-12 xl:px-40 py-16">
-        <div className="flex flex-col justify-center md:items-start items-center gap-10">
+      <div className="bg-[#000000] text-[#FFFFFF] py-16">
+        <div className="flex flex-col justify-center md:items-start items-center  container--mod mx-auto gap-10">
           <div className="flex flex-col lg:flex-row lg:w-full lg:justify-between items-center md:items-start gap-10">
             <div>
               <img src={logo} alt="logo" />
@@ -89,10 +89,17 @@ function Footer() {
                 </span>
               </p> */}
               <p
-                className="text-center md:text-left font-bold"
-                style={{ fontSize: "15px", color: "gray" }}
+                className="text-center md:text-left font-bold mx-auto md:mx-0"
+                style={{
+                  fontSize: "15px",
+                  color: "gray",
+                  // width: "50%",
+                  // maxWidth: "full",
+                  // marginInline: "auto",
+                }}
               >
-                Copyright 2021. All Rights Reserved
+                Challenge by <span className="inline">Frontend Mentor</span>{" "}
+                Coded by <span className="inline">Muthuram K C</span>
               </p>
             </div>
             <div className="flex gap-4">

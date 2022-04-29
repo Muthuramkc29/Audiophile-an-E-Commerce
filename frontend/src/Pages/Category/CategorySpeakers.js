@@ -47,7 +47,7 @@ function CategorySpeakers() {
       <CategoryFlex products={products} />
       {/* Category Card Home */}
 
-      <div className="px-6 md:px-12 xl:px-40 md:flex gap-5 justify-between">
+      <div className="container--mod mx-auto md:flex gap-5 justify-between">
         <div
           className="md:w-4/12"
           data-aos="flip-left"
