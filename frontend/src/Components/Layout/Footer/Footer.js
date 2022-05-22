@@ -98,8 +98,16 @@ function Footer() {
                   // marginInline: "auto",
                 }}
               >
-                Challenge by <span className="inline">Frontend Mentor</span>{" "}
-                Coded by <span className="inline">Muthuram K C</span>
+                Challenge by
+                <a href="https://www.frontendmentor.io/challenges/audiophile-ecommerce-website-C8cuSd_wx">
+                  {" "}
+                  <span className="inline">Frontend Mentor</span>
+                </a>{" "}
+                Coded by
+                <a href="https://github.com/Muthuramkc29">
+                  {" "}
+                  <span className="inline">Muthuram K C</span>
+                </a>
               </p>
             </div>
             <div className="flex gap-4">
