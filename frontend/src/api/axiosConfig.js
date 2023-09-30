@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export default axios.create({
-  baseURL: "https://audiophile-django-backend-api.herokuapp.com/api/",
+  baseURL: "https://audiophile-ecommerce-site.onrender.com/api/",
 });

@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 import django_heroku
+import dj_database_url
 import cloudinary
 from pathlib import Path
 
@@ -97,6 +98,21 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Local Postgres Databsae Setup:
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'ecomdb',
+#         'USER': 'postgres',
+#         'PASSWORD': 'Muthuram@1229',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+
+DATABASES['default'] = dj_database_url.parse(
+    "postgres://audiophile_djanjo_render_user:vjtEzyMG9JcBJWT3EYaxfuGe1bx0MMhB@dpg-ckbve6msmu8c73bh4vlg-a.oregon-postgres.render.com/audiophile_djanjo_render")
 
 
 # Password validation
