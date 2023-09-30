@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 import os
 import django_heroku
 import cloudinary
-import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -98,9 +97,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-DATABASES['default'] = dj_database_url.parse(
-    "postgres://audiophile_djanjo_render_user:vjtEzyMG9JcBJWT3EYaxfuGe1bx0MMhB@dpg-ckbve6msmu8c73bh4vlg-a.oregon-postgres.render.com/audiophile_djanjo_render")
 
 
 # Password validation
